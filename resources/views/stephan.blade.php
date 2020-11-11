@@ -27,7 +27,7 @@
                                 <p class="card-text">
                                     Hobby's
                                 <ul>
-                                    <li>Tabletop games</li>
+                                    <li>Tab123letop games</li>
                                     <li>Kitesurfen</li>
                                     <li>Mountainbiken</li>
                                     <li>Racefietsen</li>
