@@ -1,7 +1,7 @@
 @extends('layouts/master')
 
 @section('title','Team ADSD')
-
+s
 @section('content')
 <div class="container-fluid">
     <div class="row">
