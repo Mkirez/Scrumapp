@@ -49886,8 +49886,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\eigen downloads\laravel_projecten\scrum_app\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\eigen downloads\laravel_projecten\scrum_app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Alex van der Steen\Code\scrumapp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Alex van der Steen\Code\scrumapp\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
