@@ -6,6 +6,15 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select>
       <path>
@@ -17,10 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_11_143212_create_users_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -156,9 +164,18 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\resources\views\personalProfile" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\app\Http\Controllers\PersonalProfile" />
+      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\resources\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -175,7 +192,10 @@
       <option name="presentableId" value="Default" />
       <updated>1605103224002</updated>
       <workItem from="1605103225292" duration="3002000" />
-      <workItem from="1605112331844" duration="2049000" />
+      <workItem from="1605112331844" duration="2332000" />
+      <workItem from="1605198638395" duration="31000" />
+      <workItem from="1605199723192" duration="399000" />
+      <workItem from="1605257513683" duration="2026000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -191,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605113105389</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated migrations. Nu helemaal werkend voor Alex.">
+      <created>1605114559140</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605114559140</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,44 +251,49 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="laravel/ui" />
     <MESSAGE value="updated migrations. Nu werkend voor Alex, alleen is er een ontbrekende column in de table namelijk: e-mail." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated migrations. Nu werkend voor Alex, alleen is er een ontbrekende column in de table namelijk: e-mail." />
+    <MESSAGE value="updated migrations. Nu helemaal werkend voor Alex." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated migrations. Nu helemaal werkend voor Alex." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="267" y="19" key="#Inspections/0.0.1280.680@0.0.1280.680" timestamp="1605258649246" />
     <state x="240" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605112361953">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="240" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1605112361953" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1605103221608">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1605198663178">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1605103221608" />
-    <state width="845" height="163" key="GridCell.Tab.0.bottom" timestamp="1605113137834">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1605198663178" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1605200125229">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605113137834" />
-    <state width="845" height="163" key="GridCell.Tab.0.center" timestamp="1605113137834">
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605200125229" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1605200125228">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1605113137834" />
-    <state width="845" height="163" key="GridCell.Tab.0.left" timestamp="1605113137834">
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1605200125228" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1605200125228">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1605113137834" />
-    <state width="845" height="163" key="GridCell.Tab.0.right" timestamp="1605113137834">
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1605200125228" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1605200125229">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1605113137834" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605113117718">
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1605200125229" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605114561222">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605113117718" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605114561222" />
     <state x="484" y="44" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605114393499">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="484" y="44" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605114393499" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605103271568">
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605257521140">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605103271568" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605257521140" />
   </component>
 </project>

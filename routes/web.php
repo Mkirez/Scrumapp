@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+PersonalProfile::routes();
+
+Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('PersonalProfile.profile');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
