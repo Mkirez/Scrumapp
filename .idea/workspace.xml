@@ -26,10 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +193,8 @@
       <workItem from="1605112331844" duration="2332000" />
       <workItem from="1605198638395" duration="31000" />
       <workItem from="1605199723192" duration="399000" />
-      <workItem from="1605257513683" duration="2026000" />
+      <workItem from="1605257513683" duration="2065000" />
+      <workItem from="1605269335930" duration="699000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -218,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605114559140</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Begin connectie profielpagina">
+      <created>1605259585895</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605259585895</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +258,8 @@
     <MESSAGE value="laravel/ui" />
     <MESSAGE value="updated migrations. Nu werkend voor Alex, alleen is er een ontbrekende column in de table namelijk: e-mail." />
     <MESSAGE value="updated migrations. Nu helemaal werkend voor Alex." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated migrations. Nu helemaal werkend voor Alex." />
+    <MESSAGE value="Begin connectie profielpagina" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin connectie profielpagina" />
   </component>
   <component name="WindowStateProjectService">
     <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
@@ -291,9 +298,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="484" y="44" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605114393499" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605257521140">
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605269347583">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605257521140" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605269347583" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1605269803412">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1605269803412" />
   </component>
 </project>

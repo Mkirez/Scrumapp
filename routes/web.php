@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-PersonalProfile::routes();
+Auth::routes();
 
-Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('PersonalProfile.profile');
+Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('profile');
 
 Auth::routes();
 
