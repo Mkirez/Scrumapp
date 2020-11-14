@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger('id')->unsigned()->nullable(false)->autoIncrement();
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('name', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
             $table->string('email', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
-            $table->timestamp('email_verified_at')->default(null);
-            $table->string('password', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
-            $table->string('remember_token', 100)->collation('utf8mb4_unicode_ci')->default(null);
+            $table->text('about_me')->nullable();
+            $table->string('team', 100)->nullable();
+            $table->string('team_role', 100)->nullable();
+            $table->string('projects', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('profiles');
     }
 }
