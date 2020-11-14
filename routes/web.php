@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/sprintboard', [SprintboardContoller::class, 'index']);
+
 Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('profile');
 
 Auth::routes();
