@@ -26,11 +26,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_162044_create_profiles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_164918_create_failed_jobs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_11_165823_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_165823_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,12 +169,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\resources\views\personalProfile" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Alex van der Steen\Code\scrumapp\resources\views" />
       <recent name="C:\Users\Alex van der Steen\Code\scrumapp\app\Http\Controllers\PersonalProfile" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\app\Http\Controllers\PersonalProfile" />
+      <recent name="C:\Users\Alex van der Steen\Code\scrumapp\resources\views\personalProfile" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,7 +198,8 @@
       <workItem from="1605199723192" duration="399000" />
       <workItem from="1605257513683" duration="2065000" />
       <workItem from="1605269335930" duration="6787000" />
-      <workItem from="1605365738961" duration="4897000" />
+      <workItem from="1605365738961" duration="6041000" />
+      <workItem from="1605512802937" duration="5132000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -256,7 +257,21 @@
       <option name="project" value="LOCAL" />
       <updated>1605279364289</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Migrations gefixt. Nu gewoon 'php artisan migrate:fresh' typen in de console zodat we niet alles manueel moeten aanpassen in de database. + aanmaak profiles datatable">
+      <created>1605374683491</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1605374683491</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Kleine verandering migration. Meer accurate restricties">
+      <created>1605512977657</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1605512977657</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +310,9 @@
     <MESSAGE value="Profielpagina in dropdown bar" />
     <MESSAGE value="patch" />
     <MESSAGE value="Herstel hernoeming" />
-    <option name="LAST_COMMIT_MESSAGE" value="Herstel hernoeming" />
+    <MESSAGE value="Migrations gefixt. Nu gewoon 'php artisan migrate:fresh' typen in de console zodat we niet alles manueel moeten aanpassen in de database. + aanmaak profiles datatable" />
+    <MESSAGE value="Kleine verandering migration. Meer accurate restricties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kleine verandering migration. Meer accurate restricties" />
   </component>
   <component name="WindowStateProjectService">
     <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
@@ -334,10 +351,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605277196072" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605279366189">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605512979806">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605279366189" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605512979806" />
     <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605274909792">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -346,14 +363,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="438" y="161" width="404" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1280.680@0.0.1280.680" timestamp="1605273825512" />
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605370692046">
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605515118079">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605370692046" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605365755759">
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605515118079" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605512926154">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605365755759" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605512926154" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1605277245677">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
