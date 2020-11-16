@@ -10,7 +10,11 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
-                                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                                <a class="">Hier komt alle relevante info voor de userprofile.</a>
+                                <div class="form-group">
+                                    <label for="name"></label>
+                                    <textarea class="form-control" name="name" id="name" rows="3"></textarea>
+                                </div>
                             @else
                                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
