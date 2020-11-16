@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->bigInteger('id')->unsigned()->nullable(false)->autoIncrement();
             $table->string('name', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
             $table->string('email', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
-            $table->timestamp('email_verified_at')->default(null);
+            $table->timestamp('email_verified_at')->useCurrent();
             $table->string('password', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
-            $table->string('remember_token', 100)->collation('utf8mb4_unicode_ci')->default(null);
+            $table->string('remember_token', 100)->collation('utf8mb4_unicode_ci')->nullable(true)->default(null);
             $table->timestamps();
         });
     }

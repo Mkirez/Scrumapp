@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonalProfile\ProfileController;
+use App\Http\Controllers\SprintBoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/sprintboard', [SprintboardContoller::class, 'index']);
+Route::get('/sprintboard', [SprintBoardController::class, 'index']);
+
+Auth::routes();
 
 Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('profile');
 
