@@ -25,7 +25,7 @@ Route::get('/sprintboard', [SprintBoardController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'boot'])->name('profile');
 
 Auth::routes();
 

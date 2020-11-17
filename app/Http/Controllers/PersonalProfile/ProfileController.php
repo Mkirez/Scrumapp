@@ -22,7 +22,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function boot()
     {
         return view('PersonalProfile.profile',[
             //'emails' => $emails,
