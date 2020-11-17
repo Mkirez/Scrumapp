@@ -11,9 +11,18 @@
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
                                 <a class="">Hier komt alle relevante info voor de userprofile.</a>
-                                <div class="form-group">
-                                    <label for="name"></label>
-                                    <textarea class="form-control" name="name" id="name" rows="3"></textarea>
+                                <div class="card-deck">
+                                    @foreach($projects as $project)
+                                    <div class="card">
+                                        <img class="card-img-top" src="holder.js/100x180/" alt="">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ $project }}</h4>
+                                            @foreach($teams as $team)
+                                            <p class="card-text">{{ $team }}</p>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    @endforeach
                                 </div>
                             @else
                                 <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>

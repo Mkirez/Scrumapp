@@ -24,6 +24,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('PersonalProfile.profile');
+        return view('PersonalProfile.profile',[
+            //'emails' => $emails,
+            'projects' => $projects = [1,2,3,4,5],
+            'teams' => $teams = ['team1']
+        ]);
     }
 }
