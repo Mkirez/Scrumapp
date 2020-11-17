@@ -27,8 +27,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_11_165823_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_11_165823_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_14_162044_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_162044_create_profiles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +202,7 @@
       <workItem from="1605365738961" duration="6041000" />
       <workItem from="1605512802937" duration="5768000" />
       <workItem from="1605526744629" duration="2805000" />
-      <workItem from="1605606875801" duration="3995000" />
+      <workItem from="1605606875801" duration="7965000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -300,7 +302,28 @@
       <option name="project" value="LOCAL" />
       <updated>1605609758471</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Profile blade logica foreach data-item. Nog geen module gekoppeld.">
+      <created>1605610933893</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1605610933893</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Profile blade logica foreach data-item. Nog geen module gekoppeld.">
+      <created>1605611033188</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1605611033188</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Welkende koppeling profile page met Profile model">
+      <created>1605614671074</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1605614671074</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +367,8 @@
     <MESSAGE value="Fix routing profile/register + profile module." />
     <MESSAGE value="B4-... element toegevoegd. Eigen reminder." />
     <MESSAGE value="Profile blade logica foreach data-item. Nog geen module gekoppeld." />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile blade logica foreach data-item. Nog geen module gekoppeld." />
+    <MESSAGE value="Welkende koppeling profile page met Profile model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Welkende koppeling profile page met Profile model" />
   </component>
   <component name="WindowStateProjectService">
     <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
@@ -363,30 +387,30 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1605527555592" />
-    <state width="845" height="163" key="GridCell.Tab.0.bottom" timestamp="1605279317141">
+    <state width="845" height="163" key="GridCell.Tab.0.bottom" timestamp="1605614623561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605279317141" />
-    <state width="845" height="163" key="GridCell.Tab.0.center" timestamp="1605279317141">
+    <state width="845" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1605614623561" />
+    <state width="845" height="163" key="GridCell.Tab.0.center" timestamp="1605614623561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1605279317141" />
-    <state width="845" height="163" key="GridCell.Tab.0.left" timestamp="1605279317141">
+    <state width="845" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1605614623561" />
+    <state width="845" height="163" key="GridCell.Tab.0.left" timestamp="1605614623561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1605279317141" />
-    <state width="845" height="163" key="GridCell.Tab.0.right" timestamp="1605279317141">
+    <state width="845" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1605614623561" />
+    <state width="845" height="163" key="GridCell.Tab.0.right" timestamp="1605614623561">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1605279317141" />
+    <state width="845" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1605614623561" />
     <state x="142" y="0" key="SettingsEditor" timestamp="1605277196072">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605277196072" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605609760606">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605614963499">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605609760606" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605614963499" />
     <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605274909792">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -395,10 +419,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="438" y="161" width="404" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1280.680@0.0.1280.680" timestamp="1605273825512" />
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605607572034">
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605612816076">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605607572034" />
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605612816076" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605606897709">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
