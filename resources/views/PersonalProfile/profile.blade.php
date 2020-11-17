@@ -11,8 +11,13 @@
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
                                 <?php $profiles = App\Models\Profile::all();?>
+                                <?php $users = App\Models\Users::all();?>
+                            @foreach ($users as $user)
                                 @foreach ($profiles as $profile)
-                                <a class="">{{ $profile->name }} - {{ $profile->team_role }}</a>
+                                <a>{{ $user->name }} - {{ $profile->team_role }}</a>
+                                        <br>
+                                        <a> Contact: {{ $user->email }}</a>
+                                        <br>
                                 <div class="card-deck">
                                     <div class="card">
                                         <div class="card-body">
@@ -20,6 +25,7 @@
                                             <p class="card-text">{{ $profile->team }}</p>
                                         </div>
                                     </div>
+                                    @endforeach
                                     @endforeach
                                 </div>
                             @else

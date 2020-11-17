@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use mysql_xdevapi\TableSelect;
 
 class Profile extends Model
 {
@@ -18,12 +17,18 @@ class Profile extends Model
          * @var array
          */
 
-        'name',
-        'email',
         'about_me',
         'team',
         'team_role',
         'projects',
         'delayed' => false
+
     ];
+    /**
+     * Get the user record associated with the profile.
+     */
+    public function user()
+    {
+        return $this->hasOne('app\Models\Users', 'profiles_user_id_foreign');
+    }
 }

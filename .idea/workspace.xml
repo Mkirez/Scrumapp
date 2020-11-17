@@ -28,9 +28,9 @@
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonalProfile/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_14_162044_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_14_162044_create_profiles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +202,8 @@
       <workItem from="1605365738961" duration="6041000" />
       <workItem from="1605512802937" duration="5768000" />
       <workItem from="1605526744629" duration="2805000" />
-      <workItem from="1605606875801" duration="10366000" />
+      <workItem from="1605606875801" duration="10622000" />
+      <workItem from="1605624143744" duration="1556000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -330,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605614976895</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="foreign key toegevoegd. Alleen nog join tables in profile view">
+      <created>1605617458806</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1605617458806</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +383,8 @@
     <MESSAGE value="B4-... element toegevoegd. Eigen reminder." />
     <MESSAGE value="Profile blade logica foreach data-item. Nog geen module gekoppeld." />
     <MESSAGE value="Welkende koppeling profile page met Profile model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Welkende koppeling profile page met Profile model" />
+    <MESSAGE value="foreign key toegevoegd. Alleen nog join tables in profile view" />
+    <option name="LAST_COMMIT_MESSAGE" value="foreign key toegevoegd. Alleen nog join tables in profile view" />
   </component>
   <component name="WindowStateProjectService">
     <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
@@ -418,22 +427,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605277196072" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605614981847">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605617461960">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605614981847" />
-    <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605274909792">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605617461960" />
+    <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605624416056">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1605274909792" />
+    <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1280.680@0.0.1280.680" timestamp="1605624416056" />
     <state x="438" y="161" width="404" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1605273825512">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="438" y="161" width="404" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1280.680@0.0.1280.680" timestamp="1605273825512" />
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605616176301">
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605624389632">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605616176301" />
+    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605624389632" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605606897709">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
