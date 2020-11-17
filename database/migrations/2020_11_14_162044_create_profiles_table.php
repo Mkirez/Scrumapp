@@ -14,7 +14,8 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->nullable(false)->autoIncrement();
+            $table->integer('profile_id')->unsigned()->autoIncrement()->nullable(false);
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('name', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
             $table->string('email', 255)->collation('utf8mb4_unicode_ci')->nullable(false);
             $table->text('about_me')->nullable();

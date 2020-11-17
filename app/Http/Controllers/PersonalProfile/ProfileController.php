@@ -4,6 +4,8 @@ namespace App\Http\Controllers\PersonalProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use mysql_xdevapi\Table;
+use mysql_xdevapi\TableSelect;
 
 class ProfileController extends Controller
 {
@@ -24,10 +26,6 @@ class ProfileController extends Controller
      */
     public function boot()
     {
-        return view('PersonalProfile.profile',[
-            //'emails' => $emails,
-            'projects' => $projects = [1,2,3,4,5],
-            'teams' => $teams = ['team1']
-        ]);
+        return view('PersonalProfile.profile');
     }
 }
