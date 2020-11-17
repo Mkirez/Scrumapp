@@ -9,4 +9,20 @@ use Illuminate\Notifications\Notifiable;
 class Profile extends Model
 {
     use HasFactory, Notifiable;
+
+    protected $profiles = [
+        /**
+         * The model's default values for attributes.
+         *
+         * @var array
+         */
+
+        'name',
+        'email',
+        'about_me',
+        'team',
+        'team_role',
+        'projects',
+        'delayed' => false
+    ];
 }
