@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonalProfile\ProfileController;
 use App\Http\Controllers\SprintBoardController;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\SprintController;
+use App\Http\Controllers\ProjectController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +23,34 @@ use App\Http\Controllers\SprintBoardController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Auth::routes();
+Route::get('/', [TodoController::class, 'index']);
+
+// Route::get('/projects', [ProjectController::class, 'index']);
+
+
+
+Auth::routes();
+Route::resource('sprints', SprintController::class);
+
+
+    
+//recourse is voor de standaard crud fucntions 
+Auth::routes();
+Route::resource('todo', TodoController::class);
+
+
+Auth::routes(); 
+Route::resource('projects', ProjectController::class);
+
+
+
+
+
+
+
 
 Auth::routes();
 
