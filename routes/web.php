@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::get('/', [TodoController::class, 'index']);
+Route::get('/todo', [TodoController::class, 'index']);
 
 // Route::get('/projects', [ProjectController::class, 'index']);
 
@@ -36,13 +36,13 @@ Auth::routes();
 Route::resource('sprints', SprintController::class);
 
 
-    
-//recourse is voor de standaard crud fucntions 
+
+//recourse is voor de standaard crud fucntions
 Auth::routes();
 Route::resource('todo', TodoController::class);
 
 
-Auth::routes(); 
+Auth::routes();
 Route::resource('projects', ProjectController::class);
 
 
