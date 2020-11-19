@@ -24,11 +24,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/projects', 'ProjectController@index');
+// Route::post('/projects', 'ProjectController@store');
+// Route::get('/projects/create', 'ProjectController@create');
+
+
+Route::resource('todo', TodoController::class);
+
 
 Auth::routes();
-Route::get('/todo', [TodoController::class, 'index']);
+// Route::get('/todo', [TodoController::class, 'index']);
 
-// Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects', [ProjectController::class, 'index']);
 
 
 
@@ -59,6 +66,10 @@ Route::get('/sprintboard', [SprintBoardController::class, 'index']);
 Auth::routes();
 
 Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'boot'])->name('profile');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
