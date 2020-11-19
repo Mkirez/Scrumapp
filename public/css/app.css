@@ -7052,6 +7052,8 @@ button.bg-dark:focus {
 
 .border {
   border: 1px solid #dee2e6 !important;
+  padding: 21px;
+  box-shadow: 0 1px 0 rgba(9,30,66,.25);"
 }
 
 .border-top {
@@ -10903,3 +10905,16 @@ a.text-dark:focus {
   }
 }
 
+/*mijn css*/
+.inner a{
+  text-decoration: none;
+
+}
+.form_sprint{
+  display: none;
+}
+
+
+#open:hover .form_sprint{
+  display: block;
+}

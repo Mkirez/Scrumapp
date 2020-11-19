@@ -25,8 +25,8 @@ Route::get('/', function () {
 });
 
 
-Auth::routes();
-Route::get('/todo', [TodoController::class, 'index']);
+// Auth::routes();
+// Route::get('/todo', [TodoController::class, 'index']);
 
 // Route::get('/projects', [ProjectController::class, 'index']);
 
@@ -42,6 +42,7 @@ Auth::routes();
 Route::resource('todo', TodoController::class);
 
 
+
 Auth::routes();
 Route::resource('projects', ProjectController::class);
 
@@ -52,9 +53,9 @@ Route::resource('projects', ProjectController::class);
 
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/sprintboard', [SprintBoardController::class, 'index']);
+// Route::get('/sprintboard', [SprintBoardController::class, 'index']);
 
 Auth::routes();
 

@@ -15,7 +15,7 @@ class SprintController extends Controller
     public function index()
     {
 
-        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
 From task, team_users, users, backlog_items
 where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id";
 
@@ -23,12 +23,15 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
 //////////////////////////////////////////////////////////////
 
+        
 
 
         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
 where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo'";
     
+
+
 
     $dataTodo = DB::select($sql);
 
