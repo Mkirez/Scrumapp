@@ -17,28 +17,28 @@
         </div>
     </div>  
     <div class="row">
-        @foreach($projects as $project)
+        @foreach($data as $datas)
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">{{$project->naam}}</h5>
+                <h5 class="card-title">{{$datas->naam}}</h5>
                
                 <div class="row">
                     <div class="col-md-12">
-                        <span>{{$project->reamark}}</span>
+                        <span>{{$datas->reamark}}</span>
                     </div>
 
                     <div class="col-md-6">
                         <p class="card-text">eind datum</p>
                     </div>
                     <div class="col-md-6">
-                        <span class="card-text">{{$project->end_date}}</span>
+                        <span class="card-text">{{$datas->end_date}}</span>
                     </div>
                     <div class="col-md-6">
                         <p class="card-text">begin datum</p>
                     </div>
                     <div class="col-md-6">
-                        <span class="card-text">{{$project->start_date}}</span>
+                        <span class="card-text">{{$datas->start_date}}</span>
                     </div>
                     
                     
