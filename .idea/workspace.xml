@@ -26,11 +26,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb75c544-06fc-4911-ba6f-7943c6ec31a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-11-2020_14_55_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-11-2020_14_55__Default_Changelist_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_111835_team_users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_111940_team.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_111949_task.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_111958_sprints.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_112007_routines.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_112016_projects.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_112055_backlog_items.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_19_115757_todos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1174e7e7-8215-42c6-8e95-746a1ff94168.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/PersonalProfile/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +215,7 @@
       <workItem from="1605526744629" duration="2805000" />
       <workItem from="1605606875801" duration="10622000" />
       <workItem from="1605624143744" duration="3464000" />
-      <workItem from="1605781398640" duration="1386000" />
+      <workItem from="1605781398640" duration="5932000" />
     </task>
     <task id="LOCAL-00001" summary="laravel/ui">
       <created>1605103333147</created>
@@ -358,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605627540306</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Rechtzetting master branch + route fix waarbij todo controller van '/todo' komt ipv '/'">
+      <created>1605782856382</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1605782856382</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +419,8 @@
     <MESSAGE value="foreign key toegevoegd. Alleen nog join tables in profile view" />
     <MESSAGE value="Models joined van profile en user. Profielpagina geeft nu juiste profielinfo van de juiste gebruiker weer." />
     <MESSAGE value="Kleine fix welcome.blade.php &lt;div&gt; was niet afgesloten" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kleine fix welcome.blade.php &lt;div&gt; was niet afgesloten" />
+    <MESSAGE value="Rechtzetting master branch + route fix waarbij todo controller van '/todo' komt ipv '/'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rechtzetting master branch + route fix waarbij todo controller van '/todo' komt ipv '/'" />
   </component>
   <component name="WindowStateProjectService">
     <state x="267" y="19" key="#Inspections" timestamp="1605258649246">
@@ -453,10 +467,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1605277196072" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605627542004">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1605782860449">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605627542004" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1605782860449" />
     <state x="519" y="218" width="312" height="245" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1605624416056">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -465,14 +479,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="438" y="161" width="404" height="354" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1280.680@0.0.1280.680" timestamp="1605273825512" />
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605624389632">
+    <state x="455" y="108" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1605785443452">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="363" y="98" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605624389632" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605782492289">
+    <state x="455" y="108" width="485" height="523" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1605785443452" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605784388121">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605782492289" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1605784388121" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1605625837339">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

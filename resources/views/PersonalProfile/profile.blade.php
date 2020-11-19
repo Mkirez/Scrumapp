@@ -10,13 +10,13 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                             @auth
-                                <?php $profiles = App\Models\Profile::all();?>
-                                <?php $users = App\Models\Users::all();?>
-                            @foreach ($users as $user)
+                                <?php $profiles = App\Models\Profile::all();
+                                $users = App\Models\Users::find(get_current_user());
+                                ?>
                                 @foreach ($profiles as $profile)
-                                <a>{{ $user->name }} - {{ $profile->team_role }}</a>
+                                <a>{{ get_current_user() }} - {{ $profile->team_role }}</a>
                                         <br>
-                                        <a> Contact: {{ $user->email }}</a>
+                                        <a> Contact: {{ 'email' }}</a>
                                         <br>
                                 <div class="card-deck">
                                     <div class="card">
@@ -25,7 +25,6 @@
                                             <p class="card-text">{{ $profile->team }}</p>
                                         </div>
                                     </div>
-                                    @endforeach
                                     @endforeach
                                 </div>
                             @else
