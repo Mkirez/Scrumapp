@@ -16,14 +16,15 @@
                                     ?>
                                     @foreach ($profiles as $profile)
                                         @foreach ($users as $user)
-                                            <a>{{ $user->name }} - {{ $profile->team_role }}</a>
-                                            <br>
-                                            <a> Contact: {{ $user->email }}</a>
+                                            <h6 class="card-title">{{ $user->name }} - {{ $profile->team_role }}</h6>
+                                            <h6 class="card-title"> Contact: {{ $user->email }}</h6>
                                             <br>
                                             <div class="card-deck">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h4 class="card-title">{{ $profile->projects }}</h4>
+                                                        <a href="{{ '/projects' }}">
+                                                            <h4 class="card-title">{{ $profile->projects }}</h4>
+                                                        </a>
                                                         <p class="card-text">{{ $profile->team }}</p>
                                                     </div>
                                                 </div>
