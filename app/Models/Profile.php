@@ -31,4 +31,14 @@ class Profile extends Model
     {
         return $this->hasOne('app\Models\Users', 'profiles_user_id_foreign');
     }
+    protected $users = [
+    /**
+     * The foreign table's values for attributes
+     *
+     * @var array
+     */
+
+        'name',
+        'email'
+    ];
 }
