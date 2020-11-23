@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="container">
-     
+
     </div>
 
     <br>
@@ -15,17 +15,17 @@
         <div class="col-md-12 text-left">
             <h1>projects</h1>
         </div>
-    </div>  
+    </div>
     <div class="row">
         @foreach($projects as $project)
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{$project->naam}}</h5>
-               
+
                 <div class="row">
                     <div class="col-md-12">
-                        <span>{{$project->reamark}}</span>
+                        <span></span>
                     </div>
 
                     <div class="col-md-6">
@@ -40,15 +40,15 @@
                     <div class="col-md-6">
                         <span class="card-text">{{$project->start_date}}</span>
                     </div>
-                    
-                    
+
+
                 </div>
               </div>
             </div>
         </div>
          @endforeach
     </div>
-    
-   
+
+
 
 @endsection
