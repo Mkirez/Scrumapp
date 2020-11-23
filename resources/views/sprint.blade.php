@@ -32,7 +32,7 @@
 									<div class="border">
 										<span >{{$data->name}}</span>
 										<span>{{$data->description}}</span>
-										<span style="background-color: yellow;">{{$data->id}}</span>
+										<span style="font-weight: 900; ">{{$data->id}}</span>
 										<form class="form_sprint" action="{{url('sprints')}}/{{$data->id}}" method="post">
 											@csrf
 											@method('PUT')
@@ -46,7 +46,7 @@
 												</div>
 
 												<div class="col-md-12">
-													<button type="submit" class="" style="padding: 10px;"></button>
+													<button type="submit" class="btn btn-info">move to</button>
 												</div>
 											</div>
 										</form>
