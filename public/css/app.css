@@ -10917,4 +10917,8 @@ a.text-dark:focus {
 
 #open:hover .form_sprint{
   display: block;
+  transition-property: height;
+ 
+ transition: 10s;
+
 }

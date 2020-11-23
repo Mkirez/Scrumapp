@@ -33,19 +33,22 @@
 										<span >{{$data->name}}</span>
 										<span>{{$data->description}}</span>
 										<span style="background-color: yellow;">{{$data->id}}</span>
-										<form class="form_sprint">
+										<form class="form_sprint" action="{{url('sprints')}}/{{$data->id}}" method="post">
+											@csrf
+											@method('PUT')
 											<div class="row">
-												<div class="col-md-5 ">
-													<span>move to</span>
+												<div class="col-md-12">
+
+												<input type="radio"  name="option" value="busy">
+												<label for="busy">busy</label>
+												<input type="radio"  name="option" value="done">
+												<label for="done">done</label><br>
 												</div>
-												<div class="col-md-4">
-													<a href="">busy</a>
-												</div>
-												<div class="col-md-3">
-													<a href="">done</a>
+
+												<div class="col-md-12">
+													<button type="submit" class="" style="padding: 10px;"></button>
 												</div>
 											</div>
-
 										</form>
 									</div>
 								</div>

@@ -47,7 +47,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
      $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done'";
     
 
     $dataDone = DB::select($sql);
@@ -107,7 +107,36 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
      */
     public function update(Request $request, $id)
     {
-        //
+        echo "update id:".$id."<br>";
+        //return $request->input();
+        if ($request->option == 'done'){
+            echo "veld veranderen in done";
+
+            $sql = "UPDATE task
+                    set status ='done'
+                    WHERE id = $id";
+
+
+
+            $dataSprint = DB::Update($sql);
+            return redirect('/sprints');
+            
+
+
+
+
+            // sql veld updaten
+        }
+        if ($request->option == 'busy'){
+            $sql = "UPDATE task
+                    set status ='busy'
+                    WHERE id = $id";
+
+
+            $dataSprint = DB::Update($sql);
+            return redirect('/sprints');
+        }
+
     }
 
     /**
