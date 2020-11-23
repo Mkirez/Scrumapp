@@ -18,6 +18,8 @@ class Projects extends Migration
             $table->string('naam', 255)->nullable(true)->default(null);
             $table->datetime('start_date')->nullable(true)->default(null);
             $table->datetime('end_date')->nullable(true)->default(null);
+            $table->timestamp('created_at')->nullable(false)->useCurrent();
+            $table->timestamp('updated_at')->nullable(false)->useCurrent();
             $table->integer('team_id')->nullable(true)->default(null);
         });
     }
