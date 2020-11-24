@@ -20,11 +20,11 @@
         </div>
     </div>
 </div> -->
-<div class="wrapper">
+<div class="wrapper" style="padding: 130px;">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>Welcome</h1>
+            <div class="col-md-12 text-center">
+                <h1>Welcome <span>{{ Auth::user()->name }}</span></h1>
 
             </div>
         </div>
