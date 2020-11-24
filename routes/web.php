@@ -50,6 +50,8 @@ Route::resource('todo', TodoController::class);
 Auth::routes();
 Route::resource('projects', ProjectController::class);
 
+Auth::routes();
+Route::resource('projects/{{ project->id }}', Backlog_itemController::class);
 
 
 route::get('test3', function(){

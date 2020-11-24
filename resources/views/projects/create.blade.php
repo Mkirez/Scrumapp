@@ -6,13 +6,13 @@
     <form method="POST" action="/projects">
         @csrf
         <div class="field">
-            <label class="label" for="naam">Naam</label>
+            <label class="label" for="name">name</label>
 
             <div class="control">
-                <input class="input @error('naam') is-danger @enderror" type="text" name="naam" id="" value="{{ old('naam') }}">
+                <input class="input @error('name') is-danger @enderror" type="text" name="name" id="" value="{{ old('name') }}">
 
-                @error('naam')
-                <p class="help is-danger">{{ $errors->first('naam') }}</p>
+                @error('name')
+                <p class="help is-danger">{{ $errors->first('name') }}</p>
                 @enderror
             </div>
         </div>
