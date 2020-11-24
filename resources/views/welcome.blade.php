@@ -40,14 +40,11 @@
             </div>
     </div>
         
-
-        
     @endif
     @else
-
-
-
-
+    <?php
+         
+    ?>
 
  @endguest
 
