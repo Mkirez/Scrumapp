@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\projects;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = projects::all();
+        $projects = Project::all();
 
         return view('/projects', ['projects' => $projects]);
     }
 
-    public function show()
+    public function show(Project $project)
     {
+        return view('projects.show', ['project' => $project]);
     }
 
     public function create()
@@ -27,10 +28,8 @@ class ProjectController extends Controller
     {
         // dump(request()->all());
         // die('hello');
-        projects::create($this->validateProject());
+        Project::create($this->validateProject());
         
-        
-
         return redirect('/projects');
     }
 
@@ -47,7 +46,7 @@ class ProjectController extends Controller
     protected function validateProject()
     {
         return request()->validate([
-            'naam' => 'required',
+            'name' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);

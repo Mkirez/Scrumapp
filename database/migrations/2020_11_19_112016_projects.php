@@ -14,13 +14,12 @@ class Projects extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement()->nullable(false);
-            $table->string('naam', 255)->nullable(true)->default(null);
-            $table->datetime('start_date')->nullable(true)->default(null);
-            $table->datetime('end_date')->nullable(true)->default(null);
-            $table->timestamp('created_at')->nullable(false)->useCurrent();
-            $table->timestamp('updated_at')->nullable(false)->useCurrent();
-            $table->integer('team_id')->nullable(true)->default(null);
+            $table->bigIncrements('id');
+            $table->string('name', 255);
+            $table->datetime('start_date');
+            $table->datetime('end_date');
+            $table->timestamps();
+            // $table->integer('team_id')->nullable(true)->default(null);
         });
     }
 

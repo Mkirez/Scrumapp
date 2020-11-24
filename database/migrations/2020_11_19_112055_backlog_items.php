@@ -14,14 +14,19 @@ class BacklogItems extends Migration
     public function up()
     {
         Schema::create('backlog_items', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->autoIncrement()->nullable(false);
-            $table->string('item_name', 255)->nullable(true)->default(null);
-            $table->string('description', 500)->nullable(true)->default(null);
-            $table->string('backlog_item', 500)->nullable(true)->default(null);
-            $table->string('moscow', 45)->nullable(true)->default(null);
-            $table->date('deadline')->nullable(true)->default(null);
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('project_id');
+            $table->string('item_name', 255);
+            $table->string('description', 500);
+            $table->string('backlog_item', 500);
+            $table->string('moscow', 45);
+            $table->date('deadline');
             $table->integer('task_id')->nullable(true)->default(null);
-            $table->integer('project_id')->nullable(true)->default(null);
+
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects')
+                ->onDelete('cascade');
         });
     }
 
