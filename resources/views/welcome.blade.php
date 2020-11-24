@@ -42,9 +42,8 @@
         
     @endif
     @else
-    <?php
-         
-    ?>
+    <!-- ik zeg gewoon als je al bent ingelogd redirect hem naar de home -->
+      <script>window.location = "/home";</script>
 
  @endguest
 

@@ -19,7 +19,8 @@
     <div class="row">
         @foreach($projects as $project)
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
+            <a href="{{url('project')}}/{{$project->id}}" style="text-decoration: none;">
+                 <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{$project->naam}}</h5>
 
@@ -44,7 +45,9 @@
 
                 </div>
               </div>
-            </div>
+            </div> 
+
+            </a>
         </div>
          @endforeach
     </div>
