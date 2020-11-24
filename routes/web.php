@@ -1,11 +1,15 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonalProfile\ProfileController;
 use App\Http\Controllers\SprintBoardController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
+
+
 
 
 
@@ -45,6 +49,18 @@ Route::resource('todo', TodoController::class);
 
 Auth::routes();
 Route::resource('projects', ProjectController::class);
+
+
+
+route::get('test3', function(){
+	echo "test3";
+	echo Auth::user()->rechten;
+});
+
+
+
+
+
 
 
 

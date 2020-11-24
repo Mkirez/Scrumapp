@@ -12,6 +12,14 @@ class SprintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function test(){
+
+
+        echo "test";
+
+
+    }
     public function index()
     {
 
