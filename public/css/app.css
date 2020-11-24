@@ -10919,12 +10919,11 @@ a.text-dark:focus {
   display: block;
   transition-property: height;
  
- transition: 10s;
 
 }
 
 ul.navbar-nav  li a{
   color:#0052CC!important;
-  font-weight: 900;
+  
 
 }
