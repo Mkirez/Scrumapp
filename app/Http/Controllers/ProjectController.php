@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\project;
-use App\Models\ProjectInfo;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -15,15 +14,9 @@ class ProjectController extends Controller
         return view('/projects', ['projects' => $projects]);
     }
 
-    public function show()
+    public function show(Project $project)
     {
-
-        $projectinfos = ProjectInfo::all();
-      
-      return view('projectinfo.InfoMenu', [
-          'projectinfos' => $projectinfos,
-      ]);
-        
+        return view('projects.show', ['project' => $project]);
     }
 
     public function create()
@@ -33,12 +26,8 @@ class ProjectController extends Controller
 
     public function store()
     {
-        // dump(request()->all());
-        // die('hello');
-        projects::create($this->validateProject());
+        Project::create($this->validateProject());
         
-        
-
         return redirect('/projects');
     }
 
@@ -55,7 +44,7 @@ class ProjectController extends Controller
     protected function validateProject()
     {
         return request()->validate([
-            'naam' => 'required',
+            'name' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
