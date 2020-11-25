@@ -52,7 +52,7 @@
               <th scope="col">Date of birth</th>
             </tr>
           </thead>
-          <!-- @foreach ($projectinfos as $projectinfo )
+          @foreach ($projectinfos as $projectinfo )
           <tbody>
             <tr>
               <th scope="row">{{ $projectinfo->id}}</th>
@@ -61,7 +61,7 @@
               <td>{{$projectinfo->start_date}}</td>
               <td>{{$projectinfo->end_date}}</td>
             </tr>
-          @endforeach -->
+          @endforeach
         </table></div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           <table class="table ">
@@ -74,7 +74,7 @@
                 <th scope="col">End Date</th>
               </tr>
             </thead>
-            <!-- @foreach ($projectinfos as $projectinfo )
+            @foreach ($projectinfos as $projectinfo )
             <tbody>
               <tr>
                 <th scope="row">{{ $projectinfo->id}}</th>
@@ -83,7 +83,7 @@
                 <td>{{$projectinfo->start_date}}</td>
                 <td>{{$projectinfo->end_date}}</td>
               </tr>
-            @endforeach -->
+            @endforeach
           </table>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
