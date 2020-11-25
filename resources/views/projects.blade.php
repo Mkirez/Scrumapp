@@ -2,6 +2,16 @@
 @section('content')
 <!-- die action zegt ga in de todocontroller en pak de store methode/function -->
 
+
+
+
+ @guest
+@if (Route::has('login'))
+
+<script>window.location = "/login";</script>
+
+@endif
+@else
 <div class="container">
     <div class="container">
 
@@ -45,5 +55,7 @@
     </div>
 
 
+ @endguest
+ 
 
     @endsection
