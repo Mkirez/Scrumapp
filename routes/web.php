@@ -53,13 +53,13 @@ Auth::routes();
 Route::resource('projects', ProjectController::class);
 
 Auth::routes();
-Route::resource('projects/{{ project->id }}', Backlog_itemController::class);
+Route::resource('project/{{ project->id }}', Backlog_itemController::class);
 
 
-route::get('test3', function(){
-	echo "test3";
-	echo Auth::user()->rechten;
-});
+// route::get('test3', function(){
+// 	echo "test3";
+// 	echo Auth::user()->rechten;
+// });
 
 
 

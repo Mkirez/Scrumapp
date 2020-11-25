@@ -31,6 +31,7 @@
                 <th scope="col">End Date</th>
               </tr>
             </thead>
+
             @foreach ($projectinfos as $projectinfo )
             <tbody>
               <tr>

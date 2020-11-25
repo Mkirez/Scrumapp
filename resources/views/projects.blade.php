@@ -5,13 +5,7 @@
 
 
 
- @guest
-@if (Route::has('login'))
 
-<script>window.location = "/login";</script>
-
-@endif
-@else
 <div class="container">
     <div class="container">
 
@@ -26,6 +20,7 @@
         </div>
     </div>
     <div class="row">
+        
         @foreach($projects as $project)
         <div class="col-md-4">
             <a href="/projects/{{ $project->id }}" style="text-decoration: none;">
@@ -55,7 +50,5 @@
     </div>
 
 
- @endguest
- 
 
     @endsection
