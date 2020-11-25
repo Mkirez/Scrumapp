@@ -8,7 +8,7 @@ use App\Http\Controllers\SprintBoardController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
-
+use App\Http\Controllers\ProjectInfoController;
 
 
 
@@ -32,10 +32,12 @@ Route::get('/', function () {
 // Auth::routes();
 // Route::get('/todo', [TodoController::class, 'index']);
 
-// Route::get('/projects', [ProjectController::class, 'index']);
+// Routes Projectinfo
+
+Route::get('/pinfo', [ProjectInfoController::class, 'index']);
 
 
-
+//
 Auth::routes();
 Route::resource('sprints', SprintController::class);
 
