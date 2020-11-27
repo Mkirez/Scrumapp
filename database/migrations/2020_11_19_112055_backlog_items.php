@@ -17,9 +17,9 @@ class BacklogItems extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('project_id');
             $table->string('name', 255);
-            $table->string('description', 500);
-            $table->string('moscow', 45);
-            $table->date('deadline');
+            // $table->string('description', 500);
+            // $table->string('moscow', 45);
+            // $table->date('deadline');
             $table->timestamps();
             // $table->integer('task_id')->nullable(true)->default(null);
 
