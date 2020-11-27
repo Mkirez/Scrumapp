@@ -28,6 +28,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/profile',TodoController::class);
+
 
 // Auth::routes();
 // Route::get('/todo', [TodoController::class, 'index']);

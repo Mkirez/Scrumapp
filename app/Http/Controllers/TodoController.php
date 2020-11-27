@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\todo;
+
+use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class TodoController extends Controller
 {
@@ -16,8 +20,8 @@ class TodoController extends Controller
     {
 
 
-        $todos = todo::latest()->get();
-        return view('welcome')->with('todos', $todos);
+        $users = Users::latest()->get();
+        return view('profile')->with('users', $users);
     }
 
     /**
@@ -41,12 +45,12 @@ class TodoController extends Controller
     {
 
         $validataData = $request->validate([
-            'title' => 'required|max:255',
+            'user' => 'required|max:255',
         ]);
 
 
         $todo = todo::create([
-            'title' => $request->title,
+            'user' => $request->user,
             'completed'=> 0,
         ]);
 
@@ -63,7 +67,7 @@ class TodoController extends Controller
      * @param  \App\Models\todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function show(todo $todo)
+    public function show(Users $user)
     {
         //
     }
@@ -74,10 +78,11 @@ class TodoController extends Controller
      * @param  \App\Models\todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function edit(todo $todo)
+    public function edit(Users $user)
     {
       
-      return view('todo.edit')->with('todo',$todo);
+
+      return view('edit.edit')->with('Users', $user);
     }
 
     /**
@@ -87,11 +92,11 @@ class TodoController extends Controller
      * @param  \App\Models\todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, todo $todo)
+    public function update(Request $request, Users $user)
     {
-        $todo->update($request->all());
 
-        return redirect('/');
+        $user->update($request->all());
+        
     }
 
     /**
@@ -100,10 +105,21 @@ class TodoController extends Controller
      * @param  \App\Models\todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(todo $todo)
+    public function destroy(Users $user,  $id)
     {
-        $todo->delete();
 
-        return redirect('/');
+        
+        $sql = "DELETE FROM users WHERE id=$id";
+
+
+
+
+        $profile = DB::update($sql);
+        return view('/welcome');
+
+
+
+        
+        
     }
 }
