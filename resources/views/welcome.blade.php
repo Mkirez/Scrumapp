@@ -3,8 +3,7 @@
 @section('content')
 
 
-@guest
-    @if (Route::has('login'))
+
         <div class="wrapper" style="padding: 110px;">
             <div class="container-fluid">
                 <div class="row flex-container">
@@ -40,11 +39,10 @@
             </div>
     </div>
         
-    @endif
-    @else
+    
     <!-- ik zeg gewoon als je al bent ingelogd redirect hem naar de home -->
-      <script>window.location = "/home";</script>
+   
 
- @endguest
+
 
 @endsection

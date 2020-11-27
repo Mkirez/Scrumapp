@@ -21,7 +21,7 @@ class TodoController extends Controller
 
 
         $users = Users::latest()->get();
-        return view('/profile')->with('users', $users);
+        return view('profile')->with('users', $users);
     }
 
     /**

@@ -4,8 +4,6 @@
 <div class="container">
 
    
-        
-    
 
     <div class="row">
         <div class="col-md-12">
@@ -14,7 +12,7 @@
 
 
         <div class="col-md-12">
-            <form action="{​​​​​​​{​​​​​​​route('Todo.update', $User->id)}​​​​​​​}​​​​​​​" method="POST">
+            <form action="{​​​​​​​{​​​​​​​route('todo.update',$user->id)}​​​​​​​}​​​​​​​" method="POST">
             @csrf
             @method('PUT')
             <div class="row">
