@@ -24,6 +24,7 @@
           <table class="table ">
             <thead>
               <tr>
+                {{-- Backlogitems --}}
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Iteration</th>
@@ -47,6 +48,7 @@
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><table class="table ">
           <thead>
             <tr>
+              {{-- Team members --}}
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">Date of birth</th>
@@ -67,6 +69,7 @@
           <table class="table ">
             <thead>
               <tr>
+                {{-- Sprints --}}
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Iteration</th>
@@ -86,6 +89,7 @@
             @endforeach
           </table>
         </div>
+        {{-- Retrospective --}}
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
       </div>
     </div>
