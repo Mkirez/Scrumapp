@@ -3,7 +3,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonalProfile\ProfileController;
 use App\Http\Controllers\SprintBoardController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\SprintController;
@@ -74,7 +73,6 @@ Route::resource('project/{{ project->id }}', Backlog_itemController::class);
 
 Auth::routes();
 
-Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'boot'])->name('profile');
 
 
 
