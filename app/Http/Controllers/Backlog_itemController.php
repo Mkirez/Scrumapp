@@ -3,83 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Models\Backlog_item;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class Backlog_itemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Project $project)
     {
-        //
+        $backlog_items = $project->backlog_items;
+
+        return view('backlog_items.index', ['backlog_items' => $backlog_items]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Project $project)
     {
-        //
+        // dd($project->);
+        return view('backlog_items.create', compact('project'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Project $project)
+    {   
+        // dd($project);
+        Backlog_item::create($this->validateBacklog_item());
+        return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
+    }   
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Backlog_item  $backlog_item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Backlog_item $backlog_item)
+    
+    protected function validateBacklog_item()
     {
-        //
-    }
+        return request()->validate([
+            'project_id' => 'required',
+            'name' => 'required'
+            ]);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Backlog_item  $backlog_item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Backlog_item $backlog_item)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Backlog_item  $backlog_item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Backlog_item $backlog_item)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Backlog_item  $backlog_item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Backlog_item $backlog_item)
-    {
-        //
-    }
+        // public function edit()
+        // {
+        //     //
+        // }
+    
+        // public function update()
+        // {
+        //     //
+        // }
 }

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $guarded = [];
+
+    public function backlog_items()
+    {
+        return $this->hasMany('App\Models\Backlog_item');
+    }
 }
+

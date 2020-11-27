@@ -7,6 +7,7 @@ use App\Http\Controllers\SprintBoardController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Backlog_itemController;
 use App\Http\Controllers\ProjectInfoController;
 
 
@@ -47,7 +48,7 @@ Auth::routes();
 Route::resource('projects', ProjectController::class);
 
 Auth::routes();
-Route::resource('project/{{ project->id }}', Backlog_itemController::class);
+Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
 
 
 // route::get('test3', function(){

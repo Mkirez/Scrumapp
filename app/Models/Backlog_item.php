@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Backlog_item extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
+
+    protected $fillable = [
+        'project_id', 'name'
+    ];
 }

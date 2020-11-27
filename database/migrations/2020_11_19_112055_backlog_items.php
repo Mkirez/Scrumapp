@@ -16,12 +16,12 @@ class BacklogItems extends Migration
         Schema::create('backlog_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('project_id');
-            $table->string('item_name', 255);
+            $table->string('name', 255);
             $table->string('description', 500);
-            $table->string('backlog_item', 500);
             $table->string('moscow', 45);
             $table->date('deadline');
-            $table->integer('task_id')->nullable(true)->default(null);
+            $table->timestamps();
+            // $table->integer('task_id')->nullable(true)->default(null);
 
             $table->foreign('project_id')
                 ->references('id')
