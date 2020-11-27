@@ -28,18 +28,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('/profile',TodoController::class);
 
 
-// Auth::routes();
-// Route::get('/todo', [TodoController::class, 'index']);
-
-// Routes Projectinfo
-
-Route::get('/pinfo', [ProjectInfoController::class, 'index']);
 
 
-//
 Auth::routes();
 Route::resource('sprints', SprintController::class);
 
@@ -81,40 +75,3 @@ Route::resource('project/{{ project->id }}', Backlog_itemController::class);
 
 Auth::routes();
 
-Route::get('/profile', [App\Http\Controllers\PersonalProfile\ProfileController::class, 'boot'])->name('profile');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

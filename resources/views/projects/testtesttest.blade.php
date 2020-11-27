@@ -24,7 +24,6 @@
           <table class="table ">
             <thead>
               <tr>
-                {{-- Backlogitems --}}
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Iteration</th>
@@ -33,7 +32,7 @@
               </tr>
             </thead>
 
-            @foreach ($projectinfos as $projectinfo )
+            <!-- @foreach ($projectinfos as $projectinfo )
             <tbody>
               <tr>
                 <th scope="row">{{ $projectinfo->id}}</th>
@@ -42,19 +41,18 @@
                 <td>{{$projectinfo->start_date}}</td>
                 <td>{{$projectinfo->end_date}}</td>
               </tr>
-            @endforeach
+            @endforeach -->
           </table>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><table class="table ">
           <thead>
             <tr>
-              {{-- Team members --}}
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">Date of birth</th>
             </tr>
           </thead>
-          @foreach ($projectinfos as $projectinfo )
+          <!-- @foreach ($projectinfos as $projectinfo )
           <tbody>
             <tr>
               <th scope="row">{{ $projectinfo->id}}</th>
@@ -63,13 +61,12 @@
               <td>{{$projectinfo->start_date}}</td>
               <td>{{$projectinfo->end_date}}</td>
             </tr>
-          @endforeach
+          @endforeach -->
         </table></div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           <table class="table ">
             <thead>
               <tr>
-                {{-- Sprints --}}
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Iteration</th>
@@ -77,7 +74,7 @@
                 <th scope="col">End Date</th>
               </tr>
             </thead>
-            @foreach ($projectinfos as $projectinfo )
+            <!-- @foreach ($projectinfos as $projectinfo )
             <tbody>
               <tr>
                 <th scope="row">{{ $projectinfo->id}}</th>
@@ -86,13 +83,13 @@
                 <td>{{$projectinfo->start_date}}</td>
                 <td>{{$projectinfo->end_date}}</td>
               </tr>
-            @endforeach
+            @endforeach -->
           </table>
         </div>
-        {{-- Retrospective --}}
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
       </div>
     </div>
   </div>  
 </div>  
+@endsection
 @endsection

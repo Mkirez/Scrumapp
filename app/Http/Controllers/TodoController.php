@@ -21,7 +21,7 @@ class TodoController extends Controller
 
 
         $users = Users::latest()->get();
-        return view('profile')->with('users', $users);
+        return view('/profile')->with('users', $users);
     }
 
     /**
@@ -81,8 +81,7 @@ class TodoController extends Controller
     public function edit(Users $user)
     {
       
-
-      return view('edit.edit')->with('Users', $user);
+      return view('edit')->with('Users', $user);
     }
 
     /**
@@ -95,8 +94,7 @@ class TodoController extends Controller
     public function update(Request $request, Users $user)
     {
 
-        $user->update($request->all());
-        
+        $user->update($request->all());  
     }
 
     /**
