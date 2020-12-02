@@ -1,16 +1,17 @@
 <?php
 
-
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
+
+//controllers
+
 use App\Http\Controllers\SprintBoardController;
-use App\Http\Controllers\TodoController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\Backlog_itemController;
+use App\Http\Controllers\BacklogController;
 use App\Http\Controllers\ProjectInfoController;
-
-
 
 
 /*
@@ -24,59 +25,32 @@ use App\Http\Controllers\ProjectInfoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+Route::get('test3', function(){
+	echo "test";
+	echo Auth::user()->rights;
 });
 
-Route::resource('/profile',TodoController::class);
 
 
 
+Route::resource('profile', ProfileController::class);
 
-Auth::routes();
 Route::resource('sprints', SprintController::class);
 
-
-
-//recourse is voor de standaard crud fucntions
-Auth::routes();
 Route::resource('todo', TodoController::class);
 
-
-
-Auth::routes();
 Route::resource('projects', ProjectController::class);
-
-Auth::routes();
-Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
-
-
-// route::get('test3', function(){
-// 	echo "test3";
-// 	echo Auth::user()->rechten;
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Auth::routes();
-
-// Route::get('/sprintboard', [SprintBoardController::class, 'index']);
-
-Auth::routes();
 
 
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
 
+Route::get('/', function () {
+    return view('welcome');
+});

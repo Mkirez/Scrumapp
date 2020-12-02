@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <h1 class="heading has-text-weight-bold is-size-4">New Project</h1>
 
     <form method="POST" action="/projects">
@@ -30,5 +30,5 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
 @endsection

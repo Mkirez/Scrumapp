@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-
-
 
         <div class="wrapper" style="padding: 110px;">
             <div class="container-fluid">

@@ -1776,7 +1776,7 @@ pre code {
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 1.45rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -4936,6 +4936,7 @@ input[type=button].btn-block {
 .card {
   position: relative;
   display: flex;
+  overflow: auto;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
@@ -6247,16 +6248,16 @@ a.close.disabled {
 }
 
 .modal-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  outline: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
+    outline: 0;
 }
 
 .modal-backdrop {
@@ -10907,7 +10908,8 @@ a.text-dark:focus {
 
 /*mijn css*/
 .inner a{
-  text-decoration: none;
+  text-decoration: none;  
+
 
 }
 .form_sprint{
@@ -10922,8 +10924,62 @@ a.text-dark:focus {
 
 }
 
-ul.navbar-nav  li a{
-  color:#0052CC!important;
-  
+ul.navbar-nav li a {
+    color: #0052CC!important;
+    font-weight: 900;
+}
+
+
+#project_block {
+    padding: 1px;
+    color: black!important;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+
+#project_block:hover .card{
+
+transition: 1s;
 
 }
+
+
+
+
+
+.inner-form{
+      padding: 40px;
+}
+.inner-text{
+      margin-top: 39px;
+}
+
+
+@media screen and (max-width: 768px) 
+{
+  .date-title{
+    text-align: center !important;
+
+  }
+
+  .card {
+    background-color: white!important;
+    
+  }
+
+  .nav{
+    /*display: inline-block;*/
+  }
+    .table th, .table td {
+     
+    padding: 0.45rem;
+    font-size: 10px;
+  }
+}
+
+
+
+
+
+
