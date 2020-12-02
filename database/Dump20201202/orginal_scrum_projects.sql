@@ -16,30 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `sprints`
+-- Table structure for table `projects`
 --
 
-DROP TABLE IF EXISTS `sprints`;
+DROP TABLE IF EXISTS `projects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sprints` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `project_id` int DEFAULT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
-  `remarks` varchar(500) DEFAULT NULL,
+CREATE TABLE `projects` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `team_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sprints`
+-- Dumping data for table `projects`
 --
 
-LOCK TABLES `sprints` WRITE;
-/*!40000 ALTER TABLE `sprints` DISABLE KEYS */;
-INSERT INTO `sprints` VALUES (1,1,'2017-06-15','2017-06-15','sasasa');
-/*!40000 ALTER TABLE `sprints` ENABLE KEYS */;
+LOCK TABLES `projects` WRITE;
+/*!40000 ALTER TABLE `projects` DISABLE KEYS */;
+INSERT INTO `projects` VALUES (1,'sasasa','2020-11-07 00:00:00','2020-11-29 00:00:00','2020-11-25 12:22:43','2020-11-25 12:22:43',1),(2,'canban','2020-10-29 00:00:00','2020-11-30 00:00:00','2020-11-28 08:56:22','2020-11-28 08:56:22',2),(3,'project 3','2020-11-06 00:00:00','2020-10-29 00:00:00','2020-11-30 08:03:01','2020-11-30 08:03:01',NULL),(9,'lorenzo','2020-12-13 00:00:00','2020-12-12 00:00:00','2020-12-02 14:08:42','2020-12-02 14:08:42',NULL);
+/*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-19 12:04:28
+-- Dump completed on 2020-12-02 23:52:05

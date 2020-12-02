@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `task`
+-- Table structure for table `sprints`
 --
 
-DROP TABLE IF EXISTS `task`;
+DROP TABLE IF EXISTS `sprints`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `task` (
+CREATE TABLE `sprints` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `remarks` varchar(500) DEFAULT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  `sprint_id` int DEFAULT NULL,
-  `team_user_id` int DEFAULT NULL,
+  `project_id` int DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `remarks` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `task`
+-- Dumping data for table `sprints`
 --
 
-LOCK TABLES `task` WRITE;
-/*!40000 ALTER TABLE `task` DISABLE KEYS */;
-INSERT INTO `task` VALUES (1,'nm nnm','done',1,1),(2,'gvhbjb','todo',1,1),(3,'hiy','busy',1,1),(4,'jhgfghg','done',1,1),(5,'hugyftgh','busy',1,1),(6,'hghhju','todo',1,1);
-/*!40000 ALTER TABLE `task` ENABLE KEYS */;
+LOCK TABLES `sprints` WRITE;
+/*!40000 ALTER TABLE `sprints` DISABLE KEYS */;
+INSERT INTO `sprints` VALUES (1,1,'2017-06-15','2017-06-15','sprint 1'),(2,1,'2017-06-15','2017-06-15','sprint 2'),(3,1,'2017-06-15','2017-06-15','sprint 3'),(4,2,'2017-06-15','2017-06-15','sprint 1(2project)'),(5,2,'2017-06-15','2017-06-15','sprint 2(project2)');
+/*!40000 ALTER TABLE `sprints` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-19 12:04:28
+-- Dump completed on 2020-12-02 23:52:00

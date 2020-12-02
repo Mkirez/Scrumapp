@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-        <div class="wrapper" style="padding: 110px;">
+            
             <div class="container-fluid">
-                <div class="row flex-container">
+                <div class="row flex-container" style="padding: 40px;">
                     <div class="col-md-5 vertical-middle">
                         <div class="inner" style="margin-top: 100px;">
 
@@ -21,7 +21,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     <div class="space" style="padding-top: 40px;">
     </div>
     <div class="wrapper">

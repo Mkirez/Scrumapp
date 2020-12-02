@@ -10958,6 +10958,11 @@ transition: 1s;
 
 @media screen and (max-width: 768px) 
 {
+
+
+  .wrapper{
+    padding: none!important;
+  }
   .date-title{
     text-align: center !important;
 
@@ -10975,6 +10980,13 @@ transition: 1s;
      
     padding: 0.45rem;
     font-size: 10px;
+  }
+  .inner{
+    overflow: auto;
+  }
+
+  img#scrum-navbar{
+    width: 50%!important;
   }
 }
 

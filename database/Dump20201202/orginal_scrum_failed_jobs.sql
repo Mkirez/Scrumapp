@@ -16,33 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `backlog_items`
+-- Table structure for table `failed_jobs`
 --
 
-DROP TABLE IF EXISTS `backlog_items`;
+DROP TABLE IF EXISTS `failed_jobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `backlog_items` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `item_name` varchar(255) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `backlog_item` varchar(500) DEFAULT NULL,
-  `moscow` varchar(45) DEFAULT NULL,
-  `deadline` date DEFAULT NULL,
-  `task_id` int DEFAULT NULL,
-  `project_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `failed_jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `backlog_items`
+-- Dumping data for table `failed_jobs`
 --
 
-LOCK TABLES `backlog_items` WRITE;
-/*!40000 ALTER TABLE `backlog_items` DISABLE KEYS */;
-INSERT INTO `backlog_items` VALUES (1,'navbar maken','nnavbar maken en wel nu','navbar maken',NULL,'2020-12-15',1,1),(2,'navbar maken','nnavbar maken en wel nu','navbar maken',NULL,'2020-12-15',2,1),(3,'navbar maken','nnavbar maken en wel nu','navbar maken',NULL,'2020-12-15',3,1),(4,'navbar maken','nnavbar maken en wel nu','navbar maken',NULL,'2020-12-15',4,1),(5,'navbar maken','nnavbar maken en wel nu','navbar maken',NULL,'2020-12-15',5,1);
-/*!40000 ALTER TABLE `backlog_items` ENABLE KEYS */;
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-19 12:04:30
+-- Dump completed on 2020-12-02 23:52:06
