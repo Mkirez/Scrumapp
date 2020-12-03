@@ -22,28 +22,28 @@ class Backlog_itemController extends Controller
     }
 
     public function store(Project $project)
-    {   
+    {
         // dd($project);
         Backlog_item::create($this->validateBacklog_item());
         return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
-    }   
+    }
 
-    
+
     protected function validateBacklog_item()
     {
         return request()->validate([
             'project_id' => 'required',
             'name' => 'required'
-            ]);
-        }
+        ]);
+    }
 
-        // public function edit()
-        // {
-        //     //
-        // }
-    
-        // public function update()
-        // {
-        //     //
-        // }
+    // public function edit()
+    // {
+    //     //
+    // }
+
+    // public function update()
+    // {
+    //     //
+    // }
 }

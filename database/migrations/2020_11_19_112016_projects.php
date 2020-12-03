@@ -19,7 +19,7 @@ class Projects extends Migration
             $table->datetime('start_date');
             $table->datetime('end_date');
             $table->timestamps();
-            // $table->integer('team_id')->nullable(true)->default(null);
+            $table->integer('team_id')->nullable(true)->default(null);
         });
     }
 
