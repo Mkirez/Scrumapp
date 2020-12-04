@@ -84,14 +84,26 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-        <form class="myForm">
+        <form class="myForm" action="/projects" method="POST">
+            @csrf
+           
+            
           <div class="col-md-12 inner-text">
             <h1>add backlogelement</h1>
           </div>
           <div class="inner-form">
+
+            <div class="form-group">
+
+
+            <label for="exampleInputEmail1">description</label>
+            <input type="hidden" name="project_id" value="{{$backlog->project_id}}">
+            </div>
+
+
             <div class="form-group">
             <label for="exampleInputEmail1">description</label>
-            <input type="email" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
 
             <div class="form-group">
@@ -106,7 +118,7 @@
 
             <div class="form-group">
             <label for="exampleInputPassword1">deadline</label>
-            <input type="date" name="start_date" class="form-control" id="start_date">
+            <input type="date" name="deadline" class="form-control" id="start_date">
             </div>
 
 

@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Backlog extends Model
 {
+
 	protected $table = 'backlog_items';
-    protected $fillable = ['description','backlog_item','moscow','deadline'];
+
+    protected $fillable = ['description','backlog_item','moscow','deadline','project_id'];
+
+    public $timestamps = false;
+
+
 }
+

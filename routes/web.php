@@ -14,6 +14,9 @@ use App\Http\Controllers\BacklogController;
 use App\Http\Controllers\ProjectInfoController;
 
 
+use App\Http\Controllers\Backlog_itemController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,7 +52,7 @@ Route::resource('projects', ProjectController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
+Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
 
 Route::get('/', function () {
     return view('welcome');

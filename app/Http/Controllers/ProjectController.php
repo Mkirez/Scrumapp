@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers; 
 
+
 use App\Models\Project;
 use App\Models\Teamusers;
 use App\Models\Sprint;
@@ -52,24 +53,45 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
     public function create()
     {
-        return view('projects.create');
+        echo "sasa";
+       
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Project::create($this->validateProject());
+        // Project::create($this->validateProject());
         
-        return redirect('/projects');
+        // return redirect('/projects');
+        // $input = $request->all();
+
+
+        $backlog = new Backlog();
+        $backlog->moscow = $request->moscow;
+        $backlog->description = $request->description;
+        $backlog->backlog_item = $request->backlog_item;
+        $backlog->deadline = $request->deadline;
+        $backlog->project_id = $request->project_id;
+        $backlog->save();
+
+
+        return redirect('/projects/');
+
+
+        // return $input;
+
+
     }
 
     public function edit()
     {
         //
+        echo "edit";
     }
 
     public function update()
     {
         //
+        echo "update";
     }
 
     protected function validateProject()

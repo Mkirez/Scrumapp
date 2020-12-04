@@ -24,9 +24,11 @@
     <!-- Modal content-->
         <div class="modal-content">
             <form method="POST" action="/projects">
+            
+
             @csrf
                 <div class="col-md-12 inner-text">
-                    <h1>add backlogelement</h1>
+                    <h1>add project</h1>
                 </div>
                 <div class="inner-form">
                     <div class="form-group">
