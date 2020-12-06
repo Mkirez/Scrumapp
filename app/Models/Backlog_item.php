@@ -17,6 +17,7 @@ class Backlog_item extends Model
     }
 
     protected $fillable = [
-        'project_id', 'name'
+         'name','updated_at','created_at'
+
     ];
 }

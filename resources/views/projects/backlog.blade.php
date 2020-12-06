@@ -52,6 +52,7 @@
             <th scope="col">moscow</th>
             <th scope="col">deadline</th>
             <th scope="col">task id</th>
+            <th scope="col">sprints </th>
 
           </tr>
         </thead>
@@ -72,14 +73,17 @@
             </td>
             <td>{{ $backlog->task_id}}
             </td>
+            <td>
+              {{getSprint($backlog->task_id, $backlog->project_id)}}
+            </td>
           </tr> 
       @endforeach
       <div class="col-md-12" style="padding: 10px;">
-          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#myModal">ad backlog +</a>
+          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
       </div>
       </table>
       <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="backlog" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
