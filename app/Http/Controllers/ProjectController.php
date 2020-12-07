@@ -102,7 +102,7 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
         $project_id = $request->project_id;
 
-        return redirect('/projects/' . $project_id. 'je kanker moeder');
+        return redirect('/projects/' . $project_id);
 
 
         

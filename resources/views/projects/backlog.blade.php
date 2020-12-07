@@ -4,8 +4,8 @@
   @auth
   @isset($empty)
    <div class="col-md-12 text-right" style="padding: 10px;">
-          <a  href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
-      </div>
+        <a  href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
+    </div>
 <div id="backlog" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
