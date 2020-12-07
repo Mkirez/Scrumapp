@@ -2,6 +2,64 @@
 @section('content')
 
   @auth
+  @isset($empty)
+   <div class="col-md-12 text-right" style="padding: 10px;">
+          <a  href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
+      </div>
+<div id="backlog" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="myForm" action="/projects" method="POST">
+            @csrf
+           
+            
+          <div class="col-md-12 inner-text">
+            <h1>add backlogelement</h1>
+          </div>
+          <div class="inner-form">
+
+            <div class="form-group">
+
+
+            <label for="exampleInputEmail1">description</label>
+            <input type="hidden" name="project_id" value="{{$project_id}}">
+            </div>
+
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">description</label>
+            <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">backlog_item</label>
+            <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">moscow</label>
+            <input type="text" name="moscow" class="form-control" id="moscow">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">deadline</label>
+            <input type="date" name="deadline" class="form-control" id="start_date">
+            </div>
+
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+  @endisset
+  @isset($project)
     <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -52,7 +110,7 @@
             <th scope="col">moscow</th>
             <th scope="col">deadline</th>
             <th scope="col">task id</th>
-            <th scope="col">sprints </th>
+           
 
           </tr>
         </thead>
@@ -61,6 +119,8 @@
 
       
         <tbody>
+
+          @if($backlogs)
           @foreach($backlogs as $backlog)
           <tr>
             <th scope="row">{{ $backlog->id }}</th>
@@ -73,11 +133,12 @@
             </td>
             <td>{{ $backlog->task_id}}
             </td>
-            <td>
-              {{getSprint($backlog->task_id, $backlog->project_id)}}
-            </td>
+            
           </tr> 
+
       @endforeach
+
+      @endif
       <div class="col-md-12" style="padding: 10px;">
           <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
       </div>
@@ -195,6 +256,7 @@
     </div>  
 
     </div>
+    @endisset
   @endauth
   @guest
 

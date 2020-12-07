@@ -23,7 +23,7 @@ class Backlog_itemController extends Controller
 
     public function store(Project $project)
     {
-        // dd($project);
+        dd($project);
         Backlog_item::create($this->validateBacklog_item());
         return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
     }

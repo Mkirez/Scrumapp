@@ -16,8 +16,7 @@ class Sprints extends Migration
         Schema::create('sprints', function (Blueprint $table) {
             $table->integer('id')->autoIncrement()->nullable(false);
             $table->integer('project_id')->nullable(true)->default(null);
-            $table->date('start_date')->nullable(true)->default(null);
-            $table->date('end_date')->nullable(true)->default(null);
+            $table->timestamps();
             $table->string('remarks', 500)->nullable(true)->default(null);
         });
     }

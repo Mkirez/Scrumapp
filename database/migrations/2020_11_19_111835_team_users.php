@@ -13,6 +13,7 @@ class TeamUsers extends Migration
      */
     public function up()
     {
+        
         Schema::create('team_users', function (Blueprint $table) {
             $table->Integer('id')->autoIncrement()->nullable(false);
             $table->Integer('team_id')->nullable(true)->default(null);

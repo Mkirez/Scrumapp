@@ -27,8 +27,20 @@ class ProjectController extends Controller
         //echo "show projects";
         //echo $project;
         $id=$project->id;
+
+
         $backlogs=Backlog::all()->where('project_id', $id);
+        //return $backlogs->count();
+         if ($backlogs->count() == 0) {
+            // echo "geen backlog/sprints";
+            return view('projects.backlog', ['empty' => '1', 'project_id'=>$id] );
+
+           // exit();
+        } 
         $sprints=Sprint::all()->where('project_id', $id);
+
+
+
         //$teamusers=Teamusers::all();
 
 
@@ -59,10 +71,23 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
     public function store(Request $request)
     {
+
+
+
+        // dd($request->project_id);
+        // exit();
+
+        // exit();
         // Project::create($this->validateProject());
         
         // return redirect('/projects');
-        // $input = $request->all();
+        // // $input = $request->all();
+
+
+
+
+
+        
 
 
         $backlog = new Backlog();
@@ -74,10 +99,13 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         $backlog->save();
 
 
-        return redirect('/projects/');
+
+        $project_id = $request->project_id;
+
+        return redirect('/projects/' . $project_id. 'je kanker moeder');
 
 
-        // return $input;
+        
 
 
     }
