@@ -250,16 +250,16 @@
           <tr>
             <th scope="row">{{$sprint->id}}</th>
             <td>{{$sprint->project_id}}</td>
-            <td>{{$sprint->start_date}}</td>
-            <td>{{$sprint->end_date}}</td>
+            <td>{{$sprint->created_at}}</td>
+            <td>{{$sprint->updated_at}}</td>
             <td>{{$sprint->remarks}}</td>
             <td><div class="container">
               <div class="row">
                 <div class="col-sm-6">
-                  <a href="{{url('sprint', $sprint->id)}}" class="btn btn-primary">view</a>
+                  <a href="{{url('sprints', $sprint->id)}}" class="btn btn-primary">view</a>
                 </div>
                 <div class="col-sm-6">
-                  <a href="{{url('sprint', $sprint->id)}}" class="btn btn-danger">delete</a>
+                  <a href="{{url('sprints',$sprint->id)}}" class="btn btn-danger">delete</a>
                 </div>
               </div>
             </td>
@@ -267,7 +267,7 @@
           @endforeach
        <!-- button team members -->
             <div class="col-md-12" style="padding: 10px;">
-              <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad teamembers+</a>
+              <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad sprint+</a>
             </div>
       </table>
 
@@ -286,27 +286,33 @@
           <div class="inner-form">
 
             <div class="form-group">
+
+
             <label for="exampleInputEmail1">description</label>
             <input type="hidden" name="project_id" value="{{$backlog->project_id}}">
             </div>
 
 
 
-            <div class="form-group">
-            <label for="exampleInputPassword1">remarks</label>
-            <input type="text" name="remarks" class="form-control" id="exampleInputPassword1">
+
+             <div class="form-group">
+            <label for="exampleInputPassword1">created_at</label>
+            <input type="date" name="created_at" class="form-control" id="start_date">
             </div>
 
             <div class="form-group">
-            <label for="exampleInputPassword1">end_date</label>
-            <input type="date" name="end_date" class="form-control" id="start_date">
+            <label for="exampleInputPassword1">updated_at</label>
+            <input type="date" name="updated_at" class="form-control" id="start_date">
             </div>
 
-            <div class="form-group">
-            <label for="exampleInputPassword1">start_date</label>
-            <input type="date" name="start_date" class="form-control" id="start_date">
+              <div class="form-group">
+            <label for="exampleInputEmail1">remarks</label>
+            <input type="text" name="remarks"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
 
+            
+
+          
 
             <div class="col-md-12">
               <button type="submit" class="btn btn-primary">Submit</button>
