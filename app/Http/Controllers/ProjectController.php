@@ -65,29 +65,23 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
     public function create()
     {
-        echo "sasa";
+        Project::create($this->validateProject());
+        
+        return redirect('/projects');
        
     }
 
     public function store(Request $request)
     {
-
-
-
-        // dd($request->project_id);
-        // exit();
-
-        // exit();
-        // Project::create($this->validateProject());
         
-        // return redirect('/projects');
-        // // $input = $request->all();
+        $input = $request->all();
 
 
 
 
 
-        
+
+
 
 
         $backlog = new Backlog();
@@ -100,13 +94,10 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
 
 
+
         $project_id = $request->project_id;
 
-        return redirect('/projects/' . $project_id);
-
-
-        
-
+        return redirect('/projects/' . $project_id. 'sii');
 
     }
 
