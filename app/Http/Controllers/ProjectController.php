@@ -79,11 +79,6 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
 
 
-
-
-
-
-
         $backlog = new Backlog();
         $backlog->moscow = $request->moscow;
         $backlog->description = $request->description;
@@ -91,8 +86,6 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         $backlog->deadline = $request->deadline;
         $backlog->project_id = $request->project_id;
         $backlog->save();
-
-
 
 
         $project_id = $request->project_id;

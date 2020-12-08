@@ -110,6 +110,7 @@
             <th scope="col">moscow</th>
             <th scope="col">deadline</th>
             <th scope="col">task id</th>
+            <th scope="col">sprint</th>
            
 
           </tr>
@@ -133,7 +134,9 @@
             </td>
             <td>{{ $backlog->task_id}}
             </td>
-            
+            <td>
+              {{getSprint($backlog->taskid,$backlog->taskid)}}
+            </td>
           </tr> 
 
       @endforeach
@@ -219,8 +222,14 @@
           <td>{{$teamuser->projectName}}</td>
         </tr>
     @endforeach
+      <!-- button team members -->
+    
+    </table>
 
-    </table></div>
+          <!-- Modal team members -->
+
+
+  </div>
 
 
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
@@ -233,6 +242,7 @@
             <th scope="col">start_date</th>
             <th scope="col">Standrt date</th>
             <th scope="col">remarks</th>
+            <th scope="col">view/edit</th>
           </tr>
         </thead>
         <tbody>
@@ -243,11 +253,70 @@
             <td>{{$sprint->start_date}}</td>
             <td>{{$sprint->end_date}}</td>
             <td>{{$sprint->remarks}}</td>
-            <td>
+            <td><div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+                  <a href="{{url('sprint', $sprint->id)}}" class="btn btn-primary">view</a>
+                </div>
+                <div class="col-sm-6">
+                  <a href="{{url('sprint', $sprint->id)}}" class="btn btn-danger">delete</a>
+                </div>
+              </div>
             </td>
           </tr>
           @endforeach
+       <!-- button team members -->
+            <div class="col-md-12" style="padding: 10px;">
+              <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad teamembers+</a>
+            </div>
       </table>
+
+      <div id="sprints" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="myForm" action="/sprints" method="POST">
+            @csrf
+           
+            
+          <div class="col-md-12 inner-text">
+            <h1>add sprints</h1>
+          </div>
+          <div class="inner-form">
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">description</label>
+            <input type="hidden" name="project_id" value="{{$backlog->project_id}}">
+            </div>
+
+
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">remarks</label>
+            <input type="text" name="remarks" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">end_date</label>
+            <input type="date" name="end_date" class="form-control" id="start_date">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">start_date</label>
+            <input type="date" name="start_date" class="form-control" id="start_date">
+            </div>
+
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
     </div>
