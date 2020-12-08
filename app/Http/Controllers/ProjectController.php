@@ -42,12 +42,7 @@ class ProjectController extends Controller
 
         $sprints=Sprint::all()->where('project_id', $id);
 
-        if ($sprints->count() == 0) {
-            // echo "geen backlog/sprints";
-            return view('projects.backlog', ['empty' => '1', 'project_id'=>$id] );
-
-           // exit();
-        } 
+      
 
 
 
@@ -100,7 +95,7 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
         $project_id = $request->project_id;
 
-        return redirect('/projects/' . $project_id. 'project:');
+        return redirect('/projects/' . $project_id);
 
     }
 

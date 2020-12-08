@@ -24,3 +24,8 @@ return $data[0]->remarks;
 
 }
 
+
+function sprints(){
+	
+}
+
