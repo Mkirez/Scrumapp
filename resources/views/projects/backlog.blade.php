@@ -138,7 +138,7 @@
               {{getSprint($backlog->taskid,$backlog->taskid)}}
             </td>
           </tr> 
-
+        <tbody>
       @endforeach
 
       @endif
@@ -255,12 +255,15 @@
             <td>{{$sprint->remarks}}</td>
             <td><div class="container">
               <div class="row">
+
                 <div class="col-sm-6">
-                  <a href="{{url('sprints', $sprint->id)}}" class="btn btn-primary">view</a>
+                  <a href="{{route('sprints.edit', $sprint->id)}}" class="btn btn-primary">view</a>
                 </div>
+
                 <div class="col-sm-6">
                   <a href="{{url('sprints',$sprint->id)}}" class="btn btn-danger">delete</a>
                 </div>
+
               </div>
             </td>
           </tr>

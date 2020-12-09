@@ -101,8 +101,8 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
     public function edit()
     {
-        //
-        echo "edit";
+        $backlogs=Backlog::all()->where('project_id', $id);
+        
     }
 
     public function update()

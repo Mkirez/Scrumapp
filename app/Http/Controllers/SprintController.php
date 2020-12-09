@@ -104,6 +104,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
     $dataDone = DB::select($sql);
 
+
         return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone);
     }
 
@@ -115,7 +116,29 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
      */
     public function edit($id)
     {
-        echo "edit";
+
+        // echo "edit";
+        $sql = "SELECT users.name
+                from team_users, users,team,projects
+                where team_users.team_id=team.id and team_users.user_id=users.id and projects.team_id=team.id and projects.team_id='$id'";
+
+        $backlog=backlog::all()->where('project_id', $id);
+        
+
+
+
+        $teamusers = DB::select($sql);
+
+        
+
+        // echo ($sprints);
+
+
+
+        return view('edit', ['backlogs'=>$backlog, 'teamusers'=>$teamusers] );
+
+
+
     }
 
     /**

@@ -1,49 +1,62 @@
 @extends('layouts.app')
 @section('content')
-    
+
+  @auth
 <div class="container">
-
-   
-
-    <div class="row">
-        <div class="col-md-12">
-           <h1>edit your todo called {{$Users->name}}<h1>
-        </div>
-
-
-        <div class="col-md-12">
-            <form action="{​​​​​​​{​​​​​​​route('todo.update',$user->id)}​​​​​​​}​​​​​​​" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" class="form-control form-control-lg" value="{{$Users->name}}" name="name">
+	<table class="table ">
+	    <thead>
+	      <tr>
+	        <th scope="col">Id</th>
+	        <th scope="col">project id</th>
+	        <th scope="col">description</th>
+	        <th scope="col">backlog_item</th>
+	        <th scope="col">moscow</th>
+	        <th scope="col">deadline</th>
+	        
+	        <th scope="col">toewijzen aan</th>
+	      </tr>
+	    </thead>
 
 
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <div class="col-md-12" >
-                             <button class="btn btn-primary" type="submit">save</button>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                    </div>
-                </div>   
-            </div>
-            </form>
-        </div>
-    </div>
+
+	  @foreach($backlogs as $backlog)
+	    <tbody>
+			<tr>
+				<th scope="row">{{$backlog->id}}</th>
+				<td>{{$backlog->project_id}}</td>
+				<td>{{$backlog->description}}</td>
+				<td>{{ $backlog->backlog_item}}</td>
+				<td>{{$backlog->moscow}}</td>
+
+				<td>{{ $backlog->deadline}}</td>
+				<td>
+					
+  					<form>
+
+					  <div class="form-group">
+						<select class="custom-select" id="inputGroupSelect01">
+						<option selected >Choose...</option>
+
+						@foreach($teamusers as $teamuser)
+						<option value="1">{{$teamuser->name}}</option>
+						@endforeach
+						
+						</select>	
+					  </div>
+					  <a type="submit" class="btn btn-primary">Submit</a>
+					</form>
+				</td>
+				
+			</tr> 
+		</tbody>  
+	@endforeach   
+	</table>
 </div>
- 
+					
+    
+  @endauth
+  @guest
 
-
-
-
-
+    <h1>guest</h1>
+  @endguest
 @endsection
