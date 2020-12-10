@@ -12,6 +12,7 @@ use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\BacklogController;
 use App\Http\Controllers\ProjectInfoController;
+use App\Http\Controllers\taskController;
 
 
 use App\Http\Controllers\Backlog_itemController;
@@ -47,6 +48,14 @@ Route::resource('todo', TodoController::class);
 
 Route::resource('projects', ProjectController::class);
 
+// Route::resource('taken', ProjectController::class);
+
+
+
+Route::post('/taskInsertUser', [App\Http\Controllers\taskController::class, 'insertUser'])->name('taskInsertUser');
+
+
+Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 'insertTaskToSprint'])->name('insertTaskToSprint');
 
 
 

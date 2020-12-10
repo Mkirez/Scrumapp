@@ -237,7 +237,7 @@
         <thead>
 
           <tr>
-            <th scope="col">Id</th>
+            <th scope="col">sprint_id</th>
             <th scope="col">project_id</th>
             <th scope="col">start_date</th>
             <th scope="col">Standrt date</th>
@@ -257,7 +257,19 @@
               <div class="row">
 
                 <div class="col-sm-6">
-                  <a href="{{route('sprints.edit', $sprint->id)}}" class="btn btn-primary">view</a>
+                  <form action="{{route('sprints.edit', $sprint->id)}}" method="post">
+                    @csrf
+                    @method('GET')
+
+
+                    <input type="hidden" value="{{$project->id}}" name="project_id">
+                    <input type="hidden" name="backlog_id" value="{{$backlog->id}}">
+
+                    <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
+                    <input type="submit"  name="" class="btn btn-primary">
+                    
+                  </form>
+                  
                 </div>
 
                 <div class="col-sm-6">

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;// DAN KAN Je gebruik maken van queries
 
 class SprintController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +22,46 @@ class SprintController extends Controller
 
     public function index()
     {
-        echo "index";
+         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
+From task, team_users, users, backlog_items
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id";
+
+        $dataSprint = DB::select($sql);
+
+//////////////////////////////////////////////////////////////
+
+        
+
+
+        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+From task, team_users, users, backlog_items
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo'";
+    
+
+
+
+    $dataTodo = DB::select($sql);
+
+///////////////////////////////////////////////////////////////
+
+       $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+From task, team_users, users, backlog_items
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy'";
+    
+
+    $dataBusy = DB::select($sql);
+/////////////////////////////////////////////////////////////////
+
+     $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+From task, team_users, users, backlog_items
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done'";
+    
+
+    $dataDone = DB::select($sql);
+
+
+        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone);
+    
     }
 
     /**
@@ -117,17 +158,81 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
     public function edit($id)
     {
 
-        // echo "edit";
-        $sql = "SELECT users.name
-                from team_users, users,team,projects
-                where team_users.team_id=team.id and team_users.user_id=users.id and projects.team_id=team.id and projects.team_id='$id'";
+      // // echo "edit";
+     // echo  $id;
+     //    exit;
+        //return getProjectId($id);
 
-        $backlog=backlog::all()->where('project_id', $id);
+
+
+        
+        // dd('edit');
+         $project_id= request()->project_id;
+         $team_id= getTeamId($project_id);
+         $sprint_id=$id;
+        // return $team_id;
+
+        $sql = " SELECT * from backlog_items where project_id='$project_id' ";
+        //echo $sql;
+        //exit;
+        $items=DB::select($sql);
+        //return $items;
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    $sql ="SELECT users.name, users.id
+from team_users, users,team,projects
+where team_users.team_id=team.id and team_users.user_id=users.id and projects.team_id=team.id and projects.team_id='$team_id'";
+
+
+        $teamusers=DB::select($sql);
+        //return $teamusers;
+
+
+
+        
+        // return $backlogs->count();
         
 
 
+        $sql = "SELECT backlog_items.id, backlog_items.project_id, backlog_items.deadline, backlog_items.moscow, backlog_items.description,backlog_items.backlog_item, backlog_items.task_id
+                from backlog_items, task, sprints
+                where task.sprint_id=sprints.id and backlog_items.task_id=task.id and sprints.id='$id'";
 
-        $teamusers = DB::select($sql);
+
+                $backlog = DB::select($sql);
+                if ($backlog){
+                 //echo "is ok";
+                 //return;
+                   // $teamusers = DB::select($sql);
+            return view('edit', ['backlogs'=>$backlog, 'teamusers'=>$teamusers, 'sprint_id'=>$id, 'items'=>$items,'team_id'=>$team_id ] );
+                }else {
+                   // echo "geeen data";
+                    //return;
+                    $backlogLeeg=['name'=>'-', 'id'=>'-'];
+              return view('edit', ['backlogsll'=>$backlogLeeg, 'teamusers'=>'-', 'sprint_id'=>$id, 'empty'=>'1', 'items'=>$items, 'project_id'=>$project_id, 'team_id'=>$team_id] );
+                }
+               // return;
+
+
+                //oude versie
+                // $name = ($name, 'name')->with();
+
+       
+
+
+
+
+        //$backlog=backlog::all()->where('project_id', $id);
+
+       
+        
+
+
+        
 
         
 
@@ -135,11 +240,9 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
 
 
-        return view('edit', ['backlogs'=>$backlog, 'teamusers'=>$teamusers] );
+        }
 
 
-
-    }
 
     /**
      * Update the specified resource in storage.
