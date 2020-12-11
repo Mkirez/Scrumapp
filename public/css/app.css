@@ -4413,6 +4413,7 @@ input[type=button].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+      font-size: 14px
 }
 
 .nav-link:hover,
@@ -4466,6 +4467,7 @@ input[type=button].btn-block {
 
 .nav-pills .nav-link {
   border-radius: 0.25rem;
+      color: black;
 }
 
 .nav-pills .nav-link.active,
@@ -4501,7 +4503,7 @@ input[type=button].btn-block {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 1rem;
+      padding: 0.8rem 1rem;
 }
 
 .navbar .container,
@@ -5003,7 +5005,7 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -10992,6 +10994,39 @@ transition: 1s;
 
 
 
+.navbar{
+  background-color: #083a64!important;
+
+}
+
+.navbar li{
+  color: white!important;
+  
+}
+
+ul.navbar-nav li a {
+    color: white!important;
+    font-weight: 900;
+}
+
+
+ul.navbar-nav li a:hover {
+    background-color: white;
+
+    border-radius: 20px;
+    color: #2176bd!important;
+}
+#dropdown-link{
+  color:#2176bd!important;
+}
 
 
 
+
+#backlog-card{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+ul #pills-tab li{
+  color: black!important;
+}

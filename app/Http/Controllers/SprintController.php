@@ -57,6 +57,8 @@ From task, team_users, users, backlog_items
 where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done'";
     
 
+
+
     $dataDone = DB::select($sql);
 
 
@@ -253,10 +255,9 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
      */
     public function update(Request $request, $id)
     {
-        echo "update id:".$id."<br>";
-        //return $request->input();
+      
         if ($request->option == 'done'){
-            echo "veld veranderen in done";
+            // echo "veld veranderen in done";
 
             $sql = "UPDATE task
                     set status ='done'

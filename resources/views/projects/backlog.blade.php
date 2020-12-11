@@ -79,7 +79,7 @@
 
 
     <div class="container">
-    <div class="card text-center">
+    <div class="card text-center " id="backlog-card">
     <div class="card-header">
     <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
@@ -223,8 +223,44 @@
         </tr>
     @endforeach
       <!-- button team members -->
-    
+      <div class="col-md-12" style="padding: 10px;">
+          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad sprint+</a>
+      </div>
+    </tbody>
     </table>
+<div id="sprints" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="myForm" action="/sprints" method="POST">
+            @csrf 
+          <div class="col-md-12 inner-text">
+            <h1>add teammembers</h1>
+          </div>
+          <div class="inner-form">
+              <div class="form-group">
+              <select name="backlog_id" class="custom-select" id="inputGroupSelect01">
+                <option  selected >Choose...</option>
+
+                @foreach($teamusers as $teamuser)
+                <option  value="">{{$teamuser->userName}}</option>
+                @endforeach
+                
+              
+              </select> 
+              </div>
+          
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
 
           <!-- Modal team members -->
 
