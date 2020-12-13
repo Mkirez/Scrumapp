@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Teamusers;
 
-class teamMembersController extends Controller
+class teamUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class teamMembersController extends Controller
      */
     public function index()
     {
-        //
+        echo "index";
     }
 
     /**
@@ -23,6 +24,7 @@ class teamMembersController extends Controller
      */
     public function create()
     {
+        echo "create";
         //
     }
 
@@ -34,6 +36,26 @@ class teamMembersController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
+
+        //return $request->team_id. "-" . $request->user_id;
+        if ($request->user_id == 0){
+            echo "User komt al voor";
+            exit;
+        }
+
+
+        $teamuser = new Teamusers();
+
+
+        $teamuser->team_id = $request->team_id;
+        $teamuser->user_id = $request->user_id;
+
+
+
+        $teamuser->save();
+            
+             
         //
     }
 
@@ -45,7 +67,8 @@ class teamMembersController extends Controller
      */
     public function show($id)
     {
-        //
+        echo "store";
+        
     }
 
     /**
@@ -56,7 +79,8 @@ class teamMembersController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "edit";
+        
     }
 
     /**

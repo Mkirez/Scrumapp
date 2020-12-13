@@ -39,3 +39,29 @@ function  getTeamId($projectId){
 
 }
 
+function checkTeamUser($user_id, $team_id, $userName){
+
+
+
+	$sql="SELECT users.id, users.name
+from users, team_users
+where team_users.user_id=users.id and team_users.team_id='$team_id' and team_users.user_id='$user_id'";
+//echo $sql;
+//exit;
+
+
+$data = DB::select($sql);
+$outstr="<option value='0' style='color:red; text-decoration:underline;'>".$userName."</option>";
+//return $data;
+
+if ($data){
+	//return $data;
+	echo $outstr;
+}else{
+	//return "bestaat niet";<s>".$userName."</s>";
+	echo "<option value='$user_id'>" .$userName . "</option>";
+}
+//return;
+
+
+}

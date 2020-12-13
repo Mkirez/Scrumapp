@@ -224,7 +224,7 @@
     @endforeach
       <!-- button team members -->
       <div class="col-md-12" style="padding: 10px;">
-          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad sprint+</a>
+          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#sprints">ad team users+</a>
       </div>
     </tbody>
     </table>
@@ -232,19 +232,29 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
+    <!-- // dit is de team users form  -->
     <div class="modal-content">
-        <form class="myForm" action="/sprints" method="POST">
+        <form class="myForm" action="/teamusers" method="POST">
             @csrf 
           <div class="col-md-12 inner-text">
             <h1>add teammembers</h1>
           </div>
           <div class="inner-form">
               <div class="form-group">
-              <select name="backlog_id" class="custom-select" id="inputGroupSelect01">
+              <input type="hidden" name="team_id" value="{{$teamuser->team_id}}">
+              <select name="user_id" class="custom-select" id="inputGroupSelect01">
+                
                 <option  selected >Choose...</option>
 
-                @foreach($teamusers as $teamuser)
-                <option  value="">{{$teamuser->userName}}</option>
+                @foreach($allUsers as $allUser)
+               
+              
+                  {{checkTeamUser($allUser->id,$teamuser->team_id, $allUser->name)}}
+          
+              
+
+
+              
                 @endforeach
                 
               

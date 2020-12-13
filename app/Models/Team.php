@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Teamusers extends Model
+class Team extends Model
 {
     use HasFactory;
 
-    protected $table = 'team_users';
+    protected $table = 'team';
 
-    protected $fillable = ['team_id', 'user_id'];
+    protected $fillable = ['name', 'description'];
     public $timestamps = false;
-
-
 
 }

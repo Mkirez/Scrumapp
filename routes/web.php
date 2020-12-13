@@ -13,6 +13,9 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\BacklogController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
+use App\Http\Controllers\teamUserController;
+
+
 
 
 use App\Http\Controllers\Backlog_itemController;
@@ -37,6 +40,7 @@ Route::get('test3', function(){
 	echo Auth::user()->rights;
 });
 
+Route::resource('teamusers', teamUserController::class);
 
 
 

@@ -7,6 +7,8 @@ use App\Models\Project;
 use App\Models\Teamusers;
 use App\Models\Sprint;
 use App\Models\Backlog;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -25,6 +27,11 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         //echo "show projects";
+
+   // return checkTeamUser(1, 3, 'lorenzo');   
+
+        //exit;
+
         //echo $project;
         $id=$project->id;
 
@@ -43,6 +50,9 @@ class ProjectController extends Controller
         $sprints=Sprint::all()->where('project_id', $id);
 
       
+        $allUsers = User::all();
+
+       
 
 
 
@@ -50,12 +60,12 @@ class ProjectController extends Controller
 
 
 
-        $sql = "SELECT users.name as userName, projects.name  as  projectName
+        $sql = "SELECT users.name as userName, projects.name  as  projectName, team_users.team_id
 FROM users,projects,team_users
 where team_users.team_id=projects.team_id and team_users.user_id=users.id
  AND projects.id = '$id'";
-    //echo $sql;
-    //exit;
+    // echo $sql;
+    // exit;
 
         $teamusers = DB::select($sql);
 
@@ -63,7 +73,7 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         //exit();
 
         return view('projects.backlog', ['project' => $project,
-            'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers] );
+            'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
 
 
     }
@@ -71,8 +81,29 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
     public function create()
     {
         Project::create($this->validateProject());
+        $lastProjectId = DB::getPdo()->lastInsertId();
+        $projectName=request()->name;
+        //echo $projectName;
+        //exit;
         
-        return redirect('/projects');
+        // return redirect('/projects');
+        $teamNieuw= new Team();
+        $teamNieuw->name = 'Team_'.$projectName;
+        $teamNieuw->description = '-';
+        $teamNieuw->save();
+        $lastTeamId = DB::getPdo()->lastInsertId();
+
+        $newUser= new Teamusers();
+        $newUser->team_id = $lastTeamId;
+        $newUser->user_id = '1';
+        $newUser->save();
+
+
+
+        
+        $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
+
+        // return $lastIdl;
        
     }
 
