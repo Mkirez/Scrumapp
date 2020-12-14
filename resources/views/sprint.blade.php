@@ -9,8 +9,8 @@
 
 
 @auth 
-	@if(Auth::user()->rights == 0)
-	    
+		
+	    <h1>{{$projectName}}</h1>
 	    
 		<div class="wrapper" style="padding: 50px;" >
 			<div class="container">
@@ -118,7 +118,6 @@
 		</div>
 	  
 
-	@endif
 
 @endauth
 

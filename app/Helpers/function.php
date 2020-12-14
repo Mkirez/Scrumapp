@@ -1,5 +1,6 @@
 <?php 
 
+use Illuminate\Http\Request;
 
 function getSprint($task_id, $project_id){
 
@@ -65,3 +66,54 @@ if ($data){
 
 
 }
+function getProjectIdSession(){
+	//return $request->session()->all();
+         //$projectName=$request->session()->get('projectName');
+        // return $projectName;
+
+        //$value = $request->session()->get('key');//return $request->session()->all();
+         //$projectName=$request->session()->get('projectName');
+        // return $projectName;
+
+        //$value = $request->session()->get('key');
+	// if (isset($request->session()))
+	if (request()->session()->exists('projectId')) {
+		return request()->session()->get('projectId');
+    //
+	}else{
+		return 0;
+
+	}
+
+	//if (request()->session()->has('projectId')) {
+	//	return request()->session()->get('projectId');
+	//}else { 
+	//	return redirect('/projects');
+	//}
+}
+
+
+function getProjectNameSession(){
+	//return $request->session()->all();
+         //$projectName=$request->session()->get('projectName');
+        // return $projectName;
+
+        //$value = $request->session()->get('key');//return $request->session()->all();
+         //$projectName=$request->session()->get('projectName');
+        // return $projectName;
+
+        //$value = $request->session()->get('key');
+	// if (isset($request->session()))
+	//return request()->session()->all();
+		if (request()->session()->exists('projectName')) {
+			//echo "bestaal";
+		return request()->session()->get('projectName');
+	}else {
+
+		return 0;
+		//echo "bestaat niet";
+
+	}
+	return;
+}
+

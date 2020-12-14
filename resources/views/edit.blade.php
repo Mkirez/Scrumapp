@@ -6,6 +6,8 @@
 <!-- //dit is wanneer de backlog leeg is  -->
   @isset($empty)
 
+
+
   <div class="container">
   	<div class="col-md-12 text-center" style="padding: 10px;">
 	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog(inside sprint) +</a>

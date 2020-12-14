@@ -24,7 +24,7 @@ class ProjectController extends Controller
         return view('/projects')->with('projects', $project);
     }
 
-    public function show(Project $project)
+    public function show(Project $project, Request $request)
     {
         //echo "show projects";
 
@@ -32,8 +32,23 @@ class ProjectController extends Controller
 
         //exit;
 
-        //echo $project;
+        //return $project;
         $id=$project->id;
+        $request->session()->put('projectId', $id);
+         $request->session()->put('projectName', $project->name);
+
+
+         //return getProjectNameSession();
+        //return $request->session()->all();
+         //$projectName=$request->session()->get('projectName');
+        // return $projectName;
+
+        //$value = $request->session()->get('key');
+
+
+       
+
+
 
 
         $backlogs=Backlog::all()->where('project_id', $id);

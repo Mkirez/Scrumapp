@@ -95,7 +95,10 @@ class taskController extends Controller
 
         ]);
 
-         return redirect('sprints');
+
+        $project='zomaar';
+
+         return redirect('sprints')->with('project', $project);
 
       
 

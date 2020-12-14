@@ -22,9 +22,31 @@ class SprintController extends Controller
 
     public function index()
     {
+          // request()->session()->forget('projectId');
+           //return request()->session()->all();
+          
+
+
+        $projectId=getProjectIdSession();
+        //return $projectId;
+       // exit;
+        if ($projectId == 0){ 
+            return redirect('/projects');
+
+        }
+
+       // echo $projectId;
+
+        //exit;
+        $projectName=getProjectNameSession();
+
+
+     
+
+
          $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' ";
 
         $dataSprint = DB::select($sql);
 
@@ -35,7 +57,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo' and backlog_items.project_id='$projectId'";
     
 
 
@@ -46,7 +68,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy' and backlog_items.project_id='$projectId'";
     
 
     $dataBusy = DB::select($sql);
@@ -54,7 +76,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
      $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done' and backlog_items.project_id='$projectId'";
     
 
 
@@ -62,7 +84,10 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
     $dataDone = DB::select($sql);
 
 
-        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone);
+        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName);
+
+
+
     
     }
 
