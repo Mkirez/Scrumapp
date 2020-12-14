@@ -7,3 +7,13 @@ function save_message() {
 }
 
 
+
+function add_teamMember(){
+	alert("you added user to team");
+}
+
+
+
+function add_backlogItem(){
+	alert("you have added a add_backlogItem");
+}

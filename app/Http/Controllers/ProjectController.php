@@ -118,6 +118,8 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         
         $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
 
+        return back();
+
         // return $lastIdl;
        
     }

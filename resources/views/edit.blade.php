@@ -55,6 +55,7 @@
 
  <!-- dit is wanneer de backlog miminaal 1 backlog bevat -->
   @isset($backlogs)
+
 	<div class="container">
 		<table class="table ">
 		    <thead>
@@ -147,6 +148,7 @@
 								@endforeach
 							</select>	
 							</div>
+						</div>
 						<input type="submit" name="submit">
 					</form>
 			    		

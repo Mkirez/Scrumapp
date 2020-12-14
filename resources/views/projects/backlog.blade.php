@@ -4,7 +4,7 @@
 @auth
 
 
-  @if(Auth::user()->rights == 0)
+@if(Auth::user()->rights == 0)
 
     @isset($empty)
     <div class="col-md-12 text-right" style="padding: 10px;">
@@ -54,7 +54,7 @@
 
 
                 <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" onclick="add_teamMember()">Submit</button>
                 </div>
               </div>
             </form>
@@ -197,7 +197,7 @@
 
 
                       <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" onclick="add_backlogItem()" class="btn btn-primary">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -268,7 +268,7 @@
                     
 
                       <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" onclick="add_teamMember()" class="btn btn-primary">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -321,7 +321,14 @@
                     </div>
 
                     <div class="col-sm-6">
-                      <a href="{{url('sprints',$sprint->id)}}" class="btn btn-danger">delete</a>
+                      <form action="{{url('sprints')}}/{{$sprint->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="submit" class="btn btn-danger">
+                        
+                      </form>
+                      
                     </div>
 
                   </div>
@@ -399,10 +406,11 @@
 
         
       @endisset
-    @endif
-    @if(Auth::user()->rights == 1)
-        <h1>rights 1</h1>
-    @endif
+@endif
+@if(Auth::user()->rights == 1)
+  
+@endif
+
 
 
 @endauth

@@ -9,7 +9,6 @@
 
 
 @auth 
-		
 	    <h1>{{$projectName}}</h1>
 	    
 		<div class="wrapper" style="padding: 50px;" >
@@ -39,6 +38,8 @@
 													<span>{{$data->description}}</span>
 													<span style="font-weight: 900; ">{{$data->id}}</span>
 													<form class="form_sprint" action="{{url('sprints')}}/{{$data->id}}" method="post">
+
+
 														@csrf
 														@method('PUT')
 														<div class="row">
@@ -90,7 +91,7 @@
 							</div> 
 						</div>
 					</div>
-
+					
 					<!-- done -->
 					
 					<div class="col-md-4">
@@ -117,8 +118,6 @@
 			</div>
 		</div>
 	  
-
-
 @endauth
 
 @guest

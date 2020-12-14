@@ -90,6 +90,7 @@ class taskController extends Controller
 
 
        // return $request;
+        $sprintId=request()->sprint_id;
         // exit();
         $updateUser = task::find($request->task_id)->update(['team_user_id'=>$request->name
 
@@ -98,7 +99,7 @@ class taskController extends Controller
 
         $project='zomaar';
 
-         return redirect('sprints')->with('project', $project);
+         return redirect('sprints/'. $sprintId)->with('project', $project);
 
       
 

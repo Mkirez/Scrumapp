@@ -9,6 +9,11 @@ use App\Models\Backlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;// DAN KAN Je gebruik maken van queries 
 
+
+//deze 2 uses zorgen ervoor dat zodra je return back gebruikt je de id mee gestuurd krijgt net een sessie
+// use Illuminate\Support\Facades\Redirect;
+// use Illuminate\Support\Facades\URL;
+
 class SprintController extends Controller
 {
 
@@ -21,70 +26,71 @@ class SprintController extends Controller
 
 
     public function index()
-    {
-          // request()->session()->forget('projectId');
-           //return request()->session()->all();
+{
+//           // request()->session()->forget('projectId');
+//            //return request()->session()->all();
+//         return request()->all();
           
 
 
-        $projectId=getProjectIdSession();
-        //return $projectId;
-       // exit;
-        if ($projectId == 0){ 
-            return redirect('/projects');
+//         $projectId=getProjectIdSession();
+//         //return $projectId;
+//        // exit;
+//         if ($projectId == 0){ 
+//             return redirect('/projects');
 
-        }
+//         }
 
-       // echo $projectId;
+//        // echo $projectId;
 
-        //exit;
-        $projectName=getProjectNameSession();
+//         //exit;
+//         $projectName=getProjectNameSession();
 
 
      
 
 
-         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' ";
+//          $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
+// From task, team_users, users, backlog_items
+// where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' ";
 
-        $dataSprint = DB::select($sql);
+//         $dataSprint = DB::select($sql);
 
-//////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////
 
         
 
 
-        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo' and backlog_items.project_id='$projectId'";
+//         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+// From task, team_users, users, backlog_items
+// where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo' and backlog_items.project_id='$projectId'";
     
 
 
 
-    $dataTodo = DB::select($sql);
+//     $dataTodo = DB::select($sql);
 
-///////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////
 
-       $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy' and backlog_items.project_id='$projectId'";
+//        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+// From task, team_users, users, backlog_items
+// where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy' and backlog_items.project_id='$projectId'";
     
 
-    $dataBusy = DB::select($sql);
-/////////////////////////////////////////////////////////////////
+//     $dataBusy = DB::select($sql);
+// /////////////////////////////////////////////////////////////////
 
-     $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done' and backlog_items.project_id='$projectId'";
+//      $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
+// From task, team_users, users, backlog_items
+// where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done' and backlog_items.project_id='$projectId'";
     
 
 
 
-    $dataDone = DB::select($sql);
+//     $dataDone = DB::select($sql);
 
 
-        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName);
+//         return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName);
 
 
 
@@ -135,9 +141,35 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
      */
     public function show($id)
     {
-        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
+       
+          // request()->session()->forget('projectId');
+           //return request()->session()->all();
+        // echo "show";
+        // exit;
+        // return request()->all();
+          
+
+
+        $projectId=getProjectIdSession();
+        //return $projectId;
+       // exit;
+        if ($projectId == 0){ 
+            return redirect('/projects');
+
+        }
+
+       // echo $projectId;
+
+        //exit;
+        $projectName=getProjectNameSession();
+
+
+     
+
+
+         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' and task.sprint_id='$id' ";
 
         $dataSprint = DB::select($sql);
 
@@ -148,7 +180,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
     
 
 
@@ -159,7 +191,7 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
     
 
     $dataBusy = DB::select($sql);
@@ -167,14 +199,17 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
      $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
 From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done'";
+where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
     
+
+
 
     $dataDone = DB::select($sql);
 
 
-        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone);
-    }
+        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName);
+
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -280,7 +315,8 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
      */
     public function update(Request $request, $id)
     {
-      
+
+       
         if ($request->option == 'done'){
             // echo "veld veranderen in done";
 
@@ -291,7 +327,7 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
 
 
             $dataSprint = DB::Update($sql);
-            return redirect('/sprints');
+            return back();
             
 
 
@@ -306,7 +342,9 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
 
 
             $dataSprint = DB::Update($sql);
-            return redirect('/sprints');
+            return back();
+
+
         }
 
     }
@@ -319,6 +357,6 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
      */
     public function destroy($id)
     {
-        //
+        echo "destroy";
     }
 }

@@ -42,6 +42,7 @@ class teamUserController extends Controller
         if ($request->user_id == 0){
             echo "User komt al voor";
             exit;
+
         }
 
 
@@ -54,6 +55,10 @@ class teamUserController extends Controller
 
 
         $teamuser->save();
+
+         return back();
+
+
             
              
         //
