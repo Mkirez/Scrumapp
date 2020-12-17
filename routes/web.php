@@ -14,6 +14,8 @@ use App\Http\Controllers\BacklogController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
+use App\Http\Controllers\SprintguestController;
+
 
 
 
@@ -51,6 +53,10 @@ Route::resource('sprints', SprintController::class);
 Route::resource('todo', TodoController::class);
 
 Route::resource('projects', ProjectController::class);
+
+
+
+Route::resource('Sprintguest', SprintguestController::class);
 
 // Route::resource('taken', ProjectController::class);
 

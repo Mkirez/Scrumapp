@@ -10,6 +10,8 @@ use App\Models\Backlog;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -19,10 +21,12 @@ class ProjectController extends Controller
     {
 
 
-        $project = Project::all();
+    $project = Project::all();
 
-        return view('/projects')->with('projects', $project);
-    }
+    return view('/projects')->with('projects', $project);
+
+
+}
 
     public function show(Project $project, Request $request)
     {
@@ -31,6 +35,7 @@ class ProjectController extends Controller
    // return checkTeamUser(1, 3, 'lorenzo');   
 
         //exit;
+       // return $request;
 
         //return $project;
         $id=$project->id;
@@ -87,11 +92,23 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         //return $teamusers;
         //exit();
 
-        return view('projects.backlog', ['project' => $project,
-            'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+
+    if(Auth::user()->rights == 1)
+        {
+            return view('projects.backlog', ['project' => $project,
+                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+        }
+
+    if(Auth::user()->rights == 0)
+        {
+             return view('Sprintguest', ['project' => $project,
+                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+        }
+        
+}
 
 
-    }
+    
 
     public function create()
     {

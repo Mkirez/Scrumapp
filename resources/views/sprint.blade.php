@@ -9,13 +9,16 @@
 
 
 @auth 
+
+
+
 	    <h1>{{$projectName}}</h1>
 	    
 		<div class="wrapper" style="padding: 50px;" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>sprints</h1>
+						<h1>sprints - {{$sprintName}}</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -37,11 +40,12 @@
 													<span >{{$data->name}}</span>
 													<span>{{$data->description}}</span>
 													<span style="font-weight: 900; ">{{$data->id}}</span>
-													<form class="form_sprint" action="{{url('sprints')}}/{{$data->id}}" method="post">
+													<form class="form_sprint" action="{{url('sprints')}}/{{$data->task_id}}" method="post">
 
 
 														@csrf
 														@method('PUT')
+														<input type="hidden" name="task_id" value="{{$data->task_id}}">
 														<div class="row">
 															<div class="col-md-12">
 

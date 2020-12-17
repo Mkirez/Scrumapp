@@ -11030,3 +11030,16 @@ ul.navbar-nav li a:hover {
 ul #pills-tab li{
   color: black!important;
 }
+
+.md-comfortable{
+  padding-bottom: 64px;
+    padding-top: 64px;
+}
+
+
+.theme-one{
+  box-shadow: 0 10px 14px rgba(0,0,0,.1);
+    position: relative;
+       background-color: #f8fafc70;
+}
+

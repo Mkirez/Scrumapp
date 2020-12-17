@@ -40,6 +40,14 @@ function  getTeamId($projectId){
 
 }
 
+
+function  getSprintName($sprint_id){
+	$sql="SELECT remarks from sprints  WHERE id='$sprint_id' ";
+	$data= DB::select($sql);
+	return $data[0]->remarks;
+
+}
+
 function checkTeamUser($user_id, $team_id, $userName){
 
 

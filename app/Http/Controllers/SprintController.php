@@ -7,6 +7,8 @@ use App\Models\Teamusers;
 use App\Models\Sprint;
 use App\Models\Backlog;
 use Illuminate\Http\Request;
+use Auth;
+
 use Illuminate\Support\Facades\DB;// DAN KAN Je gebruik maken van queries 
 
 
@@ -151,6 +153,7 @@ class SprintController extends Controller
 
 
         $projectId=getProjectIdSession();
+        $sprintName=getSprintName($id);
         //return $projectId;
        // exit;
         if ($projectId == 0){ 
@@ -167,7 +170,7 @@ class SprintController extends Controller
      
 
 
-         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id
+         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id, backlog_items.task_id 
 From task, team_users, users, backlog_items
 where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' and task.sprint_id='$id' ";
 
@@ -207,7 +210,17 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
     $dataDone = DB::select($sql);
 
 
-        return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName);
+
+        if(Auth::user()->rights == 0){
+               return view('sprintguestDone')->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
+
+        }
+        if(Auth::user()->rights == 1){
+            return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
+
+        }
+        
+        
 
 }
 
@@ -315,7 +328,8 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
      */
     public function update(Request $request, $id)
     {
-
+        //echo "ïd is ".$id."<br>"; 
+        //return $request;
        
         if ($request->option == 'done'){
             // echo "veld veranderen in done";

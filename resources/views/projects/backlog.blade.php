@@ -3,8 +3,8 @@
 
 @auth
 
+<!-- productowner -->
 
-@if(Auth::user()->rights == 0)
 
     @isset($empty)
     <div class="col-md-12 text-right" style="padding: 10px;">
@@ -406,10 +406,9 @@
 
         
       @endisset
-@endif
-@if(Auth::user()->rights == 1)
-  
-@endif
+
+
+<!-- user -->
 
 
 
