@@ -18,10 +18,19 @@ class ProfileController extends Controller
      */
     public function index()
     {
-         $user = Auth::user();
+
+
+         $user = Auth::User();
         // return $users->name;
-        
-        return view('profile')->with('user', $user);
+
+
+         $users= User::all(); 
+
+        // return $users;
+        // return $users[0]->email;
+
+
+        return view('profile')->with('user', $user)->with('users',$users)->with('rightStr0','')->with('rightStr1','');
     }
 
     /**
@@ -63,8 +72,28 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+     {
+    //     echo "edit";
+         $user = User::find($id);
+         //return $user->name;
+         if ($user->rights=='1'){
+            $rightStr1='selected';
+            $rightStr0='';
+
+        }else
+            {
+            $rightStr1='';
+            $rightStr0='selected';
+            }
+            //return $rightStr;
+
+         $users= User::all(); 
+
+        // return $users;
+        // return $users[0]->email;
+
+
+        return view('profile')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1);
     }
 
     /**
@@ -82,9 +111,10 @@ class ProfileController extends Controller
 
 
         $name = $request->name;
+        $rights = $request->rights;
 
         echo $id;
-        $profileUpdate= user::find($id)->update(['name'=>$name]);
+        $profileUpdate= user::find($id)->update(['name'=>$name, 'rights'=>$rights]);
         
         return redirect('/profile');
     }

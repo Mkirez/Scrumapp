@@ -23,7 +23,12 @@ class ProjectController extends Controller
 
     $project = Project::all();
 
+
     return view('/projects')->with('projects', $project);
+
+
+
+
 
 
 }
