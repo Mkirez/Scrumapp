@@ -30,7 +30,21 @@ class ProfileController extends Controller
         // return $users[0]->email;
 
 
-        return view('profile')->with('user', $user)->with('users',$users)->with('rightStr0','')->with('rightStr1','');
+    if(Auth::user()->rights == 0)
+        {
+
+        return view('profileUser')->with('user', $user);
+        }
+
+    if(Auth::user()->rights == 1)
+
+    {
+
+        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0','')->with('rightStr1','');
+    }
+
+
+
     }
 
     /**
@@ -93,7 +107,7 @@ class ProfileController extends Controller
         // return $users[0]->email;
 
 
-        return view('profile')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1);
+        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1);
     }
 
     /**
