@@ -10972,6 +10972,8 @@ transition: 1s;
 
   .card {
     background-color: white!important;
+    padding: 1px!important;
+
     
   }
 
@@ -10988,7 +10990,7 @@ transition: 1s;
   }
 
   img#scrum-navbar{
-    width: 50%!important;
+    width: 30%!important;
   }
 }
 
@@ -11043,3 +11045,6 @@ ul #pills-tab li{
        background-color: #f8fafc70;
 }
 
+.show ul li{
+  
+}

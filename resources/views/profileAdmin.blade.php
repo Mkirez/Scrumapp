@@ -28,14 +28,14 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input class="form-control" type="text" id="name" name="name" value="{{$user->name}}">
+                                                <input class="form-control" required type="text" id="name" name="name" value="{{$user->name}}">
                                             </div>
                                         </div>
                                         <br>
                                          <div class="row">
                                             <div class="col-md-2">
                                                 <select name="rights" class="custom-select" id="inputGroupSelect01">
-                                                <option   >Choose...</option>
+                                                <option    >Choose...</option >
 
 
                                                 
@@ -52,7 +52,7 @@
                                        <div class="row">
                                             <div class="col-md-12 ">
                                             
-                                                <button class="btn btn-info" onclick="save_message()" href="" type="submit">change
+                                                <button class="btn btn-info" onclick="return confirm('are you sure you want to change this accunt?');" href="" type="submit">change
                                                 </button>
                                                     
                                                 
@@ -85,7 +85,7 @@
                 <div class="col-md-12 ">
                     <form method="post"   action="{{url('profile')}}/{{$user->id}}"> @csrf
                         @method('DELETE')
-                        <button type="submit" onclick="delete_message()" class="btn btn-danger" >Delete</button>                        
+                        <button type="submit" onclick="return confirm('are you sure you want to delete this account? ');" class="btn btn-danger" >Delete</button>                        
                     </form>
                 </div>
 

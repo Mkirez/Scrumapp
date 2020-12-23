@@ -132,6 +132,7 @@ class SprintController extends Controller
 
         $project_id = $request->project_id;
 
+        return redirect('/projects/' . $project_id);
         // return redirect('/projects/' . $project_id. 'project:');
     }
 
@@ -216,6 +217,11 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
 
         }
         if(Auth::user()->rights == 1){
+            return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
+
+        }
+
+         if(Auth::user()->rights == 2){
             return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
 
         }
@@ -369,8 +375,18 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, request $request)
     {
-        echo "destroy";
+        $sql = "DELETE FROM sprints WHERE id=$id";
+
+
+
+
+        $sprints = DB::update($sql);
+
+       
+         
+
+        return back();
     }
 }

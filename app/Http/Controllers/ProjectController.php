@@ -98,17 +98,25 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         //exit();
 
 
- if(Auth::user()->rights == 0)
+ if(Auth::user()->rights == 0 )
         {
              return view('Sprintguest', ['project' => $project,
                 'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
         }
 
-    if(Auth::user()->rights == 1)
+
+ if(Auth::user()->rights == 1)
+        {
+             return view('Sprintguest', ['project' => $project,
+                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+        }
+
+      if(Auth::user()->rights == 2)
         {
             return view('projects.backlog', ['project' => $project,
                 'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
         }
+
 
 
     

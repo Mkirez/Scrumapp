@@ -37,6 +37,12 @@ class ProfileController extends Controller
         }
 
     if(Auth::user()->rights == 1)
+        {
+
+        return view('profileUser')->with('user', $user);
+        }
+
+    if(Auth::user()->rights == 2)
 
     {
 

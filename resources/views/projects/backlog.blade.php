@@ -34,22 +34,22 @@
 
                 <div class="form-group">
                 <label for="exampleInputEmail1">description</label>
-                <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                 </div>
 
                 <div class="form-group">
                 <label for="exampleInputPassword1">backlog_item</label>
-                <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1" required>
                 </div>
 
                 <div class="form-group">
                 <label for="exampleInputPassword1">moscow</label>
-                <input type="text" name="moscow" class="form-control" id="moscow">
+                <input type="text" name="moscow" class="form-control" id="moscow" required>
                 </div>
 
                 <div class="form-group">
                 <label for="exampleInputPassword1">deadline</label>
-                <input type="date" name="deadline" class="form-control" id="start_date">
+                <input type="date" name="deadline" class="form-control" id="start_date" required>
                 </div>
 
 
@@ -177,27 +177,27 @@
 
                       <div class="form-group">
                       <label for="exampleInputEmail1">description</label>
-                      <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                       </div>
 
                       <div class="form-group">
                       <label for="exampleInputPassword1">backlog_item</label>
-                      <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1">
+                      <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1" required>
                       </div>
 
                       <div class="form-group">
                       <label for="exampleInputPassword1">moscow</label>
-                      <input type="text" name="moscow" class="form-control" id="moscow">
+                      <input type="text" name="moscow" class="form-control" id="moscow" required>
                       </div>
 
                       <div class="form-group">
                       <label for="exampleInputPassword1">deadline</label>
-                      <input type="date" name="deadline" class="form-control" id="start_date">
+                      <input type="date" name="deadline" class="form-control" id="start_date" required>
                       </div>
 
 
                       <div class="col-md-12">
-                        <button type="submit" onclick="add_backlogItem()" class="btn btn-primary">Submit</button>
+                        <button type="submit"  class="btn btn-primary">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -309,12 +309,12 @@
                         @method('GET')
 
 
-                        <input type="hidden" value="{{$project->id}}" name="project_id">
+                        <input type="hidden" value="{{$project->id}}" name="project_id" >
                         <input type="hidden" name="backlog_id" value="{{$backlog->id}}">
 
                         <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
 
-                        <input type="submit"  name="" class="btn btn-primary">
+                        <input type="submit" value="view" name="" class="btn btn-primary">
                         
                       </form>
                       
@@ -325,7 +325,7 @@
                         @csrf
                         @method('DELETE')
 
-                        <input type="submit" class="btn btn-danger">
+                        <input type="submit" value="delete" class="btn btn-danger" onclick="return confirm('are you sure you want to delete this?');">
                         
                       </form>
                       
@@ -361,7 +361,7 @@
 
 
             <label for="exampleInputEmail1">description</label>
-            <input type="hidden" name="project_id" value="{{$backlog->project_id}}">
+            <input type="hidden" name="project_id" value="{{$backlog->project_id}}" required>
             </div>
 
 
@@ -369,17 +369,17 @@
 
              <div class="form-group">
             <label for="exampleInputPassword1">created_at</label>
-            <input type="date" name="created_at" class="form-control" id="start_date">
+            <input type="date" name="created_at" class="form-control" id="start_date" required >
             </div>
 
             <div class="form-group">
             <label for="exampleInputPassword1">updated_at</label>
-            <input type="date" name="updated_at" class="form-control" id="start_date">
+            <input type="date" name="updated_at" class="form-control" id="start_date" required>
             </div>
 
               <div class="form-group">
             <label for="exampleInputEmail1">remarks</label>
-            <input type="text" name="remarks"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="remarks"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
             </div>
 
             

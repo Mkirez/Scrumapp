@@ -110,12 +110,18 @@ class taskController extends Controller
     public function insertTaskToSprint(Request $request){
         
 
+
+
+        $sprintId=request()->sprint_id;
         //return $request;
 
         if (isset($request->backlog_id)){
         $backlog_id=$request->backlog_id;
        // return $backlog_id;
         $projects_id= $request->projects_id;
+
+        $sprint_id= $request->sprint_id;
+        
       // exit();
 
         $task = new task();
@@ -138,11 +144,14 @@ class taskController extends Controller
 
 
 
-               return redirect('/projects/' . $projects_id);
+         return redirect('sprints/'. $sprintId . '/edit');
+    
+        return back();
+               
 
         // return $request;
 
-         return redirect('sprints');
+         // return redirect('sprints');
        
 
         echo "ök";

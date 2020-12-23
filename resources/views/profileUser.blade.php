@@ -37,7 +37,7 @@
                                        <div class="row">
                                             <div class="col-md-12 ">
                                             
-                                                <button class="btn btn-info" onclick="save_message()" href="" type="submit">change
+                                                <button class="btn btn-info" onclick="return confirm('are you sure you want to change your name?');" href="" type="submit">change
                                                 </button>
                                                     
                                                 
