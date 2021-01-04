@@ -10998,10 +10998,6 @@ transition: 1s;
 
 
 
-.navbar{
-  background-color: #083a64!important;
-
-}
 
 .navbar li{
   color: white!important;
@@ -11070,5 +11066,11 @@ ul #pills-tab li{
     font-size: 12px!important;
     font-weight: 800!important;
     width: 59%!important;
+
+  }
+
+  #navbar{
+    background-color: #083a64!important;
+        padding: 0.8rem 1rem;
 
   }

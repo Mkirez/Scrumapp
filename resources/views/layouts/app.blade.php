@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light    shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm " id="navbar">
             <div class="container" >
                 <img src="{{ asset('/logo_large.png') }}" style="width: 17%;" id="scrum-navbar">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
