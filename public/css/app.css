@@ -10977,6 +10977,8 @@ transition: 1s;
     
   }
 
+
+
   .nav{
     /*display: inline-block;*/
   }
@@ -11026,7 +11028,7 @@ ul.navbar-nav li a:hover {
 
 
 #backlog-card{
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      box-shadow: rgba(0, 0, 0, 0.24) -1px 5px 8px;
 }
 
 ul #pills-tab li{
@@ -11048,3 +11050,25 @@ ul #pills-tab li{
 .show ul li{
   
 }
+
+
+
+  @media (min-width: 576px) {
+
+
+  }
+
+  .jumbotron-style{
+    padding:1.8rem!important;
+
+  }
+
+  #sprintGuest_button{
+
+    padding: 4px!important;
+    border-radius: 18px!important;
+    font-size: 12px!important;
+    font-weight: 800!important;
+    width: 59%!important;
+
+  }

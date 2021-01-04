@@ -136,8 +136,9 @@
                   <td>{{ $backlog->backlog_item}}</td>
                   <td>{{ $backlog->moscow}}
                   </td>
-                  <td>{{ $backlog->deadline}}
+                  <td>{{date('d/m/Y', strtotime($backlog->deadline)) }}
                   </td>
+                
                   <td>{{ $backlog->task_id}}
                   </td>
                   <td>
@@ -296,8 +297,10 @@
             <tr>
               <th scope="row">{{$sprint->id}}</th>
               <td>{{$sprint->project_id}}</td>
-              <td>{{$sprint->created_at}}</td>
-              <td>{{$sprint->updated_at}}</td>
+              <td>{{date('d/m/Y', strtotime($sprint->created_at)) }}</td>
+              
+              <td>{{date('d/m/Y', strtotime($sprint->updated_at)) }}</td>
+              
               <td>{{$sprint->remarks}}</td>
               <td>
                 <div class="container">

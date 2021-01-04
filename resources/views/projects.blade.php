@@ -80,13 +80,14 @@
                                         <p class="card-text">eind datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->end_date}}</span>
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <p class="card-text">begin datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->start_date}}</span>
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -126,13 +127,13 @@
                                         <p class="card-text">eind datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->end_date}}</span>
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
                                     </div>
                                     <div class="col-md-6">
                                         <p class="card-text">begin datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->start_date}}</span>
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,13 +174,14 @@
                                         <p class="card-text">eind datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->end_date}}</span>
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
+                                         
                                     </div>
                                     <div class="col-md-6">
                                         <p class="card-text">begin datum :</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{$project->start_date}}</span>
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     </div>
                                 </div>
                             </div>

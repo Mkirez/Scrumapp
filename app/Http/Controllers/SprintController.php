@@ -239,19 +239,27 @@ where task.team_user_id=team_users.id and team_users.user_id=users.id and backlo
     public function edit($id)
     {
 
-      // // echo "edit";
-     // echo  $id;
-     //    exit;
-        //return getProjectId($id);
 
+
+      // // echo "edit";
+    // echo  $id;
+        //exit;
+       // return getProjectId($id);
+//exit;
 
 
         
         // dd('edit');
-         $project_id= request()->project_id;
+        // $project_id= request()->project_id;
+        $project_id = getProjectId($id);
+
+         //echo "";
+
          $team_id= getTeamId($project_id);
          $sprint_id=$id;
         // return $team_id;
+
+
 
         $sql = " SELECT * from backlog_items where project_id='$project_id' ";
         //echo $sql;
