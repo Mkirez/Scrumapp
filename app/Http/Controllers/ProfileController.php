@@ -134,9 +134,25 @@ class ProfileController extends Controller
         $rights = $request->rights;
 
         echo $id;
-        $profileUpdate= user::find($id)->update(['name'=>$name, 'rights'=>$rights]);
-        
-        return redirect('/profile');
+
+        if(Auth::user()->rights == 0){
+                    $profileUpdate= user::find($id)->update(['name'=>$name]);
+
+                    
+                    return redirect('/profile');
+            }
+            if(Auth::user()->rights == 1){
+                    $profileUpdate= user::find($id)->update(['name'=>$name]);
+
+                    
+                    return redirect('/profile');
+            }
+            if(Auth::user()->rights == 2){
+                    $profileUpdate= user::find($id)->update(['name'=>$name, 'rights'=>$rights]);
+
+                    
+                    return redirect('/profile');
+            }
     }
         
 
