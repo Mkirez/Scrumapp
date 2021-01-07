@@ -105,7 +105,7 @@
     <div class="tab-content" id="pills-tabContent">
 
 
-      <div class="tab-pane fade show active" id="pills-backlog" role="tabpanel" aria-labelledby="pills-backlog-tab">
+      <div class="tab-pane fade show active" id="pills-backlog"  role="tabpanel" aria-labelledby="pills-backlog-tab">
             <table class="table ">
               <thead>
                 <tr>
