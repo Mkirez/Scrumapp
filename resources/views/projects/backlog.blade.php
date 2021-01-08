@@ -7,9 +7,11 @@
 
 
 @isset($empty)
+@if(Auth::user()->rights == 2)
 <div class="col-md-12 text-right" style="padding: 10px;">
   <a href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
 </div>
+@endif
 <div id="backlog" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -22,12 +24,12 @@
 
         <div class="inner-form">
 
-          @if(Auth::user()->rights == 2)
+          
 
           <div class="col-md-12 inner-text">
             <h1>Add backlog item</h1>
           </div>
-          @endif
+         
 
           <div class="form-group">
 
