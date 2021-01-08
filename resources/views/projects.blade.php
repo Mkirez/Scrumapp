@@ -7,7 +7,22 @@
 
 @auth
 <!-- projecten maken -->
+
+
+
+    
+
+
+
+
+
+    
+
+
+
 @if(Auth::user()->rights == 2)
+
+
 
 <div class="container">
     <!-- button -->
@@ -63,6 +78,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <h1>Projects</h1>
             </div>
+             @if(count($projects) == 0)
+            <p>Wait until the product owner assigns you to a project </p>
+
+
+
+            @endif
         </div>
         <div class="row">
 
@@ -102,6 +123,7 @@
     @endif
 
     @if(Auth::user()->rights == 0)
+        
 
     <div class="container">
 
@@ -109,6 +131,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <h1>Projects</h1>
             </div>
+             @if(count($projects) == 0)
+            <p>Wait until the product owner assigns you to a project </p>
+
+
+
+            @endif
         </div>
         <div class="row">
 
@@ -149,7 +177,8 @@
     @endif
 
 
-    @if(Auth::user()->rights == 1)
+@if(Auth::user()->rights == 1)
+    
 
     <div class="container">
 
@@ -157,6 +186,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <h1>Projects</h1>
             </div>
+            @if(count($projects) == 0)
+            <p>Wait until the product owner assigns you to a project </p>
+
+
+
+            @endif
         </div>
         <div class="row">
 

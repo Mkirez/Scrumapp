@@ -20,6 +20,15 @@ class ProjectController extends Controller
     public function index()
     {
 
+
+
+        
+
+
+
+
+
+
     $id = Auth::user()->id;
     $rights=Auth::user()->rights;
     

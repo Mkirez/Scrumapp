@@ -37,6 +37,8 @@ use App\Http\Controllers\Backlog_itemController;
 
 Auth::routes();
 
+
+// je moet auth zijn dus ingelogd zijn anders word je naar inlog gestuurd
 Route::middleware('auth')->group(function () {
 
 // Route::get('test3', function(){
@@ -75,7 +77,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
 
+
+});
+
 Route::get('/', function () {
     return view('welcome');
-});
 });
