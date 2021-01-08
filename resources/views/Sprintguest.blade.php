@@ -64,7 +64,7 @@
               <th scope="col">Start date</th>
 
             
-              <th scope="col">deadline</th>
+              <th scope="col">Deadline</th>
               <th scope="col">View</th>
 
             </tr>
@@ -120,7 +120,7 @@
   
     
       <div class="col-md-12 text-center">
-        <h1>inloggen jij</h1>
+        <h1>Please sign in!</h1>
       </div>
 
 

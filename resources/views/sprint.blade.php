@@ -12,24 +12,24 @@
 
 
 
-	    <h1>{{$projectName}}</h1>
+	    
 	    
 		<div class="wrapper" style="padding: 50px;" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>sprints - {{$sprintName}}</h1>
+						<h1>Sprint: {{$sprintName}}</h1>
 					</div>
 				</div>
 				<div class="row">
-
+					
 					<!-- tasks -->
 					<div class="col-md-4">
 						<div class="inner border bg-white">
 
 							<div class="row">
 								<div class="col-md-12 text-center">
-									<h1>task sas</h1>
+									<h1>Backlog items</h1>
 								</div>
 								<div class="col-md-12 text-center">	
 									<div class="inner">
@@ -39,7 +39,6 @@
 												<div class="border">
 													<span >{{$data->name}}</span>
 													<span>{{$data->description}}</span>
-													<span style="font-weight: 900; ">{{$data->id}}</span>
 													<form class="form_sprint" action="{{url('sprints')}}/{{$data->task_id}}" method="post">
 
 
@@ -50,13 +49,13 @@
 															<div class="col-md-12">
 
 															<input type="radio"  name="option" value="busy">
-															<label for="busy">busy</label>
+															<label for="busy">Busy</label>
 															<input type="radio"  name="option" value="done">
-															<label for="done">done</label><br>
+															<label for="done">Done</label><br>
 															</div>
 
 															<div class="col-md-12">
-																<button type="submit" class="btn btn-info">move to</button>
+																<button type="submit" class="btn btn-info">Move to</button>
 															</div>
 														</div>
 													</form>
@@ -78,7 +77,7 @@
 
 							<div class="row">
 								<div class="col-md-12 text-center">
-									<h1>busy</h1>
+									<h1>Busy</h1>
 								</div>
 								<div class="col-md-12 text-center">	
 									<div class="inner">
@@ -102,7 +101,7 @@
 						<div class="inner border bg-white">
 							<div class="row">
 								<div class="col-md-12 text-center">
-									<h1>done</h1>
+									<h1>Done</h1>
 								</div>
 								<div class="col-md-12 text-center">	
 									<div class="inner">
@@ -129,7 +128,7 @@
 	
 		
 			<div class="col-md-12 text-center">
-				<h1>inloggen jij</h1>
+				<h1>Please sign in!</h1>
 			</div>
 
 

@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12 border-bottom">
             <!-- <h2>Personal information</h2> -->
-            <h1 ><strong>my profile</strong></h1>
+            <h1 ><strong>My profile</strong></h1>
         </div>
     </div>
     
@@ -19,10 +19,10 @@
         <div class="col-md-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="mt-2"><strong>profile information</strong></h4>
+                    <h4 class="mt-2"><strong>Profile information</strong></h4>
                 </div>
                 <div class="col-md-12">
-                    <span>your account information</span>
+                    <span>Your account information</span>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5><strong>name</strong></h5>
+                                <h5><strong>Name</strong></h5>
                             </div>
                             <div class="col-md-12">
                                 <h6>{{$user->name}}</h6>
@@ -45,7 +45,7 @@
 
 
                             <div class="col-md-12">
-                                <h5><strong>email</strong></h5>
+                                <h5><strong>Email</strong></h5>
                             </div>
                             <div class="col-md-12">
                                 <h6>{{$user->email}}</h6>
@@ -65,10 +65,10 @@
         <div class="col-md-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="mt-2"><strong>change user</strong></h4>
+                    <h4 class="mt-2"><strong>Change user</strong></h4>
                 </div>
                 <div class="col-md-12">
-                    <span>your account information</span>
+                    <span>Your account information</span>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
                                             <div class="col-md-2">
                                                 <select name="rights"  class="custom-select" id="inputGroupSelect01" required>
                                                 <option value=""  >Choose...</option >
-                                                <option  value="1"  {{$rightStr1}} >1</option>
+                                                <option value="1"  {{$rightStr1}} >1</option>
                                                 <option value="0" {{$rightStr0}} >0</option>
                                                 </select>                                               
                                             </div>
@@ -112,7 +112,7 @@
                                        <div class="row">
                                             <div class="col-md-12 ">
                                             
-                                                <button id="same-color" class="btn btn-info" onclick="return confirm('are you sure you want to change this accunt?');" href="" type="submit">change
+                                                <button id="same-color" class="btn btn-info" onclick="return confirm('are you sure you want to change this accunt?');" href="" type="submit">Change
                                                 </button>      
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@
                         <div class="row">
                              <div class="col-12">
                                 <label>
-                                    <h5>delete account </h5>
+                                    <h5>Delete account </h5>
                                 </label>
 
                             </div>
@@ -168,11 +168,11 @@
             <table class="table" id="profile-card">
           <thead>
             <tr>
-              <th scope="col">id</th>
-              <th scope="col">name</th>
-              <th scope="col">email</th>
-              <th scope="col">rights</th>
-              <th scope="col">edit/delete</th>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Rights</th>
+              <th scope="col">Edit/Delete</th>
             </tr>
           </thead>
 
@@ -213,7 +213,7 @@
 
 @guest
 
-<h1>eerst inloggen jij</h1>
+<h1>Please sign in!</h1>
 
 @endguest
     

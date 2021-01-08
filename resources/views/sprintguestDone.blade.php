@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>sprints - {{$sprintName}}</h1>
+            <h1>Sprints - {{$sprintName}}</h1>
           </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
             <div class="inner border bg-white">
               <div class="row">
                 <div class="col-md-12 text-center">
-                  <h1>done</h1>
+                  <h1>Done</h1>
                 </div>
                 <div class="col-md-12 text-center"> 
                   <div class="inner">
@@ -58,7 +58,7 @@
   
     
       <div class="col-md-12 text-center">
-        <h1>inloggen jij</h1>
+        <h1>Please sign in!</h1>
       </div>
 
 

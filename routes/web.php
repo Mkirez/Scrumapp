@@ -37,6 +37,8 @@ use App\Http\Controllers\Backlog_itemController;
 
 Auth::routes();
 
+Route::middleware('auth')->group(function () {
+
 // Route::get('test3', function(){
 // 	echo "test";
 // 	echo Auth::user()->rights;
@@ -75,4 +77,5 @@ Route::resource('projects/{project}/backlog_items', Backlog_itemController::clas
 
 Route::get('/', function () {
     return view('welcome');
+});
 });

@@ -10,7 +10,7 @@
 
   <div class="container">
   	<div class="col-md-12 text-center" style="padding: 10px;">
-	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add to sprint</a>
+	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">Add to sprint</a>
 	      </div> 
 		<div id="backlog" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -23,7 +23,7 @@
 		   
 		    <!-- hier kun je beginnen je met je eerste backlpg toevoegen -->
 		  <div class="col-md-12 inner-text">
-		    <h1>add backlogelement</h1>
+		    <h1>Add backlogelement</h1>
 		  </div>
 		  <div class="inner-form">
 
@@ -60,10 +60,10 @@
 		<table class="table ">
 		    <thead>
 		      <tr>
-		        <th scope="col">backlog item</th>
+		        {{-- <th scope="col">backlog item</th> --}}
 		        <!-- <th scope="col">Project id</th> -->
+		        <th scope="col">Name</th>
 		        <th scope="col">Description</th>
-		        <th scope="col">Backlog item</th>
 		        <th scope="col">Moscow</th>
 		        <th scope="col">Deadline</th>
 		        
@@ -76,10 +76,10 @@
 		  @foreach($backlogs as $backlog)
 		    <tbody>
 				<tr>
-					<th scope="row">{{$backlog->id}}</th>
+					{{-- <th scope="row">{{$backlog->id}}</th> --}}
 				<!-- 	<td>{{$backlog->project_id}}</td> -->
-					<td>{{$backlog->description}}</td>
 					<td>{{ $backlog->backlog_item}}</td>
+					<td>{{$backlog->description}}</td>
 					<td>{{$backlog->moscow}}</td>
 
 					<td>{{ date('d/m/Y', strtotime($backlog->deadline)) }}</td>
@@ -97,8 +97,8 @@
 
 	  					
 						  <div class="form-group">
-							<select name="name" class="custom-select" id="inputGroupSelect01">
-								<option  selected >Choose...</option>
+							<select required name="name" class="custom-select" id="inputGroupSelect01">
+								<option value="">Choose...</option>
 
 								@foreach($teamusers as $teamuser)
 								<option  value="{{$teamuser->id}}">{{$teamuser->name}}</option>
@@ -115,7 +115,7 @@
 
 		<!-- button die de model-content opent waardoor je backlogs in die sprint kan gooien  -->
 		<div class="col-md-12 text-center" style="padding: 10px;">
-	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add to sprint</a>
+	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">Add to sprint</a>
 	      </div>   
 		</table>
 
@@ -136,7 +136,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div style="padding: 27px;">
-										<h2>add backlog item</h2>
+										<h2>Add backlog item</h2>
 									</div>
 								</div>
 								<div class=col-md-12>
