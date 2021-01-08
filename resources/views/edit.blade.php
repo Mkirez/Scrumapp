@@ -19,7 +19,7 @@
 				<form class="myForm" action="/insertTaskToSprint" method="POST">
 					@csrf
 
-					<input type="project_id" name="project_id" type="hidden">
+					<input name="project_id" type="hidden">
 
 					<!-- hier kun je beginnen je met je eerste backlpg toevoegen -->
 					<div class="col-md-12 inner-text">
