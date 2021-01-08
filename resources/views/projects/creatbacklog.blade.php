@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">Description</label>
-    <input type="email" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
 
   <div class="form-group">

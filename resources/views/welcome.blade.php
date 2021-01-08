@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-            
+
 <div class="container-fluid">
     <div class="row flex-container" style="padding: 40px;">
         <div class="col-xs-12 col-sm-12 col-md-5 vertical-middle">
@@ -24,20 +24,20 @@
 <div class="space" style="padding-top: 40px;">
 </div>
 <div class="wrapper">
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <h1> The best software teams ship early and often. </h1>
-            <span>Jira Software is built for every member of your software team to plan,
-track, and release great software.</span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <h1> The best software teams ship early and often. </h1>
+                <span>Jira Software is built for every member of your software team to plan,
+                    track, and release great software.</span>
+            </div>
         </div>
     </div>
 </div>
-</div>
 
-    
-    <!-- ik zeg gewoon als je al bent ingelogd redirect hem naar de home -->
-   
+
+<!-- ik zeg gewoon als je al bent ingelogd redirect hem naar de home -->
+
 
 
 
