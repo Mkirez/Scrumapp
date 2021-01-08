@@ -29,8 +29,8 @@
 
 
 
-						<input type="hidden" name="sprint_id" value="{{$sprint_id}}">
-						<input type="hidden" name="project_id" value="{{$project_id}}">
+						<input type="hidden" name="sprint_id" value="{{$sprint_id}}" style="display: none!important;">
+						<input type="hidden" name="project_id" value="{{$project_id}}" style="display: none!important;">
 						<div class="form-group">
 							<select name="backlog_id" class="custom-select" id="inputGroupSelect01">
 								<option selected>Choose...</option>
