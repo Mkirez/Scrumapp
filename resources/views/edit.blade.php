@@ -10,7 +10,7 @@
 
   <div class="container">
   	<div class="col-md-12 text-center" style="padding: 10px;">
-	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog(inside sprint) +</a>
+	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add to sprint</a>
 	      </div> 
 		<div id="backlog" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -19,7 +19,7 @@
 		<form class="myForm" action="/insertTaskToSprint" method="POST">
 		    @csrf
 
-		    <input type="project_id" name="project_id">
+		    <input type="project_id" name="project_id" type="hidden">
 		   
 		    <!-- hier kun je beginnen je met je eerste backlpg toevoegen -->
 		  <div class="col-md-12 inner-text">
@@ -60,14 +60,14 @@
 		<table class="table ">
 		    <thead>
 		      <tr>
-		        <th scope="col">Id</th>
-		        <th scope="col">project id</th>
-		        <th scope="col">description</th>
-		        <th scope="col">backlog_item</th>
-		        <th scope="col">moscow</th>
-		        <th scope="col">deadline</th>
+		        <th scope="col">backlog item</th>
+		        <!-- <th scope="col">Project id</th> -->
+		        <th scope="col">Description</th>
+		        <th scope="col">Backlog item</th>
+		        <th scope="col">Moscow</th>
+		        <th scope="col">Deadline</th>
 		        
-		        <th scope="col">toewijzen aan</th>
+		        <th scope="col">Assign to</th>
 		      </tr>
 		    </thead>
 
@@ -77,12 +77,13 @@
 		    <tbody>
 				<tr>
 					<th scope="row">{{$backlog->id}}</th>
-					<td>{{$backlog->project_id}}</td>
+				<!-- 	<td>{{$backlog->project_id}}</td> -->
 					<td>{{$backlog->description}}</td>
 					<td>{{ $backlog->backlog_item}}</td>
 					<td>{{$backlog->moscow}}</td>
 
-					<td>{{ $backlog->deadline}}</td>
+					<td>{{ date('d/m/Y', strtotime($backlog->deadline)) }}</td>
+
 					<td>
 						<!-- dit is de form die users toewijst aan een backlog  -->
 	  					<form action="/taskInsertUser" method="post">
@@ -90,7 +91,7 @@
 	  						@method('post')
 
 
-	  					<input type="hidden" name="sprint_id" value="{{$sprint_id}}">
+	  					<input type="hidden" name="sprint_id" value="{{$sprint_id}}" >
 
 	  					<input type="hidden" name="task_id" value="{{$backlog->task_id}}">
 
@@ -105,7 +106,7 @@
 							
 							</select>	
 						  </div>
-						  <input type="submit" name="submit">
+						  <input type="submit" value="send"  name="submit" class="btn btn-info">
 						</form>
 					</td>
 				</tr> 
@@ -114,7 +115,7 @@
 
 		<!-- button die de model-content opent waardoor je backlogs in die sprint kan gooien  -->
 		<div class="col-md-12 text-center" style="padding: 10px;">
-	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog(inside sprint) +</a>
+	          <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add to sprint</a>
 	      </div>   
 		</table>
 
@@ -128,28 +129,39 @@
 					<form class="myForm" action="/insertTaskToSprint" method="POST">
 						@csrf
 
-						<input type="project_id" name="project_id">
+						<!-- type="project_id" -->
 
-
-						<div class="col-md-12 inner-text">
-						<h1>add backlogelement</h1>
-						</div>
-						<div class="inner-form">
-
-
-						<!--<input type="hidden" name="backlog_id" value="{{$backlog->id}}">-->
-						<input type="hidden" name="sprint_id" value="{{$sprint_id}}">
-						<input type="hidden" name="project_id" value="{{$backlog->project_id}}">
-							<div class="form-group">
-							<select name="backlog_id" class="custom-select" id="inputGroupSelect01">
-							<option  selected >Choose...</option>
-								@foreach($items as $item)
-								<option  value="{{$item->id}}" >{{$item->backlog_item}}</option>
-								@endforeach
-							</select>	
+						<input name="project_id" type="hidden">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div style="padding: 27px;">
+										<h2>add backlog item</h2>
+									</div>
+								</div>
+								<div class=col-md-12>
+									<div class="inner-form" style="padding: 18px 18px;">
+										<!--<input type="hidden" name="backlog_id" value="{{$backlog->id}}">-->
+										<input type="hidden" name="sprint_id" value="{{$sprint_id}}">
+										<input type="hidden" name="project_id" value="{{$backlog->project_id}}">
+										<div class="form-group">
+										<select name="backlog_id" class="custom-select" id="inputGroupSelect01">
+										<option  selected >Choose...</option>
+											@foreach($items as $item)
+											<option  value="{{$item->id}}" >{{$item->backlog_item}}</option>
+											@endforeach
+										</select>	
+										</div>
+										
+										<div class="form-group" >
+											<input type="submit" name="submit" value="send" class="btn btn-info">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<input type="submit" name="submit">
+						
+						
 					</form>
 			    		
 			    </div>

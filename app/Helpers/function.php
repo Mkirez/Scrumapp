@@ -4,8 +4,11 @@ use Illuminate\Http\Request;
 
 function getSprint($task_id, $project_id){
 
+
+
+
 if ($task_id == NULL) {
-	return 'geen sprint';
+	return 'geen ';
 }else{
 
 	$sql = "SELECT sprints.remarks 
@@ -14,6 +17,10 @@ WHERE sprints.project_id = '$project_id' AND task.sprint_id = sprints.id AND tas
 // return $task_id."--".$project_id;
 
 $data = DB::select($sql);
+
+
+
+
 
 
 return $data[0]->remarks;
@@ -60,7 +67,7 @@ where team_users.user_id=users.id and team_users.team_id='$team_id' and team_use
 
 
 $data = DB::select($sql);
-$outstr="<option value='0' style='color:red; text-decoration:underline;'>".$userName."</option>";
+$outstr="<option value='0' style='display:none; text-decoration:underline;'>".$userName."</option>";
 //return $data;
 
 if ($data){
@@ -125,3 +132,8 @@ function getProjectNameSession(){
 	return;
 }
 
+
+
+function asmaskasms(){
+	echo "string";
+}

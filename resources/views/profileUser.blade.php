@@ -68,7 +68,7 @@
                     <h4 class="mt-2"><strong>change user</strong></h4>
                 </div>
                 <div class="col-md-12">
-                    <span>your account information</span>
+                    <span>change your account information</span>
                 </div>
             </div>
 
@@ -105,10 +105,13 @@
                                                 </button>      
                                             </div>
                                         </div>
-                                    </form>   
+                                    </form>
+                                     <br>
+                                    
+                                    
+   
                     </div>
-                    <br>
-                    <br>
+
                     <div class="col-md-12">
                         <div class="row">
                              <div class="col-12">
@@ -117,6 +120,7 @@
                                 </label>
 
                             </div>
+
                             <div class="col-md-12 ">
                                 <form method="post"   action="{{url('profile')}}/{{$user->id}}"> @csrf
                                     @method('DELETE')

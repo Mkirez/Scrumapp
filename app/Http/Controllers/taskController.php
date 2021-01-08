@@ -89,15 +89,25 @@ class taskController extends Controller
     public function insertUser(Request $request){
 
 
-       // return $request;
-        $sprintId=request()->sprint_id;
-        // exit();
-        $updateUser = task::find($request->task_id)->update(['team_user_id'=>$request->name
-
-        ]);
 
 
-        $project='zomaar';
+     // return $request;
+    $sprintId=request()->sprint_id;
+    // exit();
+
+
+
+    $updateUser = task::find($request->task_id)->update(['team_user_id'=>$request->name ]);
+
+
+
+        
+         $project='zomaar';
+    $update = task::find($request->task_id);
+    // return $update;
+
+
+
 
          return redirect('sprints/'. $sprintId)->with('project', $project);
 
@@ -109,6 +119,8 @@ class taskController extends Controller
     }
     public function insertTaskToSprint(Request $request){
         
+
+
 
 
 
@@ -141,6 +153,7 @@ class taskController extends Controller
 
         return $request;
     }
+
 
 
 

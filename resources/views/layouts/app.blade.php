@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Scrum app</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,12 +22,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
+
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('/logo_large.png') }}" type="image/gif" sizes="16x16">
+
+
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm " id="navbar">
             <div class="container" >
-                <img src="{{ asset('/logo_large.png') }}" style="width: 17%;" id="scrum-navbar">
+                <a href="{{url('/')}}"><img src="{{ asset('/logo_large.png') }}" style="width: 17%;" id="scrum-navbar"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,15 +75,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" id="dropdown-link" href="{{url('profile')}}">
+                                       Profile
+                                    </a>    
                                     <a class="dropdown-item" id="dropdown-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <a class="dropdown-item" id="dropdown-link" href="{{url('profile')}}">
-                                       profile
-                                    </a>
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

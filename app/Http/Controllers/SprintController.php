@@ -150,8 +150,7 @@ class SprintController extends Controller
         // echo "show";
         // exit;
         // return request()->all();
-          
-
+        
 
         $projectId=getProjectIdSession();
         $sprintName=getSprintName($id);

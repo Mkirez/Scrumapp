@@ -37,10 +37,10 @@ use App\Http\Controllers\Backlog_itemController;
 
 Auth::routes();
 
-Route::get('test3', function(){
-	echo "test";
-	echo Auth::user()->rights;
-});
+// Route::get('test3', function(){
+// 	echo "test";
+// 	echo Auth::user()->rights;
+// });
 
 Route::resource('teamusers', teamUserController::class);
 

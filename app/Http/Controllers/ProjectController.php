@@ -24,7 +24,7 @@ class ProjectController extends Controller
     $rights=Auth::user()->rights;
     
 
-    if ($rights == '0'){
+    if ($rights == '0' OR $rights=='1'){
         $sql = "SELECT projects.id, projects.name, projects.team_id, projects.created_at, projects.end_date, projects.start_date, projects.updated_at
         FROM projects, team_users, users
         WHERE projects.team_id = team_users.team_id and users.id=team_users.user_id AND users.id = '$id'";
@@ -81,6 +81,8 @@ class ProjectController extends Controller
 
 
         $backlogs=Backlog::all()->where('project_id', $id);
+
+        
         //return $backlogs->count();
          if ($backlogs->count() == 0) {
             // echo "geen backlog/sprints";
@@ -91,6 +93,7 @@ class ProjectController extends Controller
 
 
 
+        
         $sprints=Sprint::all()->where('project_id', $id);
 
       

@@ -8,7 +8,7 @@
 
     @isset($empty)
     <div class="col-md-12 text-right" style="padding: 10px;">
-        <a  href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
+        <a  href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add backlog item</a>
     </div>
     <div id="backlog" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -20,14 +20,14 @@
                
                 
               <div class="col-md-12 inner-text">
-                <h1>add backlogelement</h1>
+                <h1>add backlog item</h1>
               </div>
               <div class="inner-form">
 
                 <div class="form-group">
 
 
-                <label for="exampleInputEmail1">description</label>
+                <!-- <label for="exampleInputEmail1">description</label> -->
                 <input type="hidden" name="project_id" value="{{$project_id}}">
                 </div>
 
@@ -94,7 +94,7 @@
               <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-teamMember" role="tab" aria-controls="pills-teamMember" aria-selected="false">Team members</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-sprints" role="tab" aria-controls="pills-sprints" aria-selected="false">Sprints</a>
+              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-sprints" role="tab" aria-controls="pills-sprints" aria-selected="false">Sprint</a>
             </li>
            <!--  <li class="nav-item" role="presentation">
               <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Retrospectives</a>
@@ -109,14 +109,15 @@
             <table class="table ">
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">project id</th>
-                  <th scope="col">description</th>
-                  <th scope="col">backlog item</th>
-                  <th scope="col">moscow</th>
-                  <th scope="col">deadline</th>
-                  <th scope="col">task id</th>
-                  <th scope="col">sprint</th>
+                  <!-- <th scope="col">Id</th> -->
+                  <!-- <th scope="col">project id</th> -->
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  
+                  <th scope="col">Moscow</th>
+                  <th scope="col">Deadline</th>
+                  <!-- <th scope="col">task id</th> -->
+                  <th scope="col">Sprint</th>
                  
 
                 </tr>
@@ -130,19 +131,20 @@
                 @if($backlogs)
                 @foreach($backlogs as $backlog)
                 <tr>
-                  <th scope="row">{{ $backlog->id }}</th>
-                  <td>{{ $backlog->project_id }}</td>
-                  <td>{{ $backlog->description}}</td>
+
+                  <!-- <th scope="row">{{ $backlog->id }}</th> -->
+                  <!-- <td>{{ $backlog->project_id }}</td> -->
                   <td>{{ $backlog->backlog_item}}</td>
+                  <td>{{ $backlog->description}}</td>
                   <td>{{ $backlog->moscow}}
                   </td>
                   <td>{{date('d/m/Y', strtotime($backlog->deadline)) }}
                   </td>
                 
-                  <td>{{ $backlog->task_id}}
-                  </td>
+                 <!--  <td>{{ $backlog->task_id}}
+                  </td> -->
                   <td>
-                    {{getSprint($backlog->taskid,$backlog->taskid)}}
+                    {{getSprint($backlog->task_id,$backlog->project_id)}}
                   </td>
                 </tr> 
               <tbody>
@@ -150,7 +152,7 @@
 
             @endif
             <div class="col-md-12" style="padding: 10px;">
-                <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">ad backlog +</a>
+                <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#backlog">add backlog item</a>
             </div>
             </table>
             <!-- Modal -->
@@ -171,20 +173,22 @@
                       <div class="form-group">
 
 
-                      <label for="exampleInputEmail1">description</label>
+                      <!-- <label for="exampleInputEmail1">description</label> -->
                       <input type="hidden" name="project_id" value="{{$backlog->project_id}}">
                       </div>
 
+                      <div class="form-group">
+                      <label for="exampleInputPassword1">name</label>
+                      <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1" required>
+                      </div>
+
 
                       <div class="form-group">
                       <label for="exampleInputEmail1">description</label>
-                      <input type="text" name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                      <input style="line-height: 1.3px;height: auto;"  type="text"  name="description"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                       </div>
 
-                      <div class="form-group">
-                      <label for="exampleInputPassword1">backlog_item</label>
-                      <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1" required>
-                      </div>
+                      
 
                       <div class="form-group">
                       <label for="exampleInputPassword1">moscow</label>
@@ -215,8 +219,8 @@
             <thead>
 
               <tr>
-                <th scope="col">user name</th>
-                <th scope="col">project name</th>
+                <th scope="col">Name</th>
+                <th scope="col">Project</th>
               </tr>
 
             </thead>
@@ -230,7 +234,7 @@
               @endforeach
               <!-- button team members -->
               <div class="col-md-12" style="padding: 10px;">
-                  <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#teamember">ad team users+</a>
+                  <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#teamember">add team users</a>
               </div>
             </tbody>
           </table>
@@ -243,14 +247,14 @@
                   <form class="myForm" action="/teamusers" method="POST">
                       @csrf 
                     <div class="col-md-12 inner-text">
-                      <h1>add teammembers</h1>
+                      <h1>add teammembers </h1>
                     </div>
                     <div class="inner-form">
                         <div class="form-group">
                         <input type="hidden" name="team_id" value="{{$teamuser->team_id}}">
-                        <select name="user_id" class="custom-select" id="inputGroupSelect01">
+                        <select name="user_id" class="custom-select" id="inputGroupSelect01" required>
                           
-                          <option  selected >Choose...</option>
+                          <option  selected value="" >Choose...</option>
 
                           @foreach($allUsers as $allUser)
                          
@@ -284,29 +288,31 @@
           <thead>
 
             <tr>
-              <th scope="col">sprint_id</th>
-              <th scope="col">project_id</th>
-              <th scope="col">start_date</th>
-              <th scope="col">Standrt date</th>
-              <th scope="col">remarks</th>
-              <th scope="col">view/edit</th>
+              <!-- <th scope="col">Sprint id</th> -->
+              <!-- <th scope="col">Project id</th> -->
+               <th scope="col">Name</th>
+              <th scope="col">Start date</th>
+              <th scope="col">End date</th>
+              <th scope="col">View / Delete</th>
+
             </tr>
           </thead>
           <tbody>
               @foreach($sprints as $sprint)
             <tr>
-              <th scope="row">{{$sprint->id}}</th>
-              <td>{{$sprint->project_id}}</td>
+              <!-- <th scope="row">{{$sprint->id}}</th> -->
+              <!-- <td>{{$sprint->project_id}}</td> -->
+              <td>{{$sprint->remarks}}</td>
               <td>{{date('d/m/Y', strtotime($sprint->created_at)) }}</td>
               
               <td>{{date('d/m/Y', strtotime($sprint->updated_at)) }}</td>
               
-              <td>{{$sprint->remarks}}</td>
+             
               <td>
                 <div class="container">
                   <div class="row">
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 text-right button-smaller">
                       <form action="{{route('sprints.edit', $sprint->id)}}" method="post">
                         @csrf
                         @method('GET')
@@ -323,10 +329,12 @@
                       
                     </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 text-left button-smaller">
                       <form action="{{url('sprints')}}/{{$sprint->id}}" method="POST">
                         @csrf
                         @method('DELETE')
+
+
 
                         <input type="submit" value="delete" class="btn btn-danger" onclick="return confirm('are you sure you want to delete this?');">
                         
@@ -342,7 +350,7 @@
             @endforeach
          <!-- button team members -->
               <div class="col-md-12" style="padding: 10px;">
-                <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#halo">ad sprint+</a>
+                <a style="width: 50%;" href="" class="btn btn-info"  data-toggle="modal" data-target="#halo">add sprint</a>
               </div>
         </table>
 
@@ -356,34 +364,35 @@
            
             
           <div class="col-md-12 inner-text">
-            <h1>add sprints</h1>
+            <h1>add sprint</h1>
           </div>
           <div class="inner-form">
 
             <div class="form-group">
 
 
-            <label for="exampleInputEmail1">description</label>
+            <!-- <label for="exampleInputEmail1">description</label> -->
             <input type="hidden" name="project_id" value="{{$backlog->project_id}}" required>
             </div>
 
 
+            <div class="form-group">
+            <label for="exampleInputEmail1">name</label>
+            <input type="text" name="remarks"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
 
 
              <div class="form-group">
-            <label for="exampleInputPassword1">created_at</label>
+            <label for="exampleInputPassword1">start at</label>
             <input type="date" name="created_at" class="form-control" id="start_date" required >
             </div>
 
             <div class="form-group">
-            <label for="exampleInputPassword1">updated_at</label>
+            <label for="exampleInputPassword1">end date</label>
             <input type="date" name="updated_at" class="form-control" id="start_date" required>
             </div>
 
-              <div class="form-group">
-            <label for="exampleInputEmail1">remarks</label>
-            <input type="text" name="remarks"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-            </div>
+              
 
             
 

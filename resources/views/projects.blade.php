@@ -46,7 +46,8 @@
                     </div>
 
 
-                    <div class="col-md-12">
+                    <div class="form-group">
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
@@ -77,17 +78,16 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p class="card-text">eind datum :</p>
+                                        <p class="card-text">start date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <p class="card-text">begin datum :</p>
+                                        <p class="card-text">end date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
-
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->end_date)) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -122,18 +122,19 @@
                                 </div>
                             
                             <div class="card-body">
-                                <div class="row">
+                               <div class="row">
                                     <div class="col-md-6">
-                                        <p class="card-text">eind datum :</p>
+                                        <p class="card-text">start date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <p class="card-text">begin datum :</p>
+                                        <p class="card-text">end date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->end_date)) }}</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -171,17 +172,17 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <p class="card-text">eind datum :</p>
+                                        <p class="card-text">start date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->end_date)) }}</span>
-                                         
+                                        <span class="card-text">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
                                     </div>
                                     <div class="col-md-6">
-                                        <p class="card-text">begin datum :</p>
+                                        <p class="card-text">end date:</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->start_date)) }}</span>
+                                        <span class="card-text"> {{ date('d/m/Y', strtotime($project->end_date)) }}</span>
+
                                     </div>
                                 </div>
                             </div>

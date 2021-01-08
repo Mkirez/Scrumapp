@@ -10962,6 +10962,12 @@ transition: 1s;
 {
 
 
+  .button-smaller{
+    text-align: center!important;
+    width: 100%!important;
+  }
+
+
   .wrapper{
     padding: none!important;
   }

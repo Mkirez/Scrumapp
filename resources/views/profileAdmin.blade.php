@@ -95,6 +95,8 @@
                                             <div class="col-md-12">
                                                 <input class="form-control" required type="text" id="name" name="name" value="{{$user->name}}">
                                             </div>
+
+                                            
                                         </div>
                                         <br>
                                          <div class="row">
