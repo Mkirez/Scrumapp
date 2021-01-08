@@ -22,9 +22,12 @@
 
         <div class="inner-form">
 
+          @if(Auth::user()->rights == 2)
+
           <div class="col-md-12 inner-text">
             <h1>Add backlog item</h1>
           </div>
+          @endif
 
           <div class="form-group">
 
@@ -153,9 +156,11 @@
               @endforeach
 
               @endif
+              @if(Auth::user()->rights == 2)
               <div class="col-md-12" style="padding: 10px;">
                 <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
               </div>
+              @endif
           </table>
           <!-- Modal -->
           <div id="backlog" class="modal fade" role="dialog">
@@ -235,9 +240,11 @@
               </tr>
               @endforeach
               <!-- button team members -->
+              @if(Auth::user()->rights == 2)
               <div class="col-md-12" style="padding: 10px;">
                 <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
               </div>
+              @endif
             </tbody>
           </table>
           <div id="teamember" class="modal fade" role="dialog">
@@ -295,6 +302,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Start date</th>
                 <th scope="col">End date</th>
+
+
                 <th scope="col">View / Delete</th>
 
               </tr>
@@ -314,6 +323,29 @@
                   <div class="container">
                     <div class="row">
 
+                      @if(Auth::user()->rights == 1)
+
+
+                     <div class="col-sm-12">
+                      <form action="{{url('sprints', $sprint->id)}}" method="post">
+                        @csrf
+                        @method('GET')
+
+
+                        <input type="hidden" value="{{$project->id}}" name="project_id">
+                       
+
+                        <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
+
+                        <input type="submit" value="view"  name="" class="btn btn-success" id="sprintGuest_button">
+                        
+                      </form>
+                      
+                    </div>
+                    @endif
+
+                    @if(Auth::user()->rights == 2)
+                 
                       <div class="col-sm-6 text-right button-smaller">
                         <form action="{{route('sprints.edit', $sprint->id)}}" method="post">
                           @csrf
@@ -331,6 +363,12 @@
 
                       </div>
 
+                    @endif
+
+                    @if(Auth::user()->rights == 2)
+                  
+
+
                       <div class="col-sm-6 text-left button-smaller">
                         <form action="{{url('sprints')}}/{{$sprint->id}}" method="POST">
                           @csrf
@@ -343,6 +381,7 @@
                         </form>
 
                       </div>
+                    @endif
 
                     </div>
                   </div>
@@ -351,9 +390,12 @@
             </tbody>
             @endforeach
             <!-- button team members -->
+
+             @if(Auth::user()->rights == 2)
             <div class="col-md-12" style="padding: 10px;">
               <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#halo">Add sprint</a>
             </div>
+            @endif
           </table>
 
           <div id="halo" class="modal fade" role="dialog">

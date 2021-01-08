@@ -22,7 +22,7 @@ class ProjectController extends Controller
 
 
 
-        
+
 
 
 
@@ -136,9 +136,16 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
         }
 
 
- if(Auth::user()->rights == 1)
+ // if(Auth::user()->rights == 1)
+ //        {
+ //             return view('Sprintguest', ['project' => $project,
+ //                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+ //        }
+
+
+        if(Auth::user()->rights == 1)
         {
-             return view('Sprintguest', ['project' => $project,
+            return view('projects.backlog', ['project' => $project,
                 'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
         }
 
