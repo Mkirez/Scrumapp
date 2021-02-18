@@ -101,11 +101,20 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        <select name="rights" class="custom-select" id="inputGroupSelect01" required>
-                                            <option value="">Choose...</option>
-                                            <option value="1" {{$rightStr1}}>1</option>
-                                            <option value="0" {{$rightStr0}}>0</option>
-                                        </select>
+                                        @if(!$user->product_owner())
+                                            <select name="rights" class="custom-select" id="inputGroupSelect01" type="hidden">
+                                                <option value="1" {{ ($user->rights == 1) ? 'selected' : '' }}>team member</option>
+                                                <option value="0" {{ ($user->rights == 0) ? 'selected' : '' }}>stakeholder</option>
+                                            </select>
+                                    
+                                        @else
+                                      <input type="" name="">
+
+                                        
+
+                                  
+
+                                        @endif
                                     </div>
                                 </div>
                                 <br>

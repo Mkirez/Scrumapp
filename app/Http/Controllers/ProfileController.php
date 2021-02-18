@@ -21,6 +21,7 @@ class ProfileController extends Controller
 
 
          $user = Auth::User();
+
         // return $users->name;
 
 
@@ -30,37 +31,34 @@ class ProfileController extends Controller
         // return $users[0]->email;
 
 
-    if(Auth::user()->rights == 0)
+    if(Auth::user()->stakeholder())
         {
 
-        return view('profileUser')->with('user', $user);
+        return view('profileUser',compact('user'));
+
         }
 
-    if(Auth::user()->rights == 1)
+    if(Auth::user()->team_member())
         {
 
-        return view('profileUser')->with('user', $user);
+        return view('profileUser',compact('user'));
         }
 
-    if(Auth::user()->rights == 2)
+    if(Auth::user()->product_owner())
 
     {
 
-        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0','')->with('rightStr1','');
+        return view('profileAdmin',compact('user','users'))->with('rightStr0','')->with('rightStr1','');
     }
 
 
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        echo "halo";
+      //
     }
 
     /**
@@ -85,26 +83,33 @@ class ProfileController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
      {
-    //     echo "edit";
+
+
+        
+   
          $user = User::find($id);
          //return $user->name;
-         if ($user->rights=='1'){
-            $rightStr1='selected';
-            $rightStr0='';
+        //  if (Auth::user()->team_member())
+        //  {
+        //     $rightStr1='team_member';
+        //     $rightStr0='';
+        //     $rightStr2='';
 
-        }else
-            {
-            $rightStr1='';
-            $rightStr0='selected';
-            }
+        // }
+        // elseif(Auth::user()->product_owner())
+        // {
+        //     $rightStr1='';
+        //     $rightStr0='';
+        //     $rightStr2='product owner';
+        // }else{
+        //     $rightStr1='';
+        //     $rightStr0='stakeholder';
+        //     $rightStr2='';
+
+        // }
             //return $rightStr;
 
          $users= User::all(); 
@@ -113,70 +118,28 @@ class ProfileController extends Controller
         // return $users[0]->email;
 
 
-        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1);
+        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1)->with('rightStr2',$rightStr2);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request, $id)
     {
 
-        
-
-
-
-        $name = $request->name;
-        $rights = $request->rights;
-
-        echo $id;
-
-        if(Auth::user()->rights == 0){
-                    $profileUpdate= user::find($id)->update(['name'=>$name]);
-
-                    
-                    return redirect('/profile');
-            }
-            if(Auth::user()->rights == 1){
-                    $profileUpdate= user::find($id)->update(['name'=>$name]);
-
-                    
-                    return redirect('/profile');
-            }
-            if(Auth::user()->rights == 2){
-                    $profileUpdate= user::find($id)->update(['name'=>$name, 'rights'=>$rights]);
-
-                    
-                    return redirect('/profile');
-            }
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->rights = $request->rights;
+            $user->save();
+            return redirect('/profile');
     }
         
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy($id)
     {
-
+       
+        User::destroy($id);
         
-        $sql = "DELETE FROM users WHERE id=$id";
-
-
-
-
-        $profile = DB::update($sql);
         return view('/welcome');
-
-
-
-        
         
     }
 }

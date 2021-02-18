@@ -41,11 +41,6 @@ Auth::routes();
 // je moet auth zijn dus ingelogd zijn anders word je naar inlog gestuurd
 Route::middleware('auth')->group(function () {
 
-// Route::get('test3', function(){
-// 	echo "test";
-// 	echo Auth::user()->rights;
-// });
-
 Route::resource('teamusers', teamUserController::class);
 
 
