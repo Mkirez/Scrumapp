@@ -95,9 +95,16 @@
                                     <div class="col-md-12">
                                         <input class="form-control" required type="text" id="name" name="name" value="{{$user->name}}">
                                     </div>
+                                    @if(!$user->product_owner())
+                                    <div class="col-md-12">
+                                        <input type="text"  name="rights" hidden value="{{$user->rights}}">
+                                    </div>
+                                    @endif 
                                 </div>
+                                
                                 <br>
                                 <br>
+
                                 <div class="row">
                                     <div class="col-md-12 ">
 
@@ -107,11 +114,7 @@
                                 </div>
                             </form>
                             <br>
-
-
-
                         </div>
-
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-12">
@@ -128,10 +131,8 @@
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

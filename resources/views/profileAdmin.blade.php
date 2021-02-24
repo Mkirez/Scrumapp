@@ -11,9 +11,7 @@
             <h1><strong>My profile</strong></h1>
         </div>
     </div>
-
 </div>
-
 <div class="container p-3 border-bottom">
     <div class="row">
         <div class="col-md-3">
@@ -28,7 +26,6 @@
 
         </div>
         <div class="col-md-9 ">
-
             <div class="card" id="profile-card">
                 <div class="card-body">
                     <div class="row">
@@ -42,7 +39,6 @@
                                 </div>
 
                                 <br><br>
-
 
                                 <div class="col-md-12">
                                     <h5><strong>Email</strong></h5>
@@ -71,7 +67,6 @@
                     <span>Your account information</span>
                 </div>
             </div>
-
         </div>
         <div class="col-md-9 ">
 
@@ -108,12 +103,9 @@
                                             </select>
                                     
                                         @else
-                                      <input type="" name="">
-
-                                        
-
-                                  
-
+                                        <select name="rights" class="custom-select" id="inputGroupSelect01" type="hidden">
+                                            <option value="2" {{ ($user->rights == 2) ? 'selected' : '' }}>admin</option>
+                                        </select>                                
                                         @endif
                                     </div>
                                 </div>
@@ -144,10 +136,8 @@
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -192,7 +182,6 @@
                         <td>{{$data->name}}</td>
                         <td>{{$data->email}}</td>
                         <td>
-
                             {{$data->rights}}
                         </td>
                         <td>

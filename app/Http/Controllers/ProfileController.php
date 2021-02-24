@@ -20,6 +20,7 @@ class ProfileController extends Controller
     {
 
 
+
          $user = Auth::User();
 
         // return $users->name;
@@ -86,45 +87,21 @@ class ProfileController extends Controller
    
     public function edit($id)
      {
-
-
-        
-   
-         $user = User::find($id);
-         //return $user->name;
-        //  if (Auth::user()->team_member())
-        //  {
-        //     $rightStr1='team_member';
-        //     $rightStr0='';
-        //     $rightStr2='';
-
-        // }
-        // elseif(Auth::user()->product_owner())
-        // {
-        //     $rightStr1='';
-        //     $rightStr0='';
-        //     $rightStr2='product owner';
-        // }else{
-        //     $rightStr1='';
-        //     $rightStr0='stakeholder';
-        //     $rightStr2='';
-
-        // }
-            //return $rightStr;
-
+        //aangepast naar find or fail
+         $user = User::findorfail($id);
          $users= User::all(); 
+        return view('profileAdmin')->with('user', $user)->with('users',$users);
 
-        // return $users;
-        // return $users[0]->email;
-
-
-        return view('profileAdmin')->with('user', $user)->with('users',$users)->with('rightStr0', $rightStr0)->with('rightStr1',$rightStr1)->with('rightStr2',$rightStr2);
     }
 
   
     public function update(Request $request, $id)
     {
 
+        request()->validate([
+         'rights' => 'required',
+            'name' => 'required',
+        ]);
             $user = User::find($id);
             $user->name = $request->name;
             $user->rights = $request->rights;
@@ -132,7 +109,6 @@ class ProfileController extends Controller
             return redirect('/profile');
     }
         
-
  
     public function destroy($id)
     {

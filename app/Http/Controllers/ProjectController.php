@@ -171,6 +171,8 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
     public function create()
     {
+
+        
         Project::create($this->validateProject());
         $lastProjectId = DB::getPdo()->lastInsertId();
         $projectName=request()->name;
