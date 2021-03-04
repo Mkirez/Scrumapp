@@ -17,7 +17,7 @@ class Project extends Model
     }
 
 
-    public function teams()
+    public function team()
     {
     	return $this->belongsToMany('App\Models\Teams');
     }

@@ -29,18 +29,21 @@ class ProjectController extends Controller
 
     if (Auth::user()->stakeholder() || Auth::user()->team_member() ) {
         
-        $project = Project::where('number', 'FR 900')->first();
+        $project = Project::all();
     }
     else{
         $project = Project::all();
+
+
+
     }
 
-    // if ($rights == '0' OR $rights=='1'){
-    //     $sql = "SELECT projects.id, projects.name, projects.team_id, projects.created_at, projects.end_date, projects.start_date, projects.updated_at
-    //     FROM projects, team_users, users
-    //     WHERE projects.team_id = team_users.team_id and users.id=team_users.user_id AND users.id = '$id'";
-    //   $project = DB::select($sql);
-      //print_r($project);
+    if ($rights == '0' OR $rights=='1'){
+        $sql = "SELECT projects.id, projects.name, projects.team_id, projects.created_at, projects.end_date, projects.start_date, projects.updated_at
+        FROM projects, team_users, users
+        WHERE projects.team_id = team_users.team_id and users.id=team_users.user_id AND users.id = '$id'";
+      $project = DB::select($sql);
+      print_r($project);
 
 
     // }else{
@@ -171,7 +174,7 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
     public function create()
     {
 
-        
+        $id = aut()->user();
         Project::create($this->validateProject());
         
 

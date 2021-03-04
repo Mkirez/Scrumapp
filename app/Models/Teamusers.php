@@ -11,7 +11,7 @@ class Teamusers extends Model
 
     protected $table = 'project_teams';
 
-    protected $fillable = ['team_id', 'user_id'];
+    protected $fillable = ['teams_id', 'user_id'];
     public $timestamps = false;
 
 
