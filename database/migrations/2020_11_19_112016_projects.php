@@ -23,8 +23,9 @@ class Projects extends Migration
 
         Schema::create('project_teams', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('teams_id');
+            
             $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
             // hier zeg je dan article_id en tag_id zijn unice zodat er geen duplicdate ontstaat
 
@@ -32,9 +33,10 @@ class Projects extends Migration
             //als je de table delete cascade je deze record ook
             // en dat ook voor de tag_id
 
-        $table->unique(['teams_id', 'project_id']);
-        $table->foreign('teams_id')->references('id')->on('teams')->onDelete('cascade'); //article_id reference id column on articles table and if we delete the article cascade and delete as well 
+        $table->unique(['project_id','user_id']);
+         //article_id reference id column on articles table and if we delete the article cascade and delete as well 
         $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 
 
@@ -51,6 +53,6 @@ class Projects extends Migration
     public function down()
     {
         Schema::dropIfExists('projects');
-        
+
     }
 }

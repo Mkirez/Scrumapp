@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
 
-    public function stakeholder()
+public function stakeholder()
  {
  return $this->rights == 0;
  }
@@ -42,6 +42,12 @@ class User extends Authenticatable
  {
  return $this->rights == 2;
  }
+
+
+ public function projects()
+    {
+        return $this->belongsToMany('App\Models\Project');
+    }
 
 
 }
