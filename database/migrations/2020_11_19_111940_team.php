@@ -13,10 +13,10 @@ class Team extends Migration
      */
     public function up()
     {
-        Schema::create('team', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
 
             
-            $table->Integer('id')->unsigned()->autoIncrement()->nullable(false);
+            $table->id();
             $table->string('name', 500)->nullable(true)->default(null);
             $table->string('description', 500)->nullable(true)->default(null);
         });

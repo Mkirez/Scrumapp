@@ -9,7 +9,7 @@ class Teamusers extends Model
 {
     use HasFactory;
 
-    protected $table = 'team_users';
+    protected $table = 'project_teams';
 
     protected $fillable = ['team_id', 'user_id'];
     public $timestamps = false;

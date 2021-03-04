@@ -21,35 +21,34 @@ class ProjectController extends Controller
     {
 
 
-
-
-
-
-
-
-
-
-    $id = Auth::user()->id;
-    $rights=Auth::user()->rights;
     
 
-    if ($rights == '0' OR $rights=='1'){
-        $sql = "SELECT projects.id, projects.name, projects.team_id, projects.created_at, projects.end_date, projects.start_date, projects.updated_at
-        FROM projects, team_users, users
-        WHERE projects.team_id = team_users.team_id and users.id=team_users.user_id AND users.id = '$id'";
-      $project = DB::select($sql);
+    // $id = Auth::user()->id;
+    // $rights=Auth::user()->rights;
+    
+
+    if (Auth::user()->stakeholder() || Auth::user()->team_member() ) {
+        
+        $project = Project::where('number', 'FR 900')->first();
+    }
+    else{
+        $project = Project::all();
+    }
+
+    // if ($rights == '0' OR $rights=='1'){
+    //     $sql = "SELECT projects.id, projects.name, projects.team_id, projects.created_at, projects.end_date, projects.start_date, projects.updated_at
+    //     FROM projects, team_users, users
+    //     WHERE projects.team_id = team_users.team_id and users.id=team_users.user_id AND users.id = '$id'";
+    //   $project = DB::select($sql);
       //print_r($project);
 
 
-    }else{
-        $project = Project::all();
-    }
+    // }else{
+    //     $project = Project::all();
+    // }
        
     //print_r(Project::all());
    // exit;
-
-    
-
 
     return view('/projects')->with('projects', $project);
     
@@ -174,27 +173,31 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
         
         Project::create($this->validateProject());
-        $lastProjectId = DB::getPdo()->lastInsertId();
-        $projectName=request()->name;
+        
+
+        // $lastProjectId = DB::getPdo()->lastInsertId();
+        // $projectName=request()->name;
         //echo $projectName;
         //exit;
         
         // return redirect('/projects');
-        $teamNieuw= new Team();
-        $teamNieuw->name = 'Team_'.$projectName;
-        $teamNieuw->description = '-';
-        $teamNieuw->save();
-        $lastTeamId = DB::getPdo()->lastInsertId();
 
-        $newUser= new Teamusers();
-        $newUser->team_id = $lastTeamId;
-        $newUser->user_id = '1';
-        $newUser->save();
+
+        // $teamNieuw= new Team();
+        // $teamNieuw->name = 'Team_'.$projectName;
+        // $teamNieuw->description = '-';
+        // $teamNieuw->save();
+        // $lastTeamId = DB::getPdo()->lastInsertId();
+
+        // $newUser= new Teamusers();
+        // $newUser->team_id = $lastTeamId;
+        // $newUser->user_id = '1';
+        // $newUser->save();
 
 
 
         
-        $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
+        // $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
 
         return back();
 

@@ -5,13 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class Teams extends Model
 {
     use HasFactory;
 
-    protected $table = 'team';
-
+    protected $table = 'teams';
     protected $fillable = ['name', 'description'];
     public $timestamps = false;
+
+
+    public function project()
+    {
+    	return $this->hasmany('App\Models\Project');
+    }
+
 
 }
