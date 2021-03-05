@@ -10,18 +10,14 @@ class Project extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-
     public function backlog_items()
     {
         return $this->hasMany('App\Models\Backlog_item');
     }
 
-
     public function users()
     {
-    	return $this->hasMany('App\Models\User');
+    	return $this->belongsToMany(User::class);
     }
-
-
 }
 

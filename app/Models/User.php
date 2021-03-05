@@ -11,7 +11,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-   
     protected $fillable = [
         'name',
         'email',
@@ -27,27 +26,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-public function stakeholder()
- {
- return $this->rights == 0;
- }
- 
- public function team_member()
- {
- return $this->rights == 1;
- }
- 
- public function product_owner()
- {
- return $this->rights == 2;
- }
-
-
- public function projects()
+    public function stakeholder()
     {
-        return $this->belongsToMany('App\Models\Project');
+        return $this->rights == 0;
     }
 
+    public function team_member()
+    {
+        return $this->rights == 1;
+    }
 
+    public function product_owner()
+    {
+        return $this->rights == 2;
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }
