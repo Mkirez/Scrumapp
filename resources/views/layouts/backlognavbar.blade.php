@@ -49,7 +49,7 @@
 
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('teamember', $project->id) }}">teamember</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/teamember') }}">teamember</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('projects')}}">sprint</a>

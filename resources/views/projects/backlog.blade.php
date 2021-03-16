@@ -69,11 +69,11 @@
               @endforeach
 
               @endif
-              @if(Auth::user()->rights == 2)
+              
               <div class="col-md-12" style="padding: 10px;">
                 <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
               </div>
-              @endif
+
           </table>
           <!-- Modal -->
           <div id="backlog" class="modal fade" role="dialog">
@@ -81,7 +81,7 @@
 
               <!-- Modal content-->
               <div class="modal-content">
-                <form class="myForm" action="/projects" method="POST">
+                <form class="myForm" action="/backlog" method="POST">
                   @csrf
 
 

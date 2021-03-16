@@ -51,10 +51,10 @@ Route::resource('sprints', SprintController::class);
 
 //projecten
 Route::get('/projects/', [App\Http\Controllers\ProjectController::class, 'index']);
-Route::get('/projects/{projects}', [App\Http\Controllers\ProjectController::class, 'show']);
 Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
+Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
 
-Route::get('/projects/{projects}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
+Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
 
 
 Route::resource('backlog', Backlog_itemController::class);

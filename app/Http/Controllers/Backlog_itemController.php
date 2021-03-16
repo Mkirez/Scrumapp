@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Backlog_item;
+use App\Models\Backlog;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -17,15 +17,22 @@ class Backlog_itemController extends Controller
 
     public function create(Project $project)
     {
-        // dd($project->);
+        // $backlog = new Backlog();
+        // $backlog->moscow = $request->moscow;
+        // $backlog->description = $request->description;
+        // $backlog->backlog_item = $request->backlog_item;
+        // $backlog->deadline = $request->deadline;
+        // $backlog->project_id = $request->project_id;
+        // $backlog->save();
         return view('backlog_items.create', compact('project'));
     }
 
     public function store(Project $project)
     {
-        dd($project);
-        Backlog_item::create($this->validateBacklog_item());
-        return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
+        // dd($project);
+        Backlog::create($this->validateBacklog_item());
+        return back();
+        // return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
     }
 
 
@@ -33,7 +40,10 @@ class Backlog_itemController extends Controller
     {
         return request()->validate([
             'project_id' => 'required',
-            'name' => 'required'
+            'description' => 'required',
+            'backlog_item' => 'required',
+            'moscow' => 'required',
+            'deadline' => 'required',
         ]);
     }
 

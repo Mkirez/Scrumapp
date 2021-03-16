@@ -17,12 +17,14 @@ class teamUserController extends Controller
     public function index(Project $project)
     {
 
-
+        // dd(request());
 
         $id = $project->id;
         $backlogs = $project->backlog_items;
         $sprints = $project->sprints;
         $allUsers = $project->users;
+
+        // echo $allUsers;
         return view('projects.teamember', compact('allUsers','project'));
     }
 

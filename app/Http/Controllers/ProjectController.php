@@ -20,112 +20,26 @@ class ProjectController extends Controller
     public function index()
     {
 
-            $projects = Auth::User()->projects;
-      
-        return view('/projects', compact('projects'));
+        $projects = Auth::User()->projects;
+
+        return view('projects', compact('projects'));
     }
 
     public function show(Project $project, Request $request)
     {
-        //echo "show projects";
-
-        // return checkTeamUser(1, 3, 'lorenzo');   
-
-        //exit;
-        // return $request;
-
-        //return $project;
-        
-        // $request->session()->put('projectId', $id);
-        // $request->session()->put('projectName', $project->name);
-
-
-        //return getProjectNameSession();
-        //return $request->session()->all();
-        //$projectName=$request->session()->get('projectName');
-        // return $projectName;
-
-        //$value = $request->session()->get('key');
-
-
-
-
-
-
-
-        
-
-
-        //return $backlogs->count();
-        // if ($backlogs->count() == 0) {
-        //     // echo "geen backlog/sprints";
-        //     return view('projects.backlog', ['empty' => '1', 'project_id' => $id]);
-
-        //     // exit();
-        // }
-
-        $id = $project->id;
+        // $project = $request->route('id');
+        // dd($project->id);
         $backlogs = $project->backlog_items;
         $sprints = $project->sprints;
         $allUsers = $project->users;
 
-
-
-        
-
-
-
-//         $sql = "SELECT users.name as userName, projects.name  as  projectName, team_users.team_id
-// FROM users,projects,team_users
-// where team_users.team_id=projects.team_id and team_users.user_id=users.id
-//  AND projects.id = '$id'";
-
-
-        // echo $sql;
-        // exit;
-
-        // $teamusers = DB::select($sql);
-
-        //return $teamusers;
-        //exit();
-
-
-        // if (Auth::user()->rights == 0) {
-        //     return view('Sprintguest', [
-        //         'project' => $project,
-        //         'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
-        //     ]);
-        // }
-
-
-        // // if(Auth::user()->rights == 1)
-        // //        {
-        // //             return view('Sprintguest', ['project' => $project,
-        // //                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
-        // //        }
-
-
-        // if (Auth::user()->rights == 1) {
-        //     return view('projects.backlog', [
-        //         'project' => $project,
-        //         'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
-        //     ]);
-        // }
-
-        
-            return view('projects.backlog', [
-                'project' => $project,
-                'backlogs' => $backlogs, 'sprints' => $sprints, 'allUsers' => $allUsers
-            ]);
-        }
-    
-
-
-
+        return view('projects.backlog', compact('project', 'backlogs', 'sprints', 'allUsers'));
+    }
 
     public function create()
     {
-
+        // echo "hello";
+        // dd(request());
 
         $id = Auth()->user();
         $project = Project::create($this->validateProject());
@@ -155,7 +69,7 @@ class ProjectController extends Controller
 
         // $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
 
-        return view("/projects");
+        return back();
 
         // return $lastIdl;
 
@@ -187,7 +101,7 @@ class ProjectController extends Controller
 
     public function edit()
     {
-        
+
         // $backlogs = Backlog::all()->where('project_id', $id);
     }
 
