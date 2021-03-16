@@ -14,5 +14,11 @@ class Sprint extends Model
     protected $fillable = ['project_id','created_at','updated_at','remarks'];
 
     public $timestamps = false;
+
+
+    public function project()
+    {
+    	return $this->belongsTo(Project::class);
+    }
     
 }

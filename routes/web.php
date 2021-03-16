@@ -19,7 +19,6 @@ use App\Http\Controllers\SprintguestController;
 
 
 
-
 use App\Http\Controllers\Backlog_itemController;
 
 
@@ -41,17 +40,31 @@ Auth::routes();
 // je moet auth zijn dus ingelogd zijn anders word je naar inlog gestuurd
 Route::middleware('auth')->group(function () {
 
-Route::resource('teamusers', teamUserController::class);
+// Route::resource('teamusers', teamUserController::class);
+
 
 
 
 Route::resource('profile', ProfileController::class);
-
 Route::resource('sprints', SprintController::class);
 
-Route::resource('todo', TodoController::class);
 
-Route::resource('projects', ProjectController::class);
+//projecten
+Route::get('/projects/', [App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/projects/{projects}', [App\Http\Controllers\ProjectController::class, 'show']);
+Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
+
+Route::get('/projects/{projects}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
+
+
+Route::resource('backlog', Backlog_itemController::class);
+
+
+
+
+
+
+// Route::resource('projects', ProjectController::class);
 
 
 
@@ -70,7 +83,11 @@ Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
+
+
+
+
+// Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
 
 
 });

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Models\Project;
 use App\Models\Teamusers;
 
 class teamUserController extends Controller
@@ -12,9 +14,16 @@ class teamUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        echo "index";
+
+
+
+        $id = $project->id;
+        $backlogs = $project->backlog_items;
+        $sprints = $project->sprints;
+        $allUsers = $project->users;
+        return view('projects.teamember', compact('allUsers','project'));
     }
 
     /**

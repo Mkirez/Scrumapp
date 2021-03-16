@@ -8,7 +8,7 @@
 @auth
 <!-- projecten maken -->
 
-@if(Auth::user()->rights == 2)
+
 
 
 
@@ -103,116 +103,7 @@
 
     </div>
 
-    @endif
-
-    @if(Auth::user()->rights == 0)
-        
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-                <h1>Projects</h1>
-            </div>
-             @if(count($projects) == 0)
-            <p>Wait until the product owner assigns you to a project </p>
-
-
-
-            @endif
-        </div>
-        <div class="row">
-
-            @foreach($projects as $project)
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <a id="project_block" href="/projects/{{ $project->id }}" style="text-decoration: none;">
-                    <div class="card" style="padding: 40px;">
-
-                        <div class="col-md-12 text-center project-title">
-                            <h1 class="card-title">{{$project->name}}</h1>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text">Start date:</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="card-text">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text">End date:</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="card-text"> {{ date('d/m/Y', strtotime($project->end_date)) }}</span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            @endforeach
-        </div>
-
-    </div>
-
-    @endif
-
-
-@if(Auth::user()->rights == 1)
     
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-                <h1>Projects</h1>
-            </div>
-            @if(count($projects) == 0)
-            <p>Wait until the product owner assigns you to a project </p>
-
-
-
-            @endif
-        </div>
-        <div class="row">
-
-            @foreach($projects as $project)
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <a id="project_block" href="/projects/{{ $project->id }}" style="text-decoration: none;">
-                    <div class="card" style="padding: 40px;">
-
-                        <div class="col-md-12 text-center project-title">
-                            <h1 class="card-title">{{$project->name}}</h1>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="card-text">Start date:</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="card-text">{{ date('d/m/Y', strtotime($project->start_date)) }}</span>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text">End date:</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <span class="card-text"> {{ date('d/m/Y', strtotime($project->end_date)) }}</span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            @endforeach
-        </div>
-
-    </div>
-
-    @endif
 
 
     @endauth

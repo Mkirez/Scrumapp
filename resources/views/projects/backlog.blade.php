@@ -1,76 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.backlognavbar')
 @section('content')
 
 @auth
-
 <!-- productowner -->
-
-
-@isset($empty)
-@if(Auth::user()->rights == 2)
-<div class="col-md-12 text-right" style="padding: 10px;">
-  <a href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
-</div>
-@endif
-<div id="backlog" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <form class="myForm" action="/projects" method="POST">
-        @csrf
-
-
-
-        <div class="inner-form">
-
-          
-
-          <div class="col-md-12 inner-text">
-            <h1>Add backlog item</h1>
-          </div>
-         
-
-          <div class="form-group">
-
-
-            <!-- <label for="exampleInputEmail1">description</label> -->
-            <input type="hidden" name="project_id" value="{{$project_id}}">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Name</label>
-            <input type="text" name="backlog_item" class="form-control" id="exampleInputPassword1" required>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Description</label>
-            <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-          </div>
-
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Moscow</label>
-            <input type="text" name="moscow" class="form-control" id="moscow" required>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Deadline</label>
-            <input type="date" name="deadline" class="form-control" id="start_date" required>
-          </div>
-
-
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary" onclick="add_teamMember()">Submit</button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-  </div>
-</div>
-@endisset
-@isset($project)
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -87,31 +19,10 @@
   </div>
 </div>
 
-
-
 <div class="container">
   <div class="card text-center " id="backlog-card">
     <div class="card-header">
-      <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-backlog" role="tab" aria-controls="pills-backlog" aria-selected="true">Backlog</a>
-
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-teamMember" role="tab" aria-controls="pills-teamMember" aria-selected="false">Team members</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-sprints" role="tab" aria-controls="pills-sprints" aria-selected="false">Sprint</a>
-        </li>
-        <!--  <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Retrospectives</a>
-            </li> -->
-      </ul>
-
-
       <div class="tab-content" id="pills-tabContent">
-
-
         <div class="tab-pane fade show active" id="pills-backlog" role="tabpanel" aria-labelledby="pills-backlog-tab">
           <table class="table ">
             <thead>
@@ -183,7 +94,7 @@
 
 
                       <!-- <label for="exampleInputEmail1">description</label> -->
-                      <input hidden name="project_id" value="{{$backlog->project_id}}">
+                      <input hidden name="project_id" value="{{$project->id}}">
                     </div>
 
                     <div class="form-group">
@@ -220,8 +131,6 @@
           </div>
         </div>
 
-
-
         <!-- andere tab -->
         <div class="tab-pane fade" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
           <table class="table ">
@@ -235,10 +144,10 @@
             </thead>
             <tbody>
 
-              @foreach($teamusers as $teamuser)
+              @foreach($allUsers as $allUser)
               <tr>
-                <th scope="row">{{$teamuser->userName}}</th>
-                <td>{{$teamuser->projectName}}</td>
+                <th scope="row">{{$allUser->userName}}</th>
+                <td>{{$allUser->projectName}}</td>
               </tr>
               @endforeach
               <!-- button team members -->
@@ -249,6 +158,7 @@
               @endif
             </tbody>
           </table>
+
           <div id="teamember" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
@@ -262,21 +172,12 @@
                   </div>
                   <div class="inner-form">
                     <div class="form-group">
-                      <input type="hidden" name="team_id" value="{{$teamuser->team_id}}">
+                     
                       <select name="user_id" class="custom-select" id="inputGroupSelect01" required>
 
                         <option selected value="">Choose...</option>
 
-                        @foreach($allUsers as $allUser)
-
-
-                        {{checkTeamUser($allUser->id,$teamuser->team_id, $allUser->name)}}
-
-
-
-
-
-                        @endforeach
+                  
 
 
                       </select>
@@ -293,8 +194,7 @@
           </div>
         </div>
 
-
-        <div class="tab-pane fade" id="pills-sprints" role="tabpanel" aria-labelledby="pills-sprints">
+        <div class="tab-pane fade" id="pills-sprints" role="tabpanel" aria-labelledby="pills-sprints" >
           <table class="table ">
             <thead>
 
@@ -418,7 +318,7 @@
 
 
                       <!-- <label for="exampleInputEmail1">description</label> -->
-                      <input type="hidden" name="project_id" value="{{$backlog->project_id}}" required>
+                      <input type="hidden" name="project_id" value="{{$project->id}}" required>
                     </div>
 
 
@@ -455,7 +355,6 @@
           </div>
         </div>
 
-
       </div>
 
 
@@ -463,7 +362,7 @@
 
 
 
-      @endisset
+   
 
 
       <!-- user -->

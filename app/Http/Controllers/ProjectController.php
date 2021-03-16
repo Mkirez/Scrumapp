@@ -19,14 +19,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->stakeholder() || Auth::user()->team_member()) {
 
-            $projects = Auth::user()->projects;
-        } else {
-
-            $projects = Project::all();
-        }
-
+            $projects = Auth::User()->projects;
+      
         return view('/projects', compact('projects'));
     }
 
@@ -40,9 +35,9 @@ class ProjectController extends Controller
         // return $request;
 
         //return $project;
-        $id = $project->id;
-        $request->session()->put('projectId', $id);
-        $request->session()->put('projectName', $project->name);
+        
+        // $request->session()->put('projectId', $id);
+        // $request->session()->put('projectName', $project->name);
 
 
         //return getProjectNameSession();
@@ -58,75 +53,72 @@ class ProjectController extends Controller
 
 
 
-        $backlogs = Backlog::all()->where('project_id', $id);
+        
 
 
         //return $backlogs->count();
-        if ($backlogs->count() == 0) {
-            // echo "geen backlog/sprints";
-            return view('projects.backlog', ['empty' => '1', 'project_id' => $id]);
+        // if ($backlogs->count() == 0) {
+        //     // echo "geen backlog/sprints";
+        //     return view('projects.backlog', ['empty' => '1', 'project_id' => $id]);
 
-            // exit();
-        }
+        //     // exit();
+        // }
 
-
-
-
-        $sprints = Sprint::all()->where('project_id', $id);
-
-
-        $allUsers = User::all();
+        $id = $project->id;
+        $backlogs = $project->backlog_items;
+        $sprints = $project->sprints;
+        $allUsers = $project->users;
 
 
 
-
-
-        //$teamusers=Teamusers::all();
+        
 
 
 
-        $sql = "SELECT users.name as userName, projects.name  as  projectName, team_users.team_id
-FROM users,projects,team_users
-where team_users.team_id=projects.team_id and team_users.user_id=users.id
- AND projects.id = '$id'";
+//         $sql = "SELECT users.name as userName, projects.name  as  projectName, team_users.team_id
+// FROM users,projects,team_users
+// where team_users.team_id=projects.team_id and team_users.user_id=users.id
+//  AND projects.id = '$id'";
+
+
         // echo $sql;
         // exit;
 
-        $teamusers = DB::select($sql);
+        // $teamusers = DB::select($sql);
 
         //return $teamusers;
         //exit();
 
 
-        if (Auth::user()->rights == 0) {
-            return view('Sprintguest', [
-                'project' => $project,
-                'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
-            ]);
-        }
+        // if (Auth::user()->rights == 0) {
+        //     return view('Sprintguest', [
+        //         'project' => $project,
+        //         'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
+        //     ]);
+        // }
 
 
-        // if(Auth::user()->rights == 1)
-        //        {
-        //             return view('Sprintguest', ['project' => $project,
-        //                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
-        //        }
+        // // if(Auth::user()->rights == 1)
+        // //        {
+        // //             return view('Sprintguest', ['project' => $project,
+        // //                'backlogs'=>$backlogs, 'sprints'=>$sprints, 'teamusers'=>$teamusers, 'allUsers'=>$allUsers] );
+        // //        }
 
 
-        if (Auth::user()->rights == 1) {
+        // if (Auth::user()->rights == 1) {
+        //     return view('projects.backlog', [
+        //         'project' => $project,
+        //         'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
+        //     ]);
+        // }
+
+        
             return view('projects.backlog', [
                 'project' => $project,
-                'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
+                'backlogs' => $backlogs, 'sprints' => $sprints, 'allUsers' => $allUsers
             ]);
         }
-
-        if (Auth::user()->rights == 2) {
-            return view('projects.backlog', [
-                'project' => $project,
-                'backlogs' => $backlogs, 'sprints' => $sprints, 'teamusers' => $teamusers, 'allUsers' => $allUsers
-            ]);
-        }
-    }
+    
 
 
 
@@ -134,9 +126,10 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
     public function create()
     {
 
-        $id = aut()->user();
-        Project::create($this->validateProject());
 
+        $id = Auth()->user();
+        $project = Project::create($this->validateProject());
+        $project->users()->attach($id);
 
         // $lastProjectId = DB::getPdo()->lastInsertId();
         // $projectName=request()->name;
@@ -162,7 +155,7 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
         // $updateProject=Project::find($lastProjectId)->update(['team_id'=>$lastTeamId]);
 
-        return back();
+        return view("/projects");
 
         // return $lastIdl;
 
@@ -173,28 +166,29 @@ where team_users.team_id=projects.team_id and team_users.user_id=users.id
 
 
 
-        $input = $request->all();
+        // $input = $request->all();
 
 
 
 
-        $backlog = new Backlog();
-        $backlog->moscow = $request->moscow;
-        $backlog->description = $request->description;
-        $backlog->backlog_item = $request->backlog_item;
-        $backlog->deadline = $request->deadline;
-        $backlog->project_id = $request->project_id;
-        $backlog->save();
+        // $backlog = new Backlog();
+        // $backlog->moscow = $request->moscow;
+        // $backlog->description = $request->description;
+        // $backlog->backlog_item = $request->backlog_item;
+        // $backlog->deadline = $request->deadline;
+        // $backlog->project_id = $request->project_id;
+        // $backlog->save();
 
 
-        $project_id = $request->project_id;
+        // $project_id = $request->project_id;
 
-        return redirect('/projects/' . $project_id);
+        // return redirect('/projects/' . $project_id);
     }
 
     public function edit()
     {
-        $backlogs = Backlog::all()->where('project_id', $id);
+        
+        // $backlogs = Backlog::all()->where('project_id', $id);
     }
 
     public function update()

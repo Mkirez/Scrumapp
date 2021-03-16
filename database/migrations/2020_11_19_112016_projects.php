@@ -20,8 +20,8 @@ class Projects extends Migration
             $table->id();
             $table->unsignedBigInteger('project_id');
             $table->unsignedBigInteger('user_id');
+            $table->integer('project_right')->default('0');
             $table->timestamps();
-
             $table->unique(['project_id', 'user_id']);
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
