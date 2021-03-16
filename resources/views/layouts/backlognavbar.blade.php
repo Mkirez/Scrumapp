@@ -49,13 +49,13 @@
 
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/teamember') }}">teamember</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/teamember') }}">Teammember</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('projects')}}">sprint</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/sprints') }}">Sprints</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('projects')}}">backlog</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/backlog') }}">Backlog</a>
                         </li>
                         @endauth
                     </ul>
@@ -71,3 +71,5 @@
 </body>
 
 </html>
+
+

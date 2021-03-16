@@ -29,11 +29,11 @@ class ProjectController extends Controller
     {
         // $project = $request->route('id');
         // dd($project->id);
-        $backlogs = $project->backlog_items;
+        $backlog_items = $project->backlog_items;
         $sprints = $project->sprints;
         $allUsers = $project->users;
 
-        return view('projects.backlog', compact('project', 'backlogs', 'sprints', 'allUsers'));
+        return view('projects.backlog', compact('project', 'backlog_items', 'sprints', 'allUsers'));
     }
 
     public function create()

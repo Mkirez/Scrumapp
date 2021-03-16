@@ -12,7 +12,7 @@ class Backlog_itemController extends Controller
     {
         $backlog_items = $project->backlog_items;
 
-        return view('backlog_items.index', ['backlog_items' => $backlog_items]);
+        return view('projects.backlog', compact('backlog_items', 'project'));
     }
 
     public function create(Project $project)

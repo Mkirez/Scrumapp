@@ -46,23 +46,23 @@
 
             <tbody>
 
-              @if($backlogs)
-              @foreach($backlogs as $backlog)
+              @if($backlog_items)
+              @foreach($backlog_items as $backlog_item)
               <tr>
 
-                <!-- <th scope="row">{{ $backlog->id }}</th> -->
-                <!-- <td>{{ $backlog->project_id }}</td> -->
-                <td>{{ $backlog->backlog_item}}</td>
-                <td>{{ $backlog->description}}</td>
-                <td>{{ $backlog->moscow}}
+                <!-- <th scope="row">{{ $backlog_item->id }}</th> -->
+                <!-- <td>{{ $backlog_item->project_id }}</td> -->
+                <td>{{ $backlog_item->backlog_item}}</td>
+                <td>{{ $backlog_item->description}}</td>
+                <td>{{ $backlog_item->moscow}}
                 </td>
-                <td>{{date('d/m/Y', strtotime($backlog->deadline)) }}
+                <td>{{date('d/m/Y', strtotime($backlog_item->deadline)) }}
                 </td>
 
-                <!--  <td>{{ $backlog->task_id}}
+                <!--  <td>{{ $backlog_item->task_id}}
                   </td> -->
                 <td>
-                  {{getSprint($backlog->task_id,$backlog->project_id)}}
+                  {{getSprint($backlog_item->task_id,$backlog_item->project_id)}}
                 </td>
               </tr>
             <tbody>
@@ -130,240 +130,7 @@
             </div>
           </div>
         </div>
-
-        <!-- andere tab -->
-        <div class="tab-pane fade" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
-          <table class="table ">
-            <thead>
-
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Project</th>
-              </tr>
-
-            </thead>
-            <tbody>
-
-              @foreach($allUsers as $allUser)
-              <tr>
-                <th scope="row">{{$allUser->userName}}</th>
-                <td>{{$allUser->projectName}}</td>
-              </tr>
-              @endforeach
-              <!-- button team members -->
-              @if(Auth::user()->rights == 2)
-              <div class="col-md-12" style="padding: 10px;">
-                <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
-              </div>
-              @endif
-            </tbody>
-          </table>
-
-          <div id="teamember" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <!-- // dit is de team users form  -->
-              <div class="modal-content">
-                <form class="myForm" action="/teamusers" method="POST">
-                  @csrf
-                  <div class="col-md-12 inner-text">
-                    <h1>Add teammembers </h1>
-                  </div>
-                  <div class="inner-form">
-                    <div class="form-group">
-                     
-                      <select name="user_id" class="custom-select" id="inputGroupSelect01" required>
-
-                        <option selected value="">Choose...</option>
-
-                  
-
-
-                      </select>
-                    </div>
-
-
-                    <div class="col-md-12">
-                      <button type="submit" onclick="add_teamMember()" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane fade" id="pills-sprints" role="tabpanel" aria-labelledby="pills-sprints" >
-          <table class="table ">
-            <thead>
-
-              <tr>
-                <!-- <th scope="col">Sprint id</th> -->
-                <!-- <th scope="col">Project id</th> -->
-                <th scope="col">Name</th>
-                <th scope="col">Start date</th>
-                <th scope="col">End date</th>
-
-
-                <th scope="col">View / Delete</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($sprints as $sprint)
-              <tr>
-                <!-- <th scope="row">{{$sprint->id}}</th> -->
-                <!-- <td>{{$sprint->project_id}}</td> -->
-                <td>{{$sprint->remarks}}</td>
-                <td>{{date('d/m/Y', strtotime($sprint->created_at)) }}</td>
-
-                <td>{{date('d/m/Y', strtotime($sprint->updated_at)) }}</td>
-
-
-                <td>
-                  <div class="container">
-                    <div class="row">
-
-                      @if(Auth::user()->rights == 1)
-
-
-                     <div class="col-sm-12">
-                      <form action="{{url('sprints', $sprint->id)}}" method="post">
-                        @csrf
-                        @method('GET')
-
-
-                        <input type="hidden" value="{{$project->id}}" name="project_id">
-                       
-
-                        <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
-
-                        <input type="submit" value="view"  name="" class="btn btn-success" id="sprintGuest_button">
-                        
-                      </form>
-                      
-                    </div>
-                    @endif
-
-                    @if(Auth::user()->rights == 2)
-                 
-                      <div class="col-sm-6 text-right button-smaller">
-                        <form action="{{route('sprints.edit', $sprint->id)}}" method="post">
-                          @csrf
-                          @method('GET')
-
-
-                          <input type="hidden" value="{{$project->id}}" name="project_id">
-                          <input type="hidden" name="backlog_id" value="{{$backlog->id}}">
-
-                          <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
-
-                          <input type="submit" value="view" name="" class="btn btn-primary">
-
-                        </form>
-
-                      </div>
-
-                    @endif
-
-                    @if(Auth::user()->rights == 2)
-                  
-
-
-                      <div class="col-sm-6 text-left button-smaller">
-                        <form action="{{url('sprints')}}/{{$sprint->id}}" method="POST">
-                          @csrf
-                          @method('DELETE')
-
-
-
-                          <input type="submit" value="delete" class="btn btn-danger" onclick="return confirm('are you sure you want to delete this?');">
-
-                        </form>
-
-                      </div>
-                    @endif
-
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-            @endforeach
-            <!-- button team members -->
-
-             @if(Auth::user()->rights == 2)
-            <div class="col-md-12" style="padding: 10px;">
-              <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#halo">Add sprint</a>
-            </div>
-            @endif
-          </table>
-
-          <div id="halo" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <form class="myForm" action="/sprints" method="POST">
-                  @csrf
-
-
-                  <div class="col-md-12 inner-text">
-                    <h1>Add sprint</h1>
-                  </div>
-                  <div class="inner-form">
-
-                    <div class="form-group">
-
-
-                      <!-- <label for="exampleInputEmail1">description</label> -->
-                      <input type="hidden" name="project_id" value="{{$project->id}}" required>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Name</label>
-                      <input type="text" name="remarks" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Start date</label>
-                      <input type="date" name="created_at" class="form-control" id="start_date" required>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">End date</label>
-                      <input type="date" name="updated_at" class="form-control" id="start_date" required>
-                    </div>
-
-
-
-
-
-
-
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
       </div>
-
-
-
-
-
-
-   
-
 
       <!-- user -->
 

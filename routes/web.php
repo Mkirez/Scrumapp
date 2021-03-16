@@ -10,7 +10,7 @@ use App\Http\Controllers\SprintBoardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\BacklogController;
+use App\Http\Controllers\Backlog_itemController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
@@ -19,7 +19,7 @@ use App\Http\Controllers\SprintguestController;
 
 
 
-use App\Http\Controllers\Backlog_itemController;
+
 
 
 /*
@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('profile', ProfileController::class);
-Route::resource('sprints', SprintController::class);
+// Route::resource('sprints', SprintController::class);
 
 
 //projecten
@@ -55,7 +55,8 @@ Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, '
 Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
 
 Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
-
+Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
+Route::get('/projects/{project}/backlog', [App\Http\Controllers\Backlog_itemController::class, 'index'])->name('backlog');
 
 Route::resource('backlog', Backlog_itemController::class);
 
