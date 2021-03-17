@@ -40,17 +40,28 @@
 	              <!-- Modal content-->
 	              <!-- // dit is de team users form  -->
 	              <div class="modal-content">
-	                <form class="myForm" action="/teamusers" method="POST">
+	              	teamember_create
+	                <form class="myForm" action="{{route('teamember_create', $project->id)}}" method="POST">
 	                  @csrf
+	                  @method('GET')
 	                  <div class="col-md-12 inner-text">
 	                    <h1>Add teammembers </h1>
 	                  </div>
 	                  <div class="inner-form">
 	                    <div class="form-group">
-	                     
-	                      <select name="user_id" class="custom-select" id="inputGroupSelect01" required>
 
-	                        <option selected value="">Choose...</option>
+                      <input type="hidden" name="project_id" value="{{$project->id}}" required>
+	                      <select name="user_id" class="custom-select" id="inputGroupSelect01">
+
+	 					@foreach($allUsers as $allUser)
+	                        <option selected value="">
+	                        
+	                        {{$allUser->name}}
+
+	                        </option>
+
+ 						 @endforeach
+	                       
 
 	                  
 

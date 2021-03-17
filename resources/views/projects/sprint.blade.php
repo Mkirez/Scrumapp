@@ -2,6 +2,7 @@
 @section('content')
 
 @auth
+<div class="container">
   <div class="tab-panel" id="pills-sprints" role="tabpanel" aria-labelledby="pills-sprints">
   <table class="table ">
   <thead>
@@ -24,33 +25,6 @@
   <td>{{date('d/m/Y', strtotime($sprint->updated_at)) }}</td>
   <td>{{$sprint->remarks}}</td>
   <td>
-  <div class="container">
-  <div class="row">
-
-  <div class="col-sm-6">
-  <form action="{{route('sprints.edit', $sprint->id)}}" method="post">
-  @csrf
-  @method('GET')
-
-  <input type="hidden" value="{{$project->id}}" name="project_id" >
-
-  <input type="hidden" value="{{$sprint->id}}" name="sprint_id">
-
-  <input type="submit" value="view" name="" class="btn btn-primary">
-  </form>
-  </div>
-
-  <div class="col-sm-6">
-  <form action="{{url('sprints')}}/{{$sprint->id}}" method="POST">
-  @csrf
-  @method('DELETE')
-
-  <input type="submit" value="delete" class="btn btn-danger" onclick="return confirm('are you sure you want to delete this?');">
-  </form>
-  </div>
-
-  </div>
-  </div>
   </td>
   </tr>
   </tbody>
@@ -69,24 +43,16 @@
 
               <!-- Modal content-->
               <div class="modal-content">
-                <form class="myForm" action="/sprints" method="POST">
+                <form class="myForm" action="{{route('create_sprints', $project->id)}}" method="POST">
                   @csrf
-
- 
-
-
+                  @method('GET')
                   <div class="col-md-12 inner-text">
-                    <h1>Add sprint</h1>
+                    <h1 >Add sprint</h1>
                   </div>
                   <div class="inner-form">
 
  
-
                     <div class="form-group">
-
- 
-
-
                       <!-- <label for="exampleInputEmail1">description</label> -->
                       <input type="hidden" name="project_id" value="{{$project->id}}" required>
                     </div>
@@ -140,3 +106,4 @@
       <h1>guest</h1>
       @endguest
       @endsection
+</div>

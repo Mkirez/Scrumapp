@@ -20,13 +20,6 @@ class SprintController extends Controller
 {
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-
     public function index(Project $project)
     {
         $sprints = $project->sprints;
@@ -36,154 +29,28 @@ class SprintController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        echo "create";
+        $sprint = Sprint::create($this->validateSprints());
+
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-       $input = $request->all();
-
-
-
-
-        $backlog = new Sprint();
-        $backlog->remarks = $request->remarks;
-        $backlog->created_at = $request->created_at;
-        $backlog->updated_at = $request->updated_at;
-        $backlog->project_id = $request->project_id;
-        $backlog->save();
-
-
-        $project_id = $request->project_id;
-
-        return redirect('/projects/' . $project_id);
-        // return redirect('/projects/' . $project_id. 'project:');
+       echo "string";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
        
-          // request()->session()->forget('projectId');
-           //return request()->session()->all();
-        // echo "show";
-        // exit;
-        // return request()->all();
-        
-
-        $projectId=getProjectIdSession();
-        $sprintName=getSprintName($id);
-        //return $projectId;
-       // exit;
-        if ($projectId == 0){ 
-            return redirect('/projects');
-
-        }
-
-       // echo $projectId;
-
-        //exit;
-        $projectName=getProjectNameSession();
-
-
-     
-
-
-         $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description, backlog_items.id, backlog_items.task_id 
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and backlog_items.project_id='$projectId' and task.sprint_id='$id' ";
-
-        $dataSprint = DB::select($sql);
-
-//////////////////////////////////////////////////////////////
-
-        
-
-
-        $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='todo' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
-    
-
-
-
-    $dataTodo = DB::select($sql);
-
-///////////////////////////////////////////////////////////////
-
-       $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='busy' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
-    
-
-    $dataBusy = DB::select($sql);
-/////////////////////////////////////////////////////////////////
-
-     $sql = "SELECT task.status, team_users.user_id, users.name, backlog_items.description
-From task, team_users, users, backlog_items
-where task.team_user_id=team_users.id and team_users.user_id=users.id and backlog_items.task_id=task.id and task.status='done' and backlog_items.project_id='$projectId'  and task.sprint_id='$id' ";
-    
-
-
-
-    $dataDone = DB::select($sql);
-
-
-
-        if(Auth::user()->rights == 0){
-               return view('sprintguestDone')->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
-
-        }
-        if(Auth::user()->rights == 1){
-            return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
-
-        }
-
-         if(Auth::user()->rights == 2){
-            return view('sprint')->with('dataSprint',$dataSprint)->with('dataTodoe',$dataTodo)->with('dataBusy',$dataBusy)->with('dataDone',$dataDone)->with('projectName', $projectName)->with('sprintName',$sprintName);
-
-        }
-        
-        
-
-}
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+         echo "show";
+    }
     public function edit($id)
     {
-
-
-
-      // // echo "edit";
-    // echo  $id;
-        //exit;
-       // return getProjectId($id);
-//exit;
-
-
         
         // dd('edit');
         // $project_id= request()->project_id;
@@ -241,30 +108,12 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
               return view('edit', ['backlogsll'=>$backlogLeeg, 'teamusers'=>'-', 'sprint_id'=>$id, 'empty'=>'1', 'items'=>$items, 'project_id'=>$project_id, 'team_id'=>$team_id] );
                 }
                // return;
-
-
                 //oude versie
                 // $name = ($name, 'name')->with();
 
-       
-
-
-
-
         //$backlog=backlog::all()->where('project_id', $id);
 
-       
-        
-
-
-        
-
-        
-
         // echo ($sprints);
-
-
-
         }
 
 
@@ -332,5 +181,14 @@ where team_users.team_id=team.id and team_users.user_id=users.id and projects.te
          
 
         return back();
+    }
+
+    protected function validateSprints()
+    {
+        return request()->validate([
+            'remarks' => 'required',
+            'project_id' => 'required',
+           
+        ]);
     }
 }

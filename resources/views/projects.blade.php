@@ -27,8 +27,8 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <form method="POST" action="/projects/create">
-                    @method('GET')
                     @csrf
+                     @method('GET')
                     <div class="inner-form">
                         <div class="col-md-12 inner-text">
                             <h1>Add project</h1>

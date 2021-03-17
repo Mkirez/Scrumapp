@@ -81,8 +81,8 @@
 
               <!-- Modal content-->
               <div class="modal-content">
-                <form class="myForm" action="/backlog" method="POST">
-                  @csrf
+                <form method="POST" action="/sprints/create">
+                    @csrf
 
 
                   <div class="col-md-12 inner-text">
