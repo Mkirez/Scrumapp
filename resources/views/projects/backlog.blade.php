@@ -81,9 +81,8 @@
 
               <!-- Modal content-->
               <div class="modal-content">
-                <form method="POST" action="/sprints/create">
+                <form method="POST" action="/backlog">
                     @csrf
-
 
                   <div class="col-md-12 inner-text">
                     <h1>Add backlogelement</h1>

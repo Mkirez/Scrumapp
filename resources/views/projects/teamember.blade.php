@@ -5,80 +5,80 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
-	          <table class="table ">
-	            <thead>
+				<table class="table ">
+					<thead>
 
-	              <tr>
-	                <th scope="col">Name</th>
-	                <th scope="col">Project</th>
-	              </tr>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Project</th>
+						</tr>
 
-	            </thead>
-	            <tbody>
+					</thead>
+					<tbody>
 
-	              @foreach($allUsers as $allUser)
-	              <tr>
-	                <th scope="row">{{$allUser->userName}}</th>
-	                <td>{{$allUser->projectName}}</td>
-	              </tr>
-	              @endforeach
-	              <!-- button team members -->
-	              
-	              <div class="col-md-12" style="padding: 10px;">
-	                <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
-	              </div>
-	   
+						@foreach($allUsers as $allUser)
+						<tr>
+							<th scope="row">{{$allUser->userName}}</th>
+							<td>{{$allUser->projectName}}</td>
+						</tr>
+						@endforeach
+						<!-- button team members -->
 
-	              <!-- hier moet de button komen die in de chat staat  -->
-	             
-	            </tbody>
-	          </table>
-
-	          <div id="teamember" class="modal fade" role="dialog">
-	            <div class="modal-dialog">
-
-	              <!-- Modal content-->
-	              <!-- // dit is de team users form  -->
-	              <div class="modal-content">
-	              	teamember_create
-	                <form class="myForm" action="{{route('teamember_create', $project->id)}}" method="POST">
-	                  @csrf
-	                  @method('GET')
-	                  <div class="col-md-12 inner-text">
-	                    <h1>Add teammembers </h1>
-	                  </div>
-	                  <div class="inner-form">
-	                    <div class="form-group">
-
-                      <input type="hidden" name="project_id" value="{{$project->id}}" required>
-	                      <select name="user_id" class="custom-select" id="inputGroupSelect01">
-
-	 					@foreach($allUsers as $allUser)
-	                        <option selected value="">
-	                        
-	                        {{$allUser->name}}
-
-	                        </option>
-
- 						 @endforeach
-	                       
-
-	                  
+						<div class="col-md-12" style="padding: 10px;">
+							<a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
+						</div>
 
 
-	                      </select>
-	                    </div>
+						<!-- hier moet de button komen die in de chat staat  -->
+
+					</tbody>
+				</table>
+
+				<div id="teamember" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<!-- // dit is de team users form  -->
+						<div class="modal-content">
+							teamember_create
+							<form class="myForm" action="{{route('teamember_create', $project->id)}}" method="POST">
+								@csrf
+								@method('GET')
+								<div class="col-md-12 inner-text">
+									<h1>Add teammembers </h1>
+								</div>
+								<div class="inner-form">
+									<div class="form-group">
+
+										<input type="hidden" name="project_id" value="{{$project->id}}" required>
+										<select name="user_id" class="custom-select" id="inputGroupSelect01">
+
+											@foreach($allUsers as $allUser)
+											<option value="{{ $allUser->id }}" selected value="">
+
+												{{$allUser->name}}
+
+											</option>
+
+											@endforeach
 
 
-	                    <div class="col-md-12">
-	                      <button type="submit" onclick="add_teamMember()" class="btn btn-primary">Submit</button>
-	                    </div>
-	                  </div>
-	                </form>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
+
+
+
+										</select>
+									</div>
+
+
+									<div class="col-md-12">
+										<button type="submit" onclick="add_teamMember()" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

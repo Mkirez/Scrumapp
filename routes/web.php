@@ -14,8 +14,6 @@ use App\Http\Controllers\Backlog_itemController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
-use App\Http\Controllers\SprintguestController;
-
 
 
 
@@ -40,64 +38,30 @@ Auth::routes();
 // je moet auth zijn dus ingelogd zijn anders word je naar inlog gestuurd
 Route::middleware('auth')->group(function () {
 
-// Route::resource('teamusers', teamUserController::class);
+    Route::resource('profile', ProfileController::class);
 
+    //projecten
+    Route::get('/projects/', [App\Http\Controllers\ProjectController::class, 'index']);
+    Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
+    Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
 
+    Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
 
+    Route::get('/projects/{project}/teamember/create', [App\Http\Controllers\teamUserController::class, 'create'])->name('teamember_create');
 
-Route::resource('profile', ProfileController::class);
-// Route::resource('sprints', SprintController::class);
+    Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
 
+    Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
 
-//projecten
-Route::get('/projects/', [App\Http\Controllers\ProjectController::class, 'index']);
-Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
-Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
+    Route::resource('backlog', Backlog_itemController::class);
 
-Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
+    Route::resource('Sprintguest', SprintguestController::class);
 
-Route::get('/projects/{project}/teamember/create', [App\Http\Controllers\teamUserController::class, 'create'])->name('teamember_create');
+    Route::post('/taskInsertUser', [App\Http\Controllers\taskController::class, 'insertUser'])->name('taskInsertUser');
 
-Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
+    Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 'insertTaskToSprint'])->name('insertTaskToSprint');
 
-
-Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
-
-Route::get('/projects/{project}/backlog', [App\Http\Controllers\Backlog_itemController::class, 'index'])->name('backlog');
-
-Route::resource('backlog', Backlog_itemController::class);
-
-
-
-
-
-
-// Route::resource('projects', ProjectController::class);
-
-
-
-Route::resource('Sprintguest', SprintguestController::class);
-
-// Route::resource('taken', ProjectController::class);
-
-
-
-Route::post('/taskInsertUser', [App\Http\Controllers\taskController::class, 'insertUser'])->name('taskInsertUser');
-
-
-Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 'insertTaskToSprint'])->name('insertTaskToSprint');
-
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-
-// Route::resource('projects/{project}/backlog_items', Backlog_itemController::class);
-
-
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
 Route::get('/', function () {

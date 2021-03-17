@@ -15,26 +15,26 @@ class Backlog_itemController extends Controller
         return view('projects.backlog', compact('backlog_items', 'project'));
     }
 
-    public function create(Project $project)
+    public function create()
     {
-        // $backlog = new Backlog();
-        // $backlog->moscow = $request->moscow;
-        // $backlog->description = $request->description;
-        // $backlog->backlog_item = $request->backlog_item;
-        // $backlog->deadline = $request->deadline;
-        // $backlog->project_id = $request->project_id;
-        // $backlog->save();
-        return view('backlog_items.create', compact('project'));
+        
     }
 
-    public function store(Project $project)
+    public function store()
     {
-        // dd($project);
         Backlog::create($this->validateBacklog_item());
         return back();
-        // return redirect('/projects/{{$project->id}}/backlog_items'); // uri klopt niet
     }
-
+    
+    public function edit()
+    {
+        //
+    }
+    
+    public function update()
+    {
+        //
+    }
 
     protected function validateBacklog_item()
     {
@@ -46,14 +46,4 @@ class Backlog_itemController extends Controller
             'deadline' => 'required',
         ]);
     }
-
-    // public function edit()
-    // {
-    //     //
-    // }
-
-    // public function update()
-    // {
-    //     //
-    // }
 }

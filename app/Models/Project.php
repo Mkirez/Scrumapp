@@ -17,7 +17,6 @@ class Project extends Model
 
     public function users()
     {
-        
     	return $this->belongsToMany(User::class , 'project_user','project_id', 'user_id' );
     }
 
@@ -26,13 +25,9 @@ class Project extends Model
         return $this->hasMany(Sprint::class);
     }
 
-
-
     public function user_to_project(User $user)
     {
-
         return $this->users()->save($user);
     }
-
 }
 
