@@ -17,7 +17,8 @@ class Project extends Model
 
     public function users()
     {
-    	return $this->belongsToMany(User::class);
+        
+    	return $this->belongsToMany(User::class , 'project_user','project_id', 'user_id' );
     }
 
     public function sprints()
@@ -29,6 +30,7 @@ class Project extends Model
 
     public function user_to_project(User $user)
     {
+
         return $this->users()->save($user);
     }
 

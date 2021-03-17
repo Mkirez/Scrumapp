@@ -24,7 +24,7 @@ class teamUserController extends Controller
         $sprints = $project->sprints;
         $allUsers = $project->users;
 
-        
+
 
         // echo $allUsers;
         return view('projects.teamember', compact('allUsers','project'));
@@ -37,8 +37,9 @@ class teamUserController extends Controller
      */
     public function create()
     {
-        echo "create";
-        //
+        do () {
+            # code...
+        } while ( <= 10);
     }
 
     /**
