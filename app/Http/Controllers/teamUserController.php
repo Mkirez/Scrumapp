@@ -18,9 +18,9 @@ class teamUserController extends Controller
         })->get();
 
         // excluding current project users with from all users.
-        $not_in_project_users = User::all()->diffKeys($users_in_project);
+        $not_in_project_users = User::all()->diff($users_in_project);
 
-        return view('projects.teamember', compact('not_in_project_users', 'project'));
+        return view('projects.teamember', compact('not_in_project_users', 'project','users_in_project'));
     }
 
     public function create(Project $project, Request $request)

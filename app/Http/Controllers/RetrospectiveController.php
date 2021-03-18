@@ -15,7 +15,8 @@ class RetrospectiveController extends Controller
      */
     public function index(Project $project)
     {
-        
+
+     
         return view('projects.retrospective' ,compact('project')) ;
     }
 
@@ -26,8 +27,7 @@ class RetrospectiveController extends Controller
      */
     public function create()
     {
-        //
-    }
+          Retrospective::create($this->validateRetro());    }
 
     /**
      * Store a newly created resource in storage.
@@ -83,5 +83,14 @@ class RetrospectiveController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+     protected function validateRetro()
+    {
+        return request()->validate([
+            'project_id' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+        ]);
     }
 }

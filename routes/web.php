@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
 
+     Route::post('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
+
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
     Route::resource('backlog', Backlog_itemController::class);

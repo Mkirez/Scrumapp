@@ -10,16 +10,15 @@
 
 						<tr>
 							<th scope="col">Name</th>
-							<th scope="col">Project</th>
 						</tr>
 
 					</thead>
 					<tbody>
 
-						@foreach($not_in_project_users as $not_in_project_user)
+						@foreach($users_in_project as $users_in_projec)
 						<tr>
-							<th scope="row">{{$not_in_project_user->userName}}</th>
-							<td>{{$not_in_project_user->projectName}}</td>
+							<th scope="row">{{$users_in_projec->name}}</th>
+							
 						</tr>
 						@endforeach
 						<!-- button team members -->

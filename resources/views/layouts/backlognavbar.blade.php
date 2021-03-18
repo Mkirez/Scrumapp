@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="{{ asset('js/my.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -49,11 +50,14 @@
 
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/projects/'. $project->id) }}">Backlog</a>
+
+                            <a class="nav-link" href="/projects/"><i style="    margin-right: 3px;" class="fa fa-arrow-left"></i>projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/projects/'. $project->id . '/teamember') }}">Teammember</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id) }}">Backlog</a>
                         </li>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/projects/'. $project->id . '/sprints') }}">Sprints</a>
                         </li>
