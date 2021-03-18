@@ -83,6 +83,7 @@
                             <form class="form-group" action="{{url('/profile')}}/{{$user->id}}" method="post">
                                 @csrf
                                 @method('PUT')
+
                                 <div class="row my-2">
                                     <div class="col-12 mt-2">
                                         <label for="first_name">
