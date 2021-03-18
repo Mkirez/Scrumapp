@@ -36,6 +36,11 @@ class Project extends Model
         
     }
 
+    public function not_in_project(Project $project)
+    {
+        return $this->belongsToMany(User::class, 'project_user','project_id', 'user_id' )->withPivot('project_id', '!=' , $project->id);
+    }
+
     
 }
 

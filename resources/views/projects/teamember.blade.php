@@ -16,10 +16,10 @@
 					</thead>
 					<tbody>
 
-						@foreach($allUsers as $allUser)
+						@foreach($not_in_project_users as $not_in_project_user)
 						<tr>
-							<th scope="row">{{$allUser->userName}}</th>
-							<td>{{$allUser->projectName}}</td>
+							<th scope="row">{{$not_in_project_user->userName}}</th>
+							<td>{{$not_in_project_user->projectName}}</td>
 						</tr>
 						@endforeach
 						<!-- button team members -->
@@ -53,10 +53,10 @@
 										<input type="hidden" name="project_id" value="{{$project->id}}" required>
 										<select name="user_id" class="custom-select" id="inputGroupSelect01">
 
-											@foreach($allUsers as $allUser)
-											<option value="{{ $allUser->id }}" selected value="">
+											@foreach($not_in_project_users as $not_in_project_user)
+											<option value="{{ $not_in_project_user->id }}" selected value="">
 
-												{{$allUser->name}}
+												{{$not_in_project_user->name}}
 
 											</option>
 

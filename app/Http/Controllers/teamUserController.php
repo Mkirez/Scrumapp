@@ -12,17 +12,20 @@ class teamUserController extends Controller
 {
     public function index(Project $project)
     {
-         
+        // search all users in current project on pivot table.
+        $users_in_project = User::whereHas('projects', function ($query) use ($project){
+            return $query->where('project_id', '=', $project->id);
+        })->get();
 
+        // excluding current project users with from all users.
+        $not_in_project_users = User::all()->diffKeys($users_in_project);
 
-        $allUsers = User::all();
-        // $allUsers = $project->users;
-        return view('projects.teamember', compact('allUsers', 'project'));
+        return view('projects.teamember', compact('not_in_project_users', 'project'));
     }
 
     public function create(Project $project, Request $request)
     {
-        
+
         $project->user_to_project(User::find($request->user_id));
         return back();
     }

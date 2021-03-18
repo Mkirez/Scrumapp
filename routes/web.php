@@ -52,6 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
 
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
+    
+    Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
+
+    Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
     Route::resource('backlog', Backlog_itemController::class);
 
@@ -65,7 +69,7 @@ Route::middleware('auth')->group(function () {
 
     //Retrospective
 
-    Route::resource('retrospective', RetrospectiveController::class);
+    // Route::resource('retrospective', RetrospectiveController::class);
 });
     
 
