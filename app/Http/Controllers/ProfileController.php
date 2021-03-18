@@ -69,10 +69,6 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
-        request()->validate([
-            'rights' => 'required',
-            'name' => 'required',
-        ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->rights = $request->rights;
