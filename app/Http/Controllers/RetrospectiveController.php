@@ -16,8 +16,9 @@ class RetrospectiveController extends Controller
     public function index(Project $project)
     {
 
+    $retrospectives =$project->retrospectives; 
      
-        return view('projects.retrospective' ,compact('project')) ;
+        return view('projects.retrospective' ,compact('project', 'retrospectives') ) ;
     }
 
     /**
@@ -27,7 +28,11 @@ class RetrospectiveController extends Controller
      */
     public function create()
     {
-          Retrospective::create($this->validateRetro());    }
+
+          Retrospective::create($this->validateRetro());   
+
+          return back(); 
+    }
 
     /**
      * Store a newly created resource in storage.

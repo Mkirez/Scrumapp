@@ -16,7 +16,6 @@ class CreateRetrospectivesTable extends Migration
         Schema::create('retrospectives', function (Blueprint $table) {
             $table->id();
             $table->integer('project_id')->nullable(true)->default(null);
-            $table->string('title');
             $table->string('status');
             $table->text('description');
             $table->timestamps();

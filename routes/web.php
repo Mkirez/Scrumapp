@@ -45,19 +45,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
     Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
 
+    //teammembers
     Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
-
     Route::get('/projects/{project}/teamember/create', [App\Http\Controllers\teamUserController::class, 'create'])->name('teamember_create');
 
+    //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
-
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
     
+    //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
-
      Route::patch('/projects/{project}/retrospectives/update', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
-
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
+
+
 
     Route::resource('backlog', Backlog_itemController::class);
 
