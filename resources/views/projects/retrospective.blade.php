@@ -3,81 +3,60 @@
 
 @auth
 
-
-
-
-
 <div class="container">
-<div class="jumbotron jumbotron-style bg-white" id="backlog-card">
-<div class="container">
-<div class="row">
-<div class="col-md-2 ">
-<h1 class="date-title"><strong>{{ $project->name }}</strong></h1>
+  <div class="row">
+    <div class="col-md-4">
+      <form >
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">Keep Doing </h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input type="text" name="keep_doing" >
+            <div class="btn btn-primary" name="submit">Click to add</div>
+          </div>
+        </div>
+      </form>  
+    </div>  
+    <div class="col-md-4">  
+      <form>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">More off </h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input type="text" name="more_off" >
+            <div class="btn btn-primary" name="submit">Click to add</div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">  
+      <form>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">Less off</h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input type="text" name="less_off" >
+            <div class="btn btn-primary" name="submit">Click to add</div>
+          </div>
+        </div>
+      </form>  
+    </div>
+    <div class="col-md-4"> 
+      <form>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">Stop Doing </h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input type="text" name="stop_doing" >
+            <div class="btn btn-primary" name="submit">Click to add</div>
+          </div>
+        </div>
+      </form>  
+    </div>  
+  </div>  
 </div>
 
 
-
-
-<div class="col-md-4 ">
-<div class="row">
-<div class="col-md-1 " style="display: inline;">
-<i class="far fa-flag" style="line-height: 48px; color: red!important;"></i>
-</div>
-<div class="col-md-3 text-left" style="display: inline;">
-<span style="line-height: 48px; color:red!important; font-weight: 700;" class="date-title">{{ date('d/m/Y', strtotime($project->start_date)) }}<span>
-</div>
-
-</div>
-
-</div>
-<div class="col-md-4 text-left">
-
-</div>
-</div>
-<!-- <div class="row">
-<div class="col-md-6 date-title">
-<h3 class="">start: {{ date('d/m/Y', strtotime($project->start_date)) }}</h3>
-</div>
-<div class="col-md-6 text-right date-title">
-<h3 class="">finish: {{ date('d/m/Y', strtotime($project->end_date)) }}</h3>
-</div>
-</div>
---> </div>
-</div>
-</div>
-
-
-
-
-
-<div class="container">
-<div class="card text-center " id="backlog-card">
-<div class="">
-<table class="table">
-<thead>
-
-
-
-<tr>
-<th scope="col">Sprint</th>
-<th scope="col">Comments</th>
-<!-- <th scope="col">project_id</th> -->
-<th scope="col">Start date</th>
-
-
-
-
-<th scope="col">Deadline</th>
-<th scope="col">View</th>
-
-
-
-</tr>
-</thead>
-<tbody>
-
-<!-- button team members -->
-</table>
         @endauth
         @guest
         <h1>guest</h1>

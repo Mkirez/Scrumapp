@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
 
-     Route::post('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
+     Route::patch('/projects/{project}/retrospectives/update', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
 
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
