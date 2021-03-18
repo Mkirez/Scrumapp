@@ -55,14 +55,15 @@ Route::middleware('auth')->group(function () {
     
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
-     Route::patch('/projects/{project}/retrospectives/update', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
+    Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);
+    Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
 
 
     Route::resource('backlog', Backlog_itemController::class);
 
-    Route::resource('Sprintguest', SprintguestController::class);
+    // Route::resource('Sprintguest', SprintguestController::class);
 
     Route::post('/taskInsertUser', [App\Http\Controllers\taskController::class, 'insertUser'])->name('taskInsertUser');
 

@@ -62,9 +62,11 @@ class RetrospectiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project, Retrospective $retrospective)
     {
-        //
+       
+        return view('projects.retro.edit' ,compact('project', 'retrospective'));
+
     }
 
     /**
@@ -74,9 +76,12 @@ class RetrospectiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update($id, Retrospective $retrospective)
+    {   
+        $retrospective->update($this->validateRetro());
+
+        return back();
+       
     }
 
     /**
