@@ -25,9 +25,17 @@ class Project extends Model
         return $this->hasMany(Sprint::class);
     }
 
+    public function retrospectives()
+    {
+        return $this->hasMany(Retrospective::class);
+    }
+
     public function user_to_project(User $user)
     {
         return $this->users()->save($user);
+        
     }
+
+    
 }
 

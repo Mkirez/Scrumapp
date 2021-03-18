@@ -14,7 +14,7 @@ use App\Http\Controllers\Backlog_itemController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
-
+use App\Http\Controllers\RetrospectiveController;
 
 
 
@@ -62,7 +62,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 'insertTaskToSprint'])->name('insertTaskToSprint');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //Retrospective
+
+    Route::resource('retrospective', RetrospectiveController::class);
 });
+    
 
 Route::get('/', function () {
     return view('welcome');

@@ -12,6 +12,9 @@ class teamUserController extends Controller
 {
     public function index(Project $project)
     {
+         
+
+
         $allUsers = User::all();
         // $allUsers = $project->users;
         return view('projects.teamember', compact('allUsers', 'project'));
@@ -19,7 +22,7 @@ class teamUserController extends Controller
 
     public function create(Project $project, Request $request)
     {
-        // dd($request);
+        
         $project->user_to_project(User::find($request->user_id));
         return back();
     }
