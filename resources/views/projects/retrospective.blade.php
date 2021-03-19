@@ -37,14 +37,7 @@
           </div>
         </div>
       </form> 
-      <form method="POST" action="{{route('update_retrospectives', $project->id)}}">
-        @csrf
-        @method('PATCH')
-        
-        <input type="text" name="description" >
-        <button class="btn btn-primary" name="update" type="update">Click to update</button>
-        
-      </form>
+     
 
     </div>  
 
@@ -77,14 +70,7 @@
           </div>
         </div>
       </form>
-       <form method="POST" action="{{route('update_retrospectives', $project->id)}}">
-        @csrf
-        @method('PATCH')
-            
-        <input type="text" name="description" >
-        <button class="btn btn-primary" name="update" type="update">Click to update</button>
-        
-      </form>
+       
     </div>
 
 
@@ -117,14 +103,7 @@
           </div>
         </div>
       </form> 
-       <form method="POST" action="{{route('update_retrospectives', $project->id)}}">
-        @csrf
-        @method('PATCH')
-            
-        <input type="text" name="description" >
-        <button class="btn btn-primary" name="update" type="update">Click to update</button>
-        
-      </form> 
+       
     </div>
 
 
@@ -152,14 +131,7 @@
           </div>
         </div>
       </form>
-       <form method="POST" action="{{route('update_retrospectives', $project->id)}}">
-        @csrf
-        @method('PATCH')
-            
-        <input type="text" name="description" >
-        <button class="btn btn-primary" name="update" type="update">Click to update</button>
-        
-      </form>  
+       
     </div>  
   </div>  
 </div>

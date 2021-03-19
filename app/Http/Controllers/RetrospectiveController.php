@@ -16,9 +16,9 @@ class RetrospectiveController extends Controller
     public function index(Project $project)
     {
 
-    $retrospectives =$project->retrospectives; 
-     
-        return view('projects.retrospective' ,compact('project', 'retrospectives') ) ;
+        $retrospectives = $project->retrospectives;
+
+        return view('projects.retrospective', compact('project', 'retrospectives'));
     }
 
     /**
@@ -29,9 +29,9 @@ class RetrospectiveController extends Controller
     public function create()
     {
 
-          Retrospective::create($this->validateRetro());   
+        Retrospective::create($this->validateRetro());
 
-          return back(); 
+        return back();
     }
 
     /**
@@ -64,9 +64,8 @@ class RetrospectiveController extends Controller
      */
     public function edit(Project $project, Retrospective $retrospective)
     {
-       
-        return view('projects.retro.edit' ,compact('project', 'retrospective'));
 
+        return view('projects.retro.edit', compact('project', 'retrospective'));
     }
 
     /**
@@ -76,12 +75,12 @@ class RetrospectiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Retrospective $retrospective)
-    {   
+    public function update(Project $project, Retrospective $retrospective)
+    {
+        // dd(request());
         $retrospective->update($this->validateRetro());
 
         return back();
-       
     }
 
     /**
@@ -95,7 +94,7 @@ class RetrospectiveController extends Controller
         //
     }
 
-     protected function validateRetro()
+    protected function validateRetro()
     {
         return request()->validate([
             'project_id' => 'required',
