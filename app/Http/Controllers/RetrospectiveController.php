@@ -13,7 +13,7 @@ class RetrospectiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Project $project)
+    public function index(Project $project )
     {
 
         $retrospectives = $project->retrospectives;

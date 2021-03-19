@@ -38,15 +38,24 @@ class ProjectController extends Controller
         //
     }
 
-    public function edit()
+    public function edit(Project $project)
     {
-        //
+
+        return view('projects.editProject', compact('project'));
     }
 
-    public function update()
+    public function update(Project $project)
     {
+
         //
-        echo "update";
+        
+        $project->update($this->validateProject());
+
+        return back();
+    }
+    public function delete(Project $project)
+    {
+        //de knop verwijst al naar hier alleen nog de functie       
     }
 
     protected function validateProject()

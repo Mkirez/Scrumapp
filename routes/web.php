@@ -44,6 +44,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/', [App\Http\Controllers\ProjectController::class, 'index']);
     Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
     Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
+    Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectController::class, 'edit'])->name('edit_project');
+
+    Route::put('/projects/{project}/update', [App\Http\Controllers\ProjectController::class, 'update'])->name('update_project');
+
+    Route::delete('/projects/{project}/delete', [App\Http\Controllers\ProjectController::class, 'delete'])->name('delete_project');
+
 
     //teammembers
     Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
