@@ -72,7 +72,7 @@
 
             @foreach($projects as $project)
             <div class="col-xs-12 col-sm-12 col-md-4">
-                <a id="project_block" href="/projects/{{ $project->id }}" style="text-decoration: none;">
+                <a  href="/projects/{{ $project->id }}" style="text-decoration: none; color: black;">
                     <div class="card" style="padding: 40px;">
 
                         <div class="col-md-12 text-center project-title">
@@ -95,10 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <div class="row">
+                        <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6 d-flex" >
                         <form method="post" action="{{ url('projects/'.$project->id. '/delete' ) }}" >
                            @csrf
@@ -110,6 +107,11 @@
                          <a href="{{ url('projects/'.$project->id. '/edit') }}" class="btn btn-primary">edit</a> 
                     </div>
                 </div>
+                    </div>
+
+                </a>
+
+                
             </div>
             @endforeach
         </div>
