@@ -55,7 +55,8 @@ class ProjectController extends Controller
     }
     public function delete(Project $project)
     {
-        //de knop verwijst al naar hier alleen nog de functie       
+        $project->delete();
+        return back();
     }
 
     protected function validateProject()
