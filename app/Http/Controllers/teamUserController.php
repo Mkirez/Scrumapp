@@ -44,6 +44,9 @@ class teamUserController extends Controller
 
         // $teamuser->save();
         // return back();
+
+
+
     }
 
     public function show($id)
@@ -61,8 +64,8 @@ class teamUserController extends Controller
         //
     }
 
-    public function destroy()
+    public function delete(project $project,$id)
     {
-        //
+        $project->users()->detach($id);
     }
 }

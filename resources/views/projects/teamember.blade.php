@@ -7,19 +7,21 @@
 			<div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
 				<table class="table ">
 					<thead>
-
 						<tr>
 							<th scope="col">Name</th>
+							<th scope="col">remove user</th>
 						</tr>
-
 					</thead>
 					<tbody>
 
 						@foreach($users_in_project as $users_in_projec)
 						<tr>
-							<th scope="row">{{$users_in_projec->name}}</th>
+						<th scope="row">
+							{{$users_in_projec->name}}
+						</th>
 							
-						</tr>
+						<td scope="">delete:<a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}">{{$users_in_projec->name}}</a>
+						</td>
 						@endforeach
 						<!-- button team members -->
 
@@ -29,7 +31,7 @@
 
 
 						<!-- hier moet de button komen die in de chat staat  -->
-
+					</tr>
 					</tbody>
 				</table>
 

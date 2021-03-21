@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     //teammembers
     Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
     Route::get('/projects/{project}/teamember/create', [App\Http\Controllers\teamUserController::class, 'create'])->name('teamember_create');
+    Route::get('/projects/{project}/teamember/{teamember}/remove', [App\Http\Controllers\teamUserController::class, 'delete'])->name('teamember_delete');
 
     //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
