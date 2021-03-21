@@ -20,7 +20,10 @@
 							{{$users_in_projec->name}}
 						</th>
 							
-						<td scope="">delete:<a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}">{{$users_in_projec->name}}</a>
+
+
+						<!-- checken the first element in my user table and give it a hidden -->
+						<td scope=""><a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}" @if ($loop->first) hidden @endif class="noncha">{{$users_in_projec->name}}</a>
 						</td>
 						@endforeach
 						<!-- button team members -->
