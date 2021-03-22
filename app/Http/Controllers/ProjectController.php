@@ -42,6 +42,7 @@ class ProjectController extends Controller
     {
 
         return view('projects.editProject', compact('project'));
+
     }
 
     public function update(Project $project)
@@ -53,10 +54,14 @@ class ProjectController extends Controller
 
         return back();
     }
+
     public function delete(Project $project)
     {
+
         $project->delete();
+
         return back();
+        
     }
 
     protected function validateProject()
@@ -67,4 +72,5 @@ class ProjectController extends Controller
             'end_date' => 'required',
         ]);
     }
+
 }

@@ -89,9 +89,11 @@ class RetrospectiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete( $id, Retrospective $retrospective)
     {
-        //
+        $retrospective->delete();
+
+        return back();
     }
 
     protected function validateRetro()

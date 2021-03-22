@@ -71,7 +71,7 @@ class ProfileController extends Controller
 
         $user = User::find($id);
         $user->name = $request->name;
-        $user->rights = $request->rights;
+        // $user->rights = $request->rights;
         $user->save();
         return redirect('/profile');
     }
