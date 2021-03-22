@@ -64,8 +64,8 @@ class teamUserController extends Controller
         //
     }
 
-    public function delete(project $project,$id)
+    public function delete(project $project,User $user)
     {
-        $project->users()->detach($id);
+        $project->users()->detach($user);
     }
 }

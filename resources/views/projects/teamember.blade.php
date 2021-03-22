@@ -23,13 +23,14 @@
 
 
 						<!-- checken the first element in my user table and give it a hidden -->
-						<td scope=""><a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}" @if ($loop->first) hidden @endif class="noncha">{{$users_in_projec->name}}</a>
+						<td scope=""><a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}"   @if ($loop->first) hidden @endif class="noncha">{{$users_in_projec->name}}</a>
 						</td>
 						@endforeach
 						<!-- button team members -->
 
+
 						<div class="col-md-12" style="padding: 10px;">
-							<a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
+							<a style="width: 50%;" href=""  class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
 						</div>
 
 
