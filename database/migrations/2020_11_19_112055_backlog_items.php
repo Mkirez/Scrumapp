@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class BacklogItems extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('backlog_items', function (Blueprint $table) {
@@ -20,21 +15,11 @@ class BacklogItems extends Migration
             $table->string('description', 500);
             $table->string('moscow', 45);
             $table->date('deadline');
-            // $table->timestamps();
-            $table->integer('task_id')->nullable(true);
-
-            // $table->foreign('project_id')
-            //     ->references('id')
-            //     ->on('projects')
-            //     ->onDelete('cascade');
+            $table->boolean('added_to_sprint')->default(0);
+            $table->foreignId('sprint_id')->nullable(true);
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('backlog_items');

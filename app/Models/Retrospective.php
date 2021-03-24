@@ -11,9 +11,7 @@ class Retrospective extends Model
     protected $table = 'retrospectives';
 
         protected $guarded = [];
-
         public $timestamps = false;
-
 
         public function project()
         {
