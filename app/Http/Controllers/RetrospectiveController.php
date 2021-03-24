@@ -8,14 +8,14 @@ use App\Models\Project;
 
 class RetrospectiveController extends Controller
 {
-<<<<<<< HEAD
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-=======
->>>>>>> diame
+
+
     public function index(Project $project)
     {
 

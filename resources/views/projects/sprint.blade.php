@@ -25,7 +25,13 @@
           <td>{{date('d/m/Y', strtotime($sprint->updated_at)) }}</td>
           <td>{{$sprint->remarks}}</td>
           <td>
-          </td>
+            <form action="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id)}}" method="post">
+                @csrf
+                @method('GET')
+                <input type="submit" name="submit">
+            </form>
+
+           </td>
         </tr>
       </tbody>
       @endforeach

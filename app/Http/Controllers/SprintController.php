@@ -9,9 +9,13 @@ use Auth;
 
 class SprintController extends Controller
 {
-    public function index(Project $project)
+    public function index(Project $project, Sprint $sprints)
     {
+
+
         $sprints = $project->sprints;
+
+
 
         return view('projects.sprint', compact('project', 'sprints'));
     }
@@ -30,9 +34,9 @@ class SprintController extends Controller
         //
     }
 
-    public function show()
+    public function show(Project $project, Sprint $sprint)
     {
-        //
+        return view('sprint.show');
     }
     public function edit()
     {
