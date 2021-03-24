@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
-    
+
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
     Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);
@@ -83,7 +83,7 @@ Route::middleware('auth')->group(function () {
 
     // Route::resource('retrospective', RetrospectiveController::class);
 });
-    
+
 
 Route::get('/', function () {
     return view('welcome');

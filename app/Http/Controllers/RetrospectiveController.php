@@ -13,7 +13,7 @@ class RetrospectiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Project $project )
+    public function index(Project $project)
     {
 
         $retrospectives = $project->retrospectives;
@@ -89,7 +89,7 @@ class RetrospectiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete( $id, Retrospective $retrospective)
+    public function delete(Project $project,   Retrospective $retrospective)
     {
         $retrospective->delete();
 
