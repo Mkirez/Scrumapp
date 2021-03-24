@@ -15,8 +15,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        
     ];
+    
     protected $hidden = [
         'password',
         'remember_token',
@@ -25,6 +25,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 
     public function stakeholder()
     {
@@ -39,10 +44,5 @@ class User extends Authenticatable
     public function product_owner()
     {
         return $this->rights == 2;
-    }
-
-    public function projects()
-    {
-        return $this->belongsToMany(Project::class);
     }
 }

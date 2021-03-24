@@ -17,7 +17,8 @@ class Project extends Model
 
     public function users()
     {
-    	return $this->belongsToMany(User::class , 'project_user','project_id', 'user_id' );
+        // laravel gaat rare colummen verzinnen in die pivot, vandaar dat je de naam moet noemen van de pivot en de twee id's.
+        return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id');
     }
 
     public function sprints()
@@ -33,14 +34,10 @@ class Project extends Model
     public function user_to_project(User $user)
     {
         return $this->users()->save($user);
-        
     }
 
     public function not_in_project(Project $project)
     {
-        return $this->belongsToMany(User::class, 'project_user','project_id', 'user_id' )->withPivot('project_id', '!=' , $project->id);
+        return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id');
     }
-
-    
 }
-

@@ -52,7 +52,11 @@
                 <div class="col-md-12">
 
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
+<<<<<<< HEAD
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+=======
+                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>  
+>>>>>>> diame
                 </div>
                 @endforeach
 
@@ -84,8 +88,13 @@
                 @foreach($retrospectives->where('status','lessOff') as $retrospective)
                 <div class="col-md-12">
 
+<<<<<<< HEAD
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+=======
+                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a> 
+                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a> 
+>>>>>>> diame
                 </div>
                 @endforeach
 
@@ -115,9 +124,15 @@
               <div class="row">
                 @foreach($retrospectives->where('status','stopDoing') as $retrospective)
                 <div class="col-md-12">
+<<<<<<< HEAD
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
                   <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
 
+=======
+                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a> 
+                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete}</a> 
+                  
+>>>>>>> diame
                 </div>
                 @endforeach
               </div>
