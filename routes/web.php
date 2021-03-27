@@ -58,8 +58,12 @@ Route::middleware('auth')->group(function () {
 
     //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
+    
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
+
     Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintController::class, 'show'])->name('Showsprints');
+
+     Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
 
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');

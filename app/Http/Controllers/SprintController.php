@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Backlog_item;
 use App\Models\Project;
 use App\Models\Sprint;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Auth;
 
@@ -26,17 +28,37 @@ class SprintController extends Controller
     {
         $sprint = Sprint::create($this->validateSprint());
 
+       
+    }
+
+
+    public function store(Project $project, Sprint $sprint, Request $request )
+    {
+
+   
+        $backlog_item = backlog_item::find($request->backlog_item);
+        $backlog_item->added_to_sprint = 1;
+        $backlog_item->sprint_id = $sprint->id;
+        $backlog_item->sprint_id = $sprint->id;
+        $backlog_item->save();
         return back();
+
+
+
+
+
+
+        
+
     }
 
-
-    public function store(Backlog_item $backlog_item)
+    public function show(Project $project, Sprint $sprint,Backlog_item $backlog_item)
     {
 
-    }
+       
 
-    public function show(Project $project, Sprint $sprint)
-    {
+
+
         // search all backlog items in current sprint.
         $not_in_sprint_backlog_items = Backlog_item::where('project_id', $project->id)
             ->where('sprint_id', null)
@@ -47,7 +69,7 @@ class SprintController extends Controller
 
         // dd($in_sprint_backlog_items->pluck('backlog_item'));
 
-        return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project'));
+        return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project','backlog_item','sprint'));
     }
 
     public function edit()
@@ -93,4 +115,7 @@ class SprintController extends Controller
             'project_id' => 'required',
         ]);
     }
+
+      
+
 }

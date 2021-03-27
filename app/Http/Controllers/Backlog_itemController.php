@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Backlog;
+use App\Models\Backlog_item;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -23,7 +23,7 @@ class Backlog_itemController extends Controller
     public function store()
     {
         // dd(request());
-        Backlog::create($this->validateBacklog_item());
+        Backlog_item::create($this->validateBacklog_item());
         return back();
     }
     

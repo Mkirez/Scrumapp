@@ -43,8 +43,8 @@
                         <!-- Modal content-->
                         <!-- // dit is de team users form  -->
                         <div class="modal-content">
-                            teamember_create
-                            <form class="myForm" action="#" method="POST">
+                           
+                            <form class="myForm" action="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id . '/store')}}" method="POST">
                                 @csrf
                                 @method('GET')
                                 <div class="col-md-12 inner-text">
@@ -52,16 +52,42 @@
                                 </div>
                                 <div class="inner-form">
                                     <div class="form-group">
+                     
 
-                                        <input type="hidden" name="project_id" value="{{$project->id}}" required>
-                                        <select name="user_id" class="custom-select" id="inputGroupSelect01">
+
+                                            <input type="hidden" name="project_id" value="{{$project->id}}" required>
+
+                                        <input type="hidden" name="sprint_id" value="{{$sprint->id}}" required>
+
+                                         <input type="hidden" name="added_to_sprint" value="1" required>
+
+                                                                       
+                                         <input type="hidden" name="user_id" value="{{NULL}}" required>
+
+                                       
+
+
+
+
+
+
+
+
+
+
+                                        <select name="backlog_item"  class="custom-select" id="inputGroupSelect01">
 
                                             @foreach($not_in_sprint_backlog_items as $not_in_sprint_backlog_item)
-                                            <option value="{{ $not_in_sprint_backlog_item->id }}" selected value="">
+
+                                            
+                                            <option value="{{ $not_in_sprint_backlog_item->id }}" selected  >
 
                                                 {{$not_in_sprint_backlog_item->backlog_item}}
 
                                             </option>
+
+
+
 
                                             @endforeach
 
