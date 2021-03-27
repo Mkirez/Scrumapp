@@ -14,10 +14,10 @@ class Sprints extends Migration
     public function up()
     {
         Schema::create('sprints', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement()->nullable(false);
-            $table->integer('project_id')->nullable(true)->default(null);
+            $table->id();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
+            $table->string('remarks', 500);
             $table->timestamps();
-            $table->string('remarks', 500)->nullable(true)->default(null);
         });
     }
 

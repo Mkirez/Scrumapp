@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Backlog_item;
 use App\Models\Project;
 use App\Models\Sprint;
 use Illuminate\Http\Request;
@@ -29,15 +30,26 @@ class SprintController extends Controller
     }
 
 
-    public function store()
+    public function store(Backlog_item $backlog_item)
     {
-        //
+
     }
 
     public function show(Project $project, Sprint $sprint)
     {
-        return view('sprint.show');
+        // search all backlog items in current sprint.
+        $not_in_sprint_backlog_items = Backlog_item::where('project_id', $project->id)
+            ->where('sprint_id', null)
+            ->get();
+
+        //  all backlog items in sprint
+        $in_sprint_backlog_items = $project->backlog_items->where('sprint_id', $sprint->id);
+
+        // dd($in_sprint_backlog_items->pluck('backlog_item'));
+
+        return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project'));
     }
+
     public function edit()
     {
         //

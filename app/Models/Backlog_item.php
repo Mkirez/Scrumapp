@@ -10,15 +10,12 @@ class Backlog_item extends Model
     use HasFactory;
 
     protected $guarded = [];
+    // protected $fillable = [];
 
     public function project()
     {
         return $this->belongsTo('App\Models\Project');
     }
 
-    protected $fillable = [
-         'name','updated_at','created_at'
-
-    ];
 }
 

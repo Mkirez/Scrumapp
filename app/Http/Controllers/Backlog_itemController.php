@@ -22,6 +22,7 @@ class Backlog_itemController extends Controller
 
     public function store()
     {
+        // dd(request());
         Backlog::create($this->validateBacklog_item());
         return back();
     }
@@ -44,6 +45,7 @@ class Backlog_itemController extends Controller
             'backlog_item' => 'required',
             'moscow' => 'required',
             'deadline' => 'required',
+            // 'sprint_id' => 'required',
         ]);
     }
 }

@@ -9,14 +9,17 @@ class BacklogItems extends Migration
     public function up()
     {
         Schema::create('backlog_items', function (Blueprint $table) {
-            $table->Id();
-            $table->Integer('project_id')->nullable(true);
+            $table->id();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->string('backlog_item', 255);
             $table->string('description', 500);
             $table->string('moscow', 45);
             $table->date('deadline');
+
+            // columns needed for sprints
             $table->boolean('added_to_sprint')->default(0);
             $table->foreignId('sprint_id')->nullable(true);
+            $table->foreignId('user_id')->nullable(true);
         });
     }
     
