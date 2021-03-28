@@ -15,6 +15,8 @@ class BacklogItems extends Migration
             $table->string('description', 500);
             $table->string('moscow', 45);
             $table->date('deadline');
+            $table->string('status')->default('todo');
+
 
             // columns needed for sprints
             $table->boolean('added_to_sprint')->default(0);

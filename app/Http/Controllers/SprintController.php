@@ -72,9 +72,31 @@ class SprintController extends Controller
         return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project','backlog_item','sprint'));
     }
 
-    public function edit()
+    public function edit(Project $project, Sprint $sprint, Backlog_item $backlog_item)
     {
-        //
+        if ($backlog_item->status =='todo') {
+               $backlog_item->find($backlog_item);
+        $backlog_item->status = 'busy';
+        $backlog_item->save();
+        }
+        elseif ($backlog_item->status =='busy') {
+               $backlog_item->find($backlog_item);
+        $backlog_item->status = 'done';
+        $backlog_item->save();
+        }
+        elseif ($backlog_item->status =='done') {
+               $backlog_item->find($backlog_item);
+        $backlog_item->status = 'todo';
+        $backlog_item->save();
+        }
+        return back();
+     
+
+
+       
+       
+      
+
     }
 
     public function update(Request $request, $id)

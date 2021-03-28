@@ -65,6 +65,8 @@ Route::middleware('auth')->group(function () {
 
      Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
 
+     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}', [App\Http\Controllers\SprintController::class, 'edit']);
+
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
     Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);

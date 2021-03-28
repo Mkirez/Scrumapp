@@ -6,38 +6,12 @@
     <div class="row">
         <div class="col-md-12 text-center">
             <div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
-                <table class="table ">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">remove user</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach($in_sprint_backlog_items as $in_sprint_backlog_item)
-                        <tr>
-                            <th scope="row">
-                                {{$in_sprint_backlog_item->backlog_item}}
-                            </th>
-
-                            <!-- checken the first element in my user table and give it a hidden -->
-                            </td>
-                            @endforeach
-                            <!-- button team members -->
-
-
-                            <div class="col-md-12" style="padding: 10px;">
-                                <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
-                            </div>
-
-
-                            <!-- hier moet de button komen die in de chat staat  -->
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div id="teamember" class="modal fade" role="dialog">
+                <!-- button -->
+                <div class="col-md-12" style="padding: 10px;">
+                    <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
+                </div>
+                <!-- teamusermodel -->
+                 <div id="teamember" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
@@ -54,27 +28,10 @@
                                     <div class="form-group">
                      
 
-
-                                            <input type="hidden" name="project_id" value="{{$project->id}}" required>
-
+                                        <input type="hidden" name="project_id" value="{{$project->id}}" required>
                                         <input type="hidden" name="sprint_id" value="{{$sprint->id}}" required>
-
-                                         <input type="hidden" name="added_to_sprint" value="1" required>
-
-                                                                       
-                                         <input type="hidden" name="user_id" value="{{NULL}}" required>
-
-                                       
-
-
-
-
-
-
-
-
-
-
+                                        <input type="hidden" name="added_to_sprint" value="1" required>
+                                        <input type="hidden" name="user_id" value="{{NULL}}" required>
                                         <select name="backlog_item"  class="custom-select" id="inputGroupSelect01">
 
                                             @foreach($not_in_sprint_backlog_items as $not_in_sprint_backlog_item)
@@ -85,16 +42,7 @@
                                                 {{$not_in_sprint_backlog_item->backlog_item}}
 
                                             </option>
-
-
-
-
                                             @endforeach
-
-
-
-
-
                                         </select>
                                     </div>
 
@@ -105,6 +53,85 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- todo -->
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                        <form method="POST" action="">
+                        @csrf
+                        @method('GET')
+                        <input type="hidden" name="project_id" value="{{$project->id}}">
+                        <input type="hidden" name="status" value="keepDoing">
+                            <div class="card" style="width: 100%;">
+                                <div class="card">
+                                <h3 class="card-title">to do</h3>
+                                <div class="container">
+                                    <div class="row">
+                                        @foreach($in_sprint_backlog_items->where('status','todo') as $in_sprint_backlog_item)
+                                        <div class="col-md-6 text-left">
+                                        <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">{{$in_sprint_backlog_item->backlog_item}}</a>
+                                        </div>
+                                        <div class="col-md-6 text-left">
+                                           
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                           
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- bussy -->
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                        <form method="POST" action="">
+                        @csrf
+                        @method('GET')
+                        <input type="hidden" name="project_id" value="{{$project->id}}">
+                        <input type="hidden" name="status" value="keepDoing">
+                            <div class="card" style="width: 100%;">
+                                <div class="card">
+                                <h3 class="card-title">to do</h3>
+                                <div class="container">
+                                    <div class="row">
+                                        @foreach($in_sprint_backlog_items->where('status','busy') as $in_sprint_backlog_item)
+                                        <div class="col-md-12 text-left">
+                                            <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
+                                            {{$in_sprint_backlog_item->backlog_item}}</a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                         
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- done -->
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                        <form method="POST" action="">
+                        @csrf
+                        @method('GET')
+                        <input type="hidden" name="project_id" value="{{$project->id}}">
+                        <input type="hidden" name="status" value="keepDoing">
+                            <div class="card" style="width: 100%;">
+                                <div class="card">
+                                <h3 class="card-title">to do</h3>
+                                <div class="container">
+                                    <div class="row">
+                                        @foreach($in_sprint_backlog_items->where('status','done') as $in_sprint_backlog_item)
+                                        <div class="col-md-12 text-left">
+                                            <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
+                                            {{$in_sprint_backlog_item->backlog_item}}</a>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
