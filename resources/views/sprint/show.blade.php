@@ -8,7 +8,7 @@
             <div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
                 <!-- button -->
                 <div class="col-md-12" style="padding: 10px;">
-                    <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
+                    <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add backlog item</a>
                 </div>
                 <!-- teamusermodel -->
                  <div id="teamember" class="modal fade" role="dialog">
@@ -18,11 +18,11 @@
                         <!-- // dit is de team users form  -->
                         <div class="modal-content">
                            
-                            <form class="myForm" action="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id . '/store')}}" method="POST">
+                            <form class="myForm" action="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id . '/create')}}" method="POST">
                                 @csrf
                                 @method('GET')
                                 <div class="col-md-12 inner-text">
-                                    <h1>Add teammembers </h1>
+                                    <h1>Add backlog item </h1>
                                 </div>
                                 <div class="inner-form">
                                     <div class="form-group">
@@ -39,7 +39,7 @@
                                             
                                             <option value="{{ $not_in_sprint_backlog_item->id }}" selected  >
 
-                                                {{$not_in_sprint_backlog_item->backlog_item}}
+                                                {{$not_in_sprint_backlog_item->name}}
 
                                             </option>
                                             @endforeach
@@ -70,10 +70,9 @@
                                     <div class="row">
                                         @foreach($in_sprint_backlog_items->where('status','todo') as $in_sprint_backlog_item)
                                         <div class="col-md-6 text-left">
-                                        <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">{{$in_sprint_backlog_item->backlog_item}}</a>
+                                        <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">{{$in_sprint_backlog_item->name}}</a>
                                         </div>
-                                        <div class="col-md-6 text-left">
-                                           
+                                        <div class="col-md-6 ">
                                         </div>
                                         @endforeach
                                     </div>
@@ -99,7 +98,7 @@
                                         @foreach($in_sprint_backlog_items->where('status','busy') as $in_sprint_backlog_item)
                                         <div class="col-md-12 text-left">
                                             <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
-                                            {{$in_sprint_backlog_item->backlog_item}}</a>
+                                            {{$in_sprint_backlog_item->name}}</a>
                                         </div>
                                         @endforeach
                                     </div>
@@ -124,7 +123,7 @@
                                         @foreach($in_sprint_backlog_items->where('status','done') as $in_sprint_backlog_item)
                                         <div class="col-md-12 text-left">
                                             <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
-                                            {{$in_sprint_backlog_item->backlog_item}}</a>
+                                            {{$in_sprint_backlog_item->name}}</a>
                                         </div>
                                         @endforeach
                                     </div>

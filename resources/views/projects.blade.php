@@ -65,8 +65,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                 <h1>Projects</h1>
-            </div>
-            
+            </div>   
         </div>
         <div class="row">
 
@@ -104,19 +103,62 @@
                         </form> 
                     </div>
                       <div class="col-xs-6 col-sm-6 col-md-6 d-flex">
-                         <a href="{{ url('projects/'.$project->id. '/edit') }}" class="btn btn-primary">edit</a> 
+                         <a href="" class="btn btn-info" data-toggle="modal" data-target="#modal_update_project-{{$project->id}}">update</a> 
                     </div>
                 </div>
-                    </div>
-
-                </a>
-
+            </div>
+            </a>
                 
             </div>
             @endforeach
         </div>
 
     </div>
+@foreach($projects as $project)
+    <!-- update model -->
+    <div id="modal_update_project-{{$project->id}}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+
+   
+        <!-- Modal content-->
+        <div class="modal-content">
+          <form class="myForm" action="{{route('update_project', ['project'=>$project])}}" method="POST">
+            @csrf
+            @method('GET')
+            <div class="col-md-12 inner-text">
+              <h1>Add sprint</h1>
+            </div>
+            <div class="inner-form">
+
+              <input hidden name="project_id" value="{{$project->id}}" required>
+
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" value="{{$project->name}}" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label>Start date</label>
+                
+                <input type="date" name="start_date" value="{{$project->start_date}}" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label>End date</label>
+                <input type="date" name="end_date" value="{{$project->end_date}}" class="form-control" required>
+              </div>
+
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+          
+      </div>
+    </div>
+@endforeach
 
     
 

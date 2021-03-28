@@ -21,8 +21,7 @@
           <td>{{date('d/m/Y', strtotime($sprint->end_date)) }}</td>
           <td>
             <a href="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id)}}" type="button" class="btn btn-primary btn-sm">Go</a>
-            <a id='box' href="" data-target="#modal_update_sprint" type="button" class="btn btn-primary btn-sm">Edit</a>
-
+            <a id='box' href="" data-target="#modal_update_sprint-{{$sprint->id}}" type="button" class="btn btn-primary btn-sm" data-toggle="modal">Edit</a>
           </td>
         </tr>
       </tbody>
@@ -36,7 +35,6 @@
     <!-- Modal content-->
     <div id="modal_add_sprint" class="modal fade" role="dialog">
       <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
           <form class="myForm" action="{{route('create_sprints', $project->id)}}" method="POST">
@@ -70,71 +68,62 @@
             </div>
           </form>
         </div>
-
-        <div id="modal_update_sprint" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <form class="myForm" action="{{route('create_sprints', $project->id)}}" method="POST">
-                @csrf
-                @method('GET')
-                <div class="col-md-12 inner-text">
-                  <h1>Add sprint</h1>
-                </div>
-                <div class="inner-form">
-
-                  <input hidden name="project_id" value="{{$project->id}}" required>
-
-                  <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" class="form-control" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Start date</label>
-                    <input type="date" name="start_date" class="form-control" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label>End date</label>
-                    <input type="date" name="end_date" class="form-control" required>
-                  </div>
-
-                  <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-          </div>
-        </div>
       </div>
     </div>
+
+      @foreach($sprints as $sprint)
+    <!-- update model -->
+    <div id="modal_update_sprint-{{$sprint->id}}" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+
+   
+        <!-- Modal content-->
+        <div class="modal-content">
+          <form class="myForm" action="{{route('update_sprint',['project'=>$project,'sprint'=>$sprint])}}" method="POST">
+            @csrf
+            @method('GET')
+            <div class="col-md-12 inner-text">
+              <h1>Add sprint</h1>
+            </div>
+            <div class="inner-form">
+
+              <input hidden name="project_id" value="{{$project->id}}" required>
+
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" value="{{$sprint->name}}" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label>Start date</label>
+                
+                <input type="date" name="start_date" value="{{$sprint->start_date}}" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label>End date</label>
+                <input type="date" name="end_date" value="{{$sprint->end_date}}" class="form-control" required>
+              </div>
+
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+          
+      </div>
+    </div>
+     @endforeach
+
   </div>
-  <div id="dialog" title="Basic dialog">
-  </div>
+
 
 
 
 
 </div>
 @endauth
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-  $(document).ready(function() {
-
-    $('#box').click(function() { // for the circle id 
-      $('#modal_add_sprint').modal('hide');
-
-    })
-    $('#box').click(function() { // for the circle id 
-      $('#modal_update_sprint').modal('show');
-
-    })
-
-  });
-</script>
 @endsection

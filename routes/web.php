@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 //controllers
 
-use App\Http\Controllers\SprintBoardController;
+use App\Http\Controllers\SprintBacklogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SprintController;
 use App\Http\Controllers\ProjectController;
@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
     Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectController::class, 'edit'])->name('edit_project');
 
-    Route::put('/projects/{project}/update', [App\Http\Controllers\ProjectController::class, 'update'])->name('update_project');
+    Route::get('/projects/{project}/update', [App\Http\Controllers\ProjectController::class, 'update'])->name('update_project');
 
     Route::delete('/projects/{project}/delete', [App\Http\Controllers\ProjectController::class, 'delete'])->name('delete_project');
 
@@ -61,9 +61,15 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
 
-    Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintController::class, 'show'])->name('Showsprints');
+    Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintBacklogController::class, 'index'])->name('Showsprints');
+
+
+   Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
 
      Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
+
+     Route::get('/projects/{project}/sprints/{sprint}/update', [App\Http\Controllers\SprintController::class, 'update'])->name('update_sprint');;
+
 
      Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}', [App\Http\Controllers\SprintController::class, 'edit']);
 

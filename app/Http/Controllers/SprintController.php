@@ -16,6 +16,7 @@ class SprintController extends Controller
     {
 
 
+
         $sprints = $project->sprints;
 
 
@@ -28,49 +29,11 @@ class SprintController extends Controller
     {
         $sprint = Sprint::create($this->validateSprint());
 
-       
-    }
-
-
-    public function store(Project $project, Sprint $sprint, Request $request )
-    {
-
-   
-        $backlog_item = backlog_item::find($request->backlog_item);
-        $backlog_item->added_to_sprint = 1;
-        $backlog_item->sprint_id = $sprint->id;
-        $backlog_item->sprint_id = $sprint->id;
-        $backlog_item->save();
         return back();
-
-
-
-
-
-
-        
-
     }
 
-    public function show(Project $project, Sprint $sprint,Backlog_item $backlog_item)
-    {
-
-       
 
 
-
-        // search all backlog items in current sprint.
-        $not_in_sprint_backlog_items = Backlog_item::where('project_id', $project->id)
-            ->where('sprint_id', null)
-            ->get();
-
-        //  all backlog items in sprint
-        $in_sprint_backlog_items = $project->backlog_items->where('sprint_id', $sprint->id);
-
-        // dd($in_sprint_backlog_items->pluck('backlog_item'));
-
-        return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project','backlog_item','sprint'));
-    }
 
     public function edit(Project $project, Sprint $sprint, Backlog_item $backlog_item)
     {
@@ -94,33 +57,14 @@ class SprintController extends Controller
 
 
        
-       
       
 
     }
 
-    public function update(Request $request, $id)
+    public function update(Project $project, Sprint $sprint)
     {
-        if ($request->option == 'done') {
-            // echo "veld veranderen in done";
-
-            $sql = "UPDATE task
-                    set status ='done'
-                    WHERE id = $id";
-
-            $dataSprint = DB::Update($sql);
-            return back();
-
-            // sql veld updaten
-        }
-        if ($request->option == 'busy') {
-            $sql = "UPDATE task
-                    set status ='busy'
-                    WHERE id = $id";
-
-            $dataSprint = DB::Update($sql);
-            return back();
-        }
+        $sprint->update($this->validateSprint());
+        return back();
     }
 
     public function destroy(Sprint $sprint)
@@ -133,8 +77,10 @@ class SprintController extends Controller
     protected function validateSprint()
     {
         return request()->validate([
-            'remarks' => 'required',
+            'name' => 'required',
             'project_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
     }
 

@@ -48,7 +48,7 @@ class ProjectController extends Controller
     public function update(Project $project)
     {
 
-        //
+        dd($project->start_date);
         
         $project->update($this->validateProject());
 
