@@ -55,16 +55,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/teamember', [App\Http\Controllers\teamUserController::class, 'index'])->name('teamember');
     Route::get('/projects/{project}/teamember/create', [App\Http\Controllers\teamUserController::class, 'create'])->name('teamember_create');
     Route::get('/projects/{project}/teamember/{user}/remove', [App\Http\Controllers\teamUserController::class, 'delete'])->name('teamember_delete');
-
+    
     //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
-    
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
-
-    Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintController::class, 'show'])->name('Showsprints');
-
-     Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
-
+    
+    // sprints backlog
+    Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintBacklogController::class, 'index'])->name('Showsprints');
+    Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
+    Route::get('/projects/{project}/sprints/{sprint}/backlog_items/{backlog_item}/remove', [App\Http\Controllers\SprintBacklogController::class, 'destroy'])->name('teamember_delete');
+    
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
     Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);

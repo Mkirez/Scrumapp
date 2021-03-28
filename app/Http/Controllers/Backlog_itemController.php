@@ -42,9 +42,9 @@ class Backlog_itemController extends Controller
         return request()->validate([
             'project_id' => 'required',
             'description' => 'required',
-            'backlog_item' => 'required',
-            'moscow' => 'required',
-            'deadline' => 'required',
+            'name' => 'required',
+            // 'moscow' => 'required',
+            // 'deadline' => 'required',
             // 'sprint_id' => 'required',
         ]);
     }

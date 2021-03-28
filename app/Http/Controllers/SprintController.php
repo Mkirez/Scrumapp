@@ -15,10 +15,7 @@ class SprintController extends Controller
     public function index(Project $project, Sprint $sprints)
     {
 
-
         $sprints = $project->sprints;
-
-
 
         return view('projects.sprint', compact('project', 'sprints'));
     }
@@ -26,50 +23,19 @@ class SprintController extends Controller
 
     public function create()
     {
-        $sprint = Sprint::create($this->validateSprint());
-
-       
-    }
-
-
-    public function store(Project $project, Sprint $sprint, Request $request )
-    {
-
-   
-        $backlog_item = backlog_item::find($request->backlog_item);
-        $backlog_item->added_to_sprint = 1;
-        $backlog_item->sprint_id = $sprint->id;
-        $backlog_item->sprint_id = $sprint->id;
-        $backlog_item->save();
+        Sprint::create($this->validateSprint());
         return back();
-
-
-
-
-
-
-        
-
     }
 
-    public function show(Project $project, Sprint $sprint,Backlog_item $backlog_item)
+
+    public function store()
     {
+        //
+    }
 
-       
-
-
-
-        // search all backlog items in current sprint.
-        $not_in_sprint_backlog_items = Backlog_item::where('project_id', $project->id)
-            ->where('sprint_id', null)
-            ->get();
-
-        //  all backlog items in sprint
-        $in_sprint_backlog_items = $project->backlog_items->where('sprint_id', $sprint->id);
-
-        // dd($in_sprint_backlog_items->pluck('backlog_item'));
-
-        return view('sprint.show', compact('not_in_sprint_backlog_items', 'in_sprint_backlog_items', 'project','backlog_item','sprint'));
+    public function show()
+    {
+        // moved to SprintBacklogController -> index
     }
 
     public function edit()
@@ -111,11 +77,10 @@ class SprintController extends Controller
     protected function validateSprint()
     {
         return request()->validate([
-            'remarks' => 'required',
+            'name' => 'required',
             'project_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
     }
-
-      
-
 }
