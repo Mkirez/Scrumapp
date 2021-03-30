@@ -15,6 +15,8 @@ use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
 use App\Http\Controllers\RetrospectiveController;
+use App\Http\Controllers\DailystandController;
+use App\Http\Controllers\DailystandItemController;
 
 
 
@@ -64,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintBacklogController::class, 'index'])->name('Showsprints');
 
 
-   Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
+    Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
 
      Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
 
@@ -80,8 +82,22 @@ Route::middleware('auth')->group(function () {
     Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
+    //Dailystand
+    Route::get('/projects/{project}/dailystands', [App\Http\Controllers\DailystandController::class, 'index'])->name('dailystands');
+    Route::get('/projects/{project}/dailystands/{dailystand}/update', [App\Http\Controllers\DailystandController::class, 'update']);
+    Route::get('/projects/{project}/dailystands/{dailystand}/delete', [App\Http\Controllers\DailystandController::class, 'delete']);
+    Route::put('/projects/{project}/dailystands/{dailystand}', [App\Http\Controllers\DailystandController::class, 'update'])->name('update_dailystands');
+    Route::get('/projects/{project}/dailystands/create', [App\Http\Controllers\DailystandController::class, 'create'])->name('create_dailystands');
+
+    //DailystandItems
+
+    Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items', [App\Http\Controllers\DailystandItemController::class, 'index']);
+    Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/{dailystand_item}/update', [App\Http\Controllers\DailystandItemController::class, 'update']);
+    Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/{dailystand_item}/delete', [App\Http\Controllers\DailystandItemController::class, 'delete']);
+    Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/create', [App\Http\Controllers\DailystandItemController::class, 'create']);
 
 
+    //Backlog
     Route::resource('backlog', Backlog_itemController::class);
 
     // Route::resource('Sprintguest', SprintguestController::class);

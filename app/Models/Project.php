@@ -31,6 +31,11 @@ class Project extends Model
         return $this->hasMany(Retrospective::class);
     }
 
+    public function dailystands()
+    {
+        return $this->hasMany(Dailystand::class);
+    }
+
     public function user_to_project(User $user)
     {
         return $this->users()->save($user);

@@ -44,14 +44,14 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
 
-        return view('projects.editProject', compact('project'));
+        //return view('projects.editProject', compact('project'));
 
     }
 
     public function update(Project $project)
     {
 
-        dd($project->start_date);
+        //dd($project->start_date);
         
         $project->update($this->validateProject());
 
