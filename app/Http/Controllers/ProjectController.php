@@ -30,6 +30,9 @@ class ProjectController extends Controller
         $project = Project::create($this->validateProject());
         $project->users()->attach($id);
 
+        $project->users()->updateExistingPivot($id, ['project_right' =>2,]);
+
+
         return back();
     }
 
