@@ -120,6 +120,7 @@
                                 <h3 class="card-title">to do</h3>
                                 <div class="container">
                                     <div class="row">
+                                        
                                         @foreach($in_sprint_backlog_items->where('status','done') as $in_sprint_backlog_item)
                                         <div class="col-md-12 text-left">
                                             <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
