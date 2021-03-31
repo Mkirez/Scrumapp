@@ -15,16 +15,6 @@ class ProjectController extends Controller
         return view('projects', compact('projects'));
     }
 
-    public function show(Project $project)
-    {
-        $backlog_items = $project->backlog_items;
-        
-        $sprints = $project->sprints;
-        $allUsers = $project->users;
-
-        return view('projects.backlog', compact('project', 'backlog_items', 'sprints', 'allUsers'));
-    }
-
     public function create()
     {
         $id = Auth()->user();

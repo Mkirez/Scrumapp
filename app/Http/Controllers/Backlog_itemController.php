@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 
 class Backlog_itemController extends Controller
 {
-    public function index(Project $project)
+     public function index(Project $project)
     {
         $backlog_items = $project->backlog_items;
+        
+        $sprints = $project->sprints;
+        $allUsers = $project->users;
 
-        return view('projects.backlog', compact('backlog_items', 'project'));
+        return view('projects.backlog', compact('project', 'backlog_items', 'sprints', 'allUsers'));
     }
 
     public function create()
@@ -31,10 +34,17 @@ class Backlog_itemController extends Controller
     {
         //
     }
-    
-    public function update()
+     public function delete(Project $project, Backlog_item $backlog_item)
     {
-        //
+        $backlog_item->delete();
+
+        return back();
+    }
+    
+    
+    public function update(Project $project, Backlog_item $backlog_item)
+    {
+        $backlog_item->update($this->validateBacklog_item());
     }
 
     protected function validateBacklog_item()

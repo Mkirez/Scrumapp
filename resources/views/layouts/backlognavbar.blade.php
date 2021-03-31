@@ -54,7 +54,7 @@
                             <a class="nav-link" href="/projects/"><i style="    margin-right: 3px;" class="fa fa-arrow-left"></i>projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/projects/'. $project->id) }}">Backlog</a>
+                            <a class="nav-link" href="{{ url('/projects/'. $project->id. '/backlog_item') }}">Backlog</a>
                         </li>
                         </li>
                         

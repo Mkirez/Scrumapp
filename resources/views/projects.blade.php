@@ -71,7 +71,7 @@
 
             @foreach($projects as $project)
             <div class="col-xs-12 col-sm-12 col-md-4">
-                <a  href="/projects/{{ $project->id }}" style="text-decoration: none; color: black;">
+                <a  href="/projects/{{ $project->id }}/backlog_item" style="text-decoration: none; color: black;">
                     <div class="card" style="padding: 40px;">
 
                         <div class="col-md-12 text-center project-title">
