@@ -20,7 +20,7 @@ class SprintBacklogController extends Controller
         //  all backlog items in sprint
         $in_sprint_backlog_items = $project->backlog_items->where('sprint_id', $sprint->id);
 
-        $in_project_users = $project->users_in_project();
+        $in_project_users = $project->users;
         // dd($users_in_project);
 
 

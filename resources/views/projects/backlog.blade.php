@@ -20,32 +20,47 @@
 </div>
 
 <div class="container">
+
+
+
+
+
   <div class="card text-center " id="backlog-card">
-    <table class="table ">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
 
-        @if($backlog_items)
-        @foreach($backlog_items as $backlog_item)
-        <tr>
-          <td>{{ $backlog_item->name}}</td>
-          <td>{{ $backlog_item->description}}</td>
-        </tr>
-      <tbody>
-        @endforeach
 
-        @endif
 
-        <div class="col-md-12" style="padding: 10px;">
-          <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
-        </div>
 
-    </table>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">edit/delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">name</th>
+      <td>Description</td>
+      <td>edit/delete</td>
+    </tr>
+    @if($backlog_items)
+     @foreach($backlog_items->where('added_to_sprint', 0); as $backlog_item)
+    <tr>
+      <th scope="row">{{ $backlog_item->name}}</th>
+      <td>{{ $backlog_item->description}}</td>
+      <td>
+          <a href="" class="btn btn-primary">edit</a>
+          <a href="" class="btn btn-primary">delete</a>
+      </td>
+    </tr>
+     @endforeach
+      @endif
+      <div class="col-md-12 text-right" style="padding: 10px;">
+            <a href="" class="btn btn-info" data-toggle="modal" data-target="#backlog">Add backlog item</a>
+          </div>
+  </tbody>
+</table>
     <!-- Modal -->
     <div id="backlog" class="modal fade" role="dialog">
       <div class="modal-dialog">

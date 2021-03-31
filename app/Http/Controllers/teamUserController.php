@@ -13,7 +13,8 @@ class teamUserController extends Controller
     public function index(Project $project)
     {
                
-        $users_in_project = $project->users_in_project();
+        // $users_in_project = $project->users_in_project();
+        $users_in_project = $project->users;
         
         // excluding current project users with from all users.
         $not_in_project_users = User::all()->diff($users_in_project);

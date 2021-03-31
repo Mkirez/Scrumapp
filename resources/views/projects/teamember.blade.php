@@ -1,46 +1,41 @@
 @extends('layouts.backlognavbar')
 @section('content')
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="heading has-text-weight-bold is-size-4 date-title">teamembers</h1>
+    </div>
+  </div>
+</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center">
-			<div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
-				<table class="table ">
-					<thead>
-						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">remove user</th>
-						</tr>
-					</thead>
-					<tbody>
-
-						@foreach($users_in_project as $users_in_projec)
-						<tr>
-						<th scope="row">
-							{{$users_in_projec->name}}
-						</th>
-							
-
-
-						<!-- checken the first element in my user table and give it a hidden -->
-						<td scope=""><a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}"   @if ($loop->first) hidden @endif class="noncha">{{$users_in_projec->name}}</a>
-						</td>
-						@endforeach
-						<!-- button team members -->
-
-
-						<div class="col-md-12" style="padding: 10px;">
-							<a style="width: 50%;" href=""  class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
-						</div>
-
-
-						<!-- hier moet de button komen die in de chat staat  -->
-					</tr>
-					</tbody>
+			<div class="card text-center " id="backlog-card">
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">name</th>
+				      <th scope="col">remove user</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  @foreach($users_in_project as $users_in_projec)
+				    <tr>
+				      <th scope="row">{{$users_in_projec->name}}</th>
+				      <td>
+				        <a href="{{url('/projects/'.$project->id. '/teamember/'.$users_in_projec->id .'/remove')}}"   @if ($loop->first) hidden @endif class="noncha">{{$users_in_projec->name}}
+				        </a>
+				      </td>
+				    </tr>
+				    @endforeach
+				    <div class="col-md-12 text-right" style="padding: 10px;">
+				      <a  href=""  class="btn btn-info" data-toggle="modal" data-target="#teamember">Add team users</a>
+				    </div>
+				  </tbody>
 				</table>
-
-				<div id="teamember" class="modal fade" role="dialog">
-					<div class="modal-dialog">
+			</div>
+					<div id="teamember" class="modal fade" role="dialog">
+						<div class="modal-dialog">
 
 						<!-- Modal content-->
 						<!-- // dit is de team users form  -->
@@ -83,8 +78,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+		
 	</div>
 </div>
 

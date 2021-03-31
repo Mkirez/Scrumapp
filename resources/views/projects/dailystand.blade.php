@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backlognavbar')
 @section('content')
 <!-- die action zegt ga in de todocontroller en pak de store methode/function -->
 
@@ -90,11 +90,9 @@
       <div class="col-xs-12 col-sm-12 col-md-4">
         <a href="/projects/{{ $project->id }}/dailystands/{{ $dailystand->id }}/dailystand_items" style="text-decoration: none; color: black;">
           <div class="card" style="padding: 40px;">
-
             <div class="col-md-12 text-center dailystand-title">
               <h1 class="card-title">{{$dailystand->name}}</h1>
             </div>
-
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
@@ -105,12 +103,12 @@
                 </div>
               </div>
             </div>
-
-          </div>
-
-          <div class="col-xs-6 col-sm-6 col-md-6 d-flex">
+             <div class="col-xs-6 col-sm-6 col-md-6 ">
             <a class="btn btn-info" data-toggle="modal" data-target="#myModal-{{$dailystand->id}}">update</a>
           </div>
+        </div>
+
+         
       </div>
       </a>
 

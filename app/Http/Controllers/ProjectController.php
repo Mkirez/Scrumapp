@@ -18,6 +18,7 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $backlog_items = $project->backlog_items;
+        
         $sprints = $project->sprints;
         $allUsers = $project->users;
 

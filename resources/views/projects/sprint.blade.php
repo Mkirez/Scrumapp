@@ -2,6 +2,13 @@
 @section('content')
 @auth
 <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="heading has-text-weight-bold is-size-4 date-title">sprints</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
   <div class="card text-center " id="backlog-card">
     <table class="table ">
       <thead>
