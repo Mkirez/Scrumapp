@@ -45,9 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/create', [App\Http\Controllers\ProjectController::class, 'create']);
     Route::get('/projects/{project}', [App\Http\Controllers\ProjectController::class, 'show']);
     Route::get('/projects/{project}/edit', [App\Http\Controllers\ProjectController::class, 'edit'])->name('edit_project');
-
     Route::get('/projects/{project}/update', [App\Http\Controllers\ProjectController::class, 'update'])->name('update_project');
-
     Route::delete('/projects/{project}/delete', [App\Http\Controllers\ProjectController::class, 'delete'])->name('delete_project');
 
 
@@ -58,20 +56,14 @@ Route::middleware('auth')->group(function () {
 
     //sprints
     Route::get('/projects/{project}/sprints', [App\Http\Controllers\SprintController::class, 'index'])->name('sprints');
-    
     Route::get('/projects/{project}/sprints/create', [App\Http\Controllers\SprintController::class, 'create'])->name('create_sprints');
+    Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
+    Route::get('/projects/{project}/sprints/{sprint}/update', [App\Http\Controllers\SprintController::class, 'update'])->name('update_sprint');;
 
+    // Sprint backlog
     Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintBacklogController::class, 'index'])->name('Showsprints');
-
-
-   Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
-
-     Route::get('/projects/{project}/sprints/{sprint}/store', [App\Http\Controllers\SprintController::class, 'store']);
-
-     Route::get('/projects/{project}/sprints/{sprint}/update', [App\Http\Controllers\SprintController::class, 'update'])->name('update_sprint');;
-
-
-     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}', [App\Http\Controllers\SprintController::class, 'edit']);
+    Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/remove', [App\Http\Controllers\SprintBacklogController::class, 'destroy']);
+    Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/update', [App\Http\Controllers\SprintBacklogController::class, 'update']);
 
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
@@ -79,8 +71,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/retrospectives/{retrospective}/delete', [App\Http\Controllers\RetrospectiveController::class, 'delete']);
     Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
     Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
-
-
 
     Route::resource('backlog', Backlog_itemController::class);
 
