@@ -41,6 +41,15 @@ class Project extends Model
         return $this->users()->save($user);
     }
 
+    public function users_in_project()
+    {
+        // search all users in current project on pivot table.
+        $that = $this;
+        return User::whereHas('projects', function ($query) use ($that) {
+            return $query->where('project_id', '=', $that->id);
+        })->get();
+    }
+
     // public function not_in_project(Project $project)
     // {
     //     return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id');

@@ -32,6 +32,9 @@ class Backlog_item extends Model
     {
         $this->added_to_sprint = 0;
         $this->sprint_id = null;
+        $this->user_id = null;
+        $this->status = 'todo';
+        $this->bv = null;
         $this->save();
     }
 
