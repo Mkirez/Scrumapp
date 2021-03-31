@@ -26,7 +26,7 @@
                                         <div class="row">
                                             @foreach($in_sprint_backlog_items->where('status','todo') as $in_sprint_backlog_item)
                                             <div class="col-md-6 text-left">
-                                                <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">{{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</a>
+                                                <p>{{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</p>
                                                 @if($in_sprint_backlog_item->user_id)
                                                 <p>{{ App\Models\User::find($in_sprint_backlog_item->user_id)->name }}</p>
                                                 @endif
@@ -55,8 +55,8 @@
                                         <div class="row">
                                             @foreach($in_sprint_backlog_items->where('status','busy') as $in_sprint_backlog_item)
                                             <div class="col-md-6 text-left">
-                                                <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
-                                                    {{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</a>
+                                                <p>
+                                                    {{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</p>
                                                 @if($in_sprint_backlog_item->user_id)
                                                 <p>{{ App\Models\User::find($in_sprint_backlog_item->user_id)->name }}</p>
                                                 @endif
@@ -85,8 +85,8 @@
 
                                             @foreach($in_sprint_backlog_items->where('status','done') as $in_sprint_backlog_item)
                                             <div class="col-md-6 text-left">
-                                                <a href="{{ url('projects/'.$project->id. '/sprints/' .$sprint->id. '/backlog/'.$in_sprint_backlog_item->id)}}">
-                                                    {{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</a>
+                                                <p>
+                                                    {{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</p>
                                                 @if($in_sprint_backlog_item->user_id)
                                                 <p>{{ App\Models\User::find($in_sprint_backlog_item->user_id)->name }}</p>
                                                 @endif
