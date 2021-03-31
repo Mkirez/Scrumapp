@@ -13,9 +13,7 @@ class DailystandItemController extends Controller
     public function index(Project $project, Dailystand $dailystand)
     {
 
-        $dailystand_items = $project->dailystands;
-
-       
+        $dailystand_items = $dailystand->dailystand_items;  
 
         return view('projects.dailystanditems', compact('dailystand_items', 'project', 'dailystand'));
     }

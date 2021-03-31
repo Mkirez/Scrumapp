@@ -23,7 +23,7 @@
               <div class="row">
                 @foreach($dailystand_items->where('status', 0) as $dailystand_item)
                 <div class="col-md-12">
-                  <p>{{$dailystand_item->id}}</p>  
+                  <p>{{$dailystand_item->description}}</p>  
                 </div>
                 @endforeach
               </div>
@@ -49,7 +49,7 @@
               <div class="row">
                 @foreach($dailystand_items->where('status', 1) as $dailystand_item)
                 <div class="col-md-12">
-                  <p>{{$dailystand_item->id}}</p>  
+                <p>{{$dailystand_item->description}}</p>  
                 </div>
                 @endforeach
               </div>
@@ -75,7 +75,7 @@
               <div class="row">
                 @foreach($dailystand_items->where('status', 2) as $dailystand_item)
                 <div class="col-md-12">
-                  <p>{{$dailystand_item->id}}</p>  
+                <p>{{$dailystand_item->description}}</p>  
                 </div>
                 @endforeach
               </div>

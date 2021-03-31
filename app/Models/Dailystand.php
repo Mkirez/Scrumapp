@@ -18,7 +18,7 @@ class Dailystand extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function dailystand_item()
+    public function dailystand_items()
     {
         return $this->hasMany('App\Models\Dailystand_item');
     }
