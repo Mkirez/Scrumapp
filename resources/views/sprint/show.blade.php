@@ -8,7 +8,7 @@
             <div class="tab-panel" id="pills-teamMember" role="tabpanel" aria-labelledby="pills-teamMember-tab">
                 <!-- button -->
                 <div class="col-md-12" style="padding: 10px;">
-                    <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#teamember">Add backlog item</a>
+                    <a style="width: 50%;" href="" class="btn btn-info" data-toggle="modal" data-target="#create">Add backlog item</a>
                 </div>
                 <!-- teamusermodel -->
 
@@ -107,7 +107,7 @@
 </div>
 
 
-<div id="teamember" class="modal fade" role="dialog">
+<div id="create" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
