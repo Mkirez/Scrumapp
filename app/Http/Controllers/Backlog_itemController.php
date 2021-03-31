@@ -45,6 +45,7 @@ class Backlog_itemController extends Controller
     public function update(Project $project, Backlog_item $backlog_item)
     {
         $backlog_item->update($this->validateBacklog_item());
+        return back();
     }
 
     protected function validateBacklog_item()
