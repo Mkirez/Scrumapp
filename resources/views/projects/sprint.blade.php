@@ -1,6 +1,8 @@
 @extends('layouts.backlognavbar')
 @section('content')
+
 @auth
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -17,7 +19,8 @@
           <th scope="col">Name</th>
           <th scope="col">Start date</th>
           <th scope="col">End date</th>
-          <th scope="col">view/edit</th>
+          <th scope="col">View/Edit</th>
+          <th scope="col">Retrospective</th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +32,13 @@
           <td>
             <a href="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id)}}" type="button" class="btn btn-primary btn-sm">Go</a>
             <a id='box' href="" data-target="#modal_update_sprint-{{$sprint->id}}" type="button" class="btn btn-primary btn-sm" data-toggle="modal">Edit</a>
+          </td>
+          <td>
+          @if(! $sprint->retrospective)
+            <a href="{{route('create_retrospective',[$project->id, $sprint->id] )}}" type="button" class="btn btn-primary btn-sm">Create</a>
+          @else 
+            <a href="" type="button" class="btn btn-primary btn-sm">Go</a>
+          @endif  
           </td>
         </tr>
       </tbody>

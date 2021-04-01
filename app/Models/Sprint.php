@@ -18,4 +18,8 @@ class Sprint extends Model
     	return $this->belongsTo(Project::class);
     }
     
+    public function retrospective()
+        {
+            return $this->hasOne(Retrospective::class);
+        }
 }

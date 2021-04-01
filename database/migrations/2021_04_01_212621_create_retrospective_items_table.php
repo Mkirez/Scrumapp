@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRetrospectivesTable extends Migration
+class CreateRetrospectiveItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateRetrospectivesTable extends Migration
      */
     public function up()
     {
-        Schema::create('retrospectives', function (Blueprint $table) {
+        Schema::create('retrospective_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sprint_id')->constrained()->onDelete('cascade');
+            $table->foreignId('retrospective_id')->constrained()->onDelete('cascade');
+            $table->string('status');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateRetrospectivesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('retrospectives');
+        Schema::dropIfExists('retrospective_items');
     }
 }

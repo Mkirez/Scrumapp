@@ -13,8 +13,13 @@ class Retrospective extends Model
         protected $guarded = [];
         public $timestamps = false;
 
-        public function project()
+        public function sprint()
         {
-            return $this->belongsTo(Project::class);
+            return $this->belongsTo(Sprint::class);
         }
+
+        public function retrospective_items()
+    {
+        return $this->hasMany(Retrospective_item::class);
+    }
 }

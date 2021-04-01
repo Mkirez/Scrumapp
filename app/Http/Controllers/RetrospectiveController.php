@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Retrospective;
 use App\Models\Project;
+use App\Models\Sprint;
 
 class RetrospectiveController extends Controller
 {
@@ -16,20 +17,23 @@ class RetrospectiveController extends Controller
      */
 
 
-    public function index(Project $project)
+    public function index()
     {
 
-        $retrospectives = $project->retrospectives;
-
-        return view('projects.retrospective', compact('project', 'retrospectives'));
+       //
     }
 
-    public function create()
+    public function create(Project $project, Sprint $sprint)
     {
-
-        Retrospective::create($this->validateRetro());
-
-        return back();
+        
+        $retrospective = new Retrospective;
+        $retrospective->sprint_id = $sprint->id;
+        $retrospective->save();
+        
+        
+        
+        return redirect(route('index_retrospectiveitems' ,[$project->id, $sprint->id]));
+        
     }
 
     public function store(Request $request)
@@ -37,9 +41,11 @@ class RetrospectiveController extends Controller
         //
     }
 
-    public function show($id)
+    public function show(Project $project, Sprint $sprint)
     {
-        //
+        $retrospective = $sprint->retrospective;
+
+        return view('projects.retrospective', compact('project', 'retrospective'));
     }
 
     public function edit(Project $project, Retrospective $retrospective)
@@ -51,7 +57,7 @@ class RetrospectiveController extends Controller
 
     public function update(Project $project, Retrospective $retrospective)
     {
-        // dd(request());
+        
         $retrospective->update($this->validateRetro());
 
         return back();
@@ -67,9 +73,7 @@ class RetrospectiveController extends Controller
     protected function validateRetro()
     {
         return request()->validate([
-            'project_id' => 'required',
-            'status' => 'required',
-            'description' => 'required',
+            'sprint_id' => 'required',
         ]);
     }
 }

@@ -15,6 +15,8 @@ use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
 use App\Http\Controllers\RetrospectiveController;
+use App\Http\Controllers\RetrospectiveItemController;
+
 
 
 
@@ -73,15 +75,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/sprints/{sprint}', [App\Http\Controllers\SprintBacklogController::class, 'index'])->name('Showsprints');
     Route::get('/projects/{project}/sprints/{sprint}/create', [App\Http\Controllers\SprintBacklogController::class, 'create']);
     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/remove', [App\Http\Controllers\SprintBacklogController::class, 'destroy'])->name('remove_backlog');
-
     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/update', [App\Http\Controllers\SprintBacklogController::class, 'update']);
+
+    // Sprint Retro
+    Route::get('/projects/{project}/sprints/{sprint}/retrospective/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospective');
+    // Sprint Retro Items
+    Route::get('/projects/{project}/sprints/{sprint}/retrospective', [App\Http\Controllers\RetrospectiveItemController::class, 'index'])->name('index_retrospectiveitems');
+
 
     //retrospective
     Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
     Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);
     Route::get('/projects/{project}/retrospectives/{retrospective}/delete', [App\Http\Controllers\RetrospectiveController::class, 'delete']);
     Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
-    Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
+    // Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
 
     //Dailystand
     Route::get('/projects/{project}/dailystands', [App\Http\Controllers\DailystandController::class, 'index'])->name('dailystands');
