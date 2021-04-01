@@ -21,15 +21,12 @@
   </div>
 
 
-
-  
-  @foreach($dailystands as $dailystand)
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
       <div class="modal-content">
-        <form method="POST" action="{{route('create_dailystands', [$project->id, $dailystand->id])}}">
+        <form method="POST" action="{{url('/projects/' . $project->id . '/dailystands/create')}}">
           @csrf
           @method('GET')
           <div class="inner-form">
@@ -37,14 +34,13 @@
               <h1>Add Dailystand</h1>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Name</label> 
+              <label for="exampleInputEmail1">Name</label>
               <input type="text" name="name" class="form-control" required>
-            </div>
-            <div class="form-group">  
-              <label for="exampleInputEmail1">Date</label> 
+              <label for="exampleInputEmail1">Date</label>
               <input type="date" name="created_date" class="form-control" required>
               <input type="integer" name="project_id" value="{{$project->id}}" class="form-control" hidden>
             </div>
+
             <class="form-group">
               <button type="submit" class="btn btn-primary">Submit</button>
               </class=>
@@ -53,6 +49,7 @@
       </div>
     </div>
   </div>
+  @foreach($dailystands as $dailystand)
   <div id="myModal-{{$dailystand->id}}" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
@@ -67,16 +64,12 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
               <input type="text" name="name" value="{{$dailystand->name}}" class="form-control" required>
-            </div>  
-            <div class="form-group">
-              <label for="exampleInputEmail1">Date</label>
-              <input type="date" name="created_date" value="{{$dailystand->created_date}}" class="form-control" required>
               <input type="integer" name="project_id" value="{{$project->id}}" class="form-control" hidden>
             </div>
 
             <class="form-group">
               <button type="submit" class="btn btn-primary">Submit</button>
-            </class=>
+              </class=>
 
           </div>
         </form>
@@ -112,22 +105,17 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-            <div class="col-md-6">
-                  <a class="btn btn-info" data-toggle="modal" data-target="#myModal-{{$dailystand->id}}">Update</a>
-                </div>
-            <div div class="col-md-6">
-              <a href="{{route('delete_dailystands',[$project->id, $dailystand->id])}}" class="btn btn-info">Delete</a>
-             </div>
-            </div>
-          </div>  
-        </a>
+             <div class="col-xs-6 col-sm-6 col-md-6 ">
+            <a class="btn btn-info" data-toggle="modal" data-target="#myModal-{{$dailystand->id}}">update</a>
+          </div>
+        </div>
+
+         
       </div>
-      
-      
-      @endforeach
+      </a>
+
     </div>
-   
+    @endforeach
   </div>
 
 </div>

@@ -18,7 +18,7 @@ class Project extends Model
     public function users()
     {
         // laravel gaat rare colummen verzinnen in die pivot, vandaar dat je de naam moet noemen van de pivot en de twee id's.
-        return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id');
+        return $this->belongsToMany(User::class, 'project_user', 'project_id', 'user_id')->withPivot('project_right');
     }
 
     public function sprints()
