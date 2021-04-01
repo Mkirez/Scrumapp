@@ -6,13 +6,10 @@
     <div class="row flex-container" style="padding: 40px;">
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 vertical-middle">
             <div class="inner" style="margin-top: 100px;">
-
                 <h1 style="    font-size: 3.3rem;">The #1 software development tool used by agile teams</h1>
 
                 <br>
                 <a type="submit" class="btn btn-info" href="{{ route('register') }}">{{ __('Register') }}</a>
-
-
 
             </div>
         </div>

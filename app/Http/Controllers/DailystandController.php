@@ -67,6 +67,7 @@ class DailystandController extends Controller
         return request()->validate([
             'project_id' => 'required',
             'name' => 'required',
+            'created_date' => 'required',
         ]);
     }
 }

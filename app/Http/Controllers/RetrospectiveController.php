@@ -46,6 +46,7 @@ class RetrospectiveController extends Controller
     {
 
         return view('projects.retro.edit', compact('project', 'retrospective'));
+        
     }
 
     public function update(Project $project, Retrospective $retrospective)

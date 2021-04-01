@@ -17,7 +17,7 @@ class CreateDailystandsTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+            $table->datetime('created_date');
         });
     }
 
