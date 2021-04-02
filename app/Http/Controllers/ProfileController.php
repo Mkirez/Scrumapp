@@ -24,17 +24,13 @@ class ProfileController extends Controller
         // return $users[0]->email;
 
 
-        if (Auth::user()->stakeholder()) {
+        if (Auth::user()->allUsers()) {
 
             return view('profileUser', compact('user'));
         }
 
-        if (Auth::user()->team_member()) {
 
-            return view('profileUser', compact('user'));
-        }
-
-        if (Auth::user()->product_owner()) {
+        if (Auth::user()->admin()) {
 
             return view('profileAdmin', compact('user', 'users'))->with('rightStr0', '')->with('rightStr1', '');
         }

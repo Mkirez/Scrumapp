@@ -31,18 +31,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Project::class);
     }
 
-    public function stakeholder()
+    public function allUsers()
     {
-        return $this->rights == 0;
+        return $this->is_admin == 0;
     }
 
-    public function team_member()
+    public function admin()
     {
-        return $this->rights == 1;
+        return $this->is_admin == 1;
     }
 
-    public function product_owner()
-    {
-        return $this->rights == 2;
-    }
 }

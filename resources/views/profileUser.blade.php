@@ -95,7 +95,7 @@
                                     <div class="col-md-12">
                                         <input class="form-control" required type="text" id="name" name="name" value="{{$user->name}}">
                                     </div>
-                                    @if(!$user->product_owner())
+                                    @if(!$user->admin())
                                     <div class="col-md-12">
                                         <input type="text"  name="rights" hidden value="{{$user->rights}}">
                                     </div>
