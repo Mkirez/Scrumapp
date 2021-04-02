@@ -11123,7 +11123,7 @@ ul #pills-tab li{
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
+      left: 248%;
   margin-left: -80px;
 }
 
@@ -11132,7 +11132,7 @@ ul #pills-tab li{
   content: "";
   position: absolute;
   top: 100%;
-  left: 50%;
+  left: 30%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
@@ -11155,4 +11155,20 @@ ul #pills-tab li{
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+#card-box{
+      
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgb(9 30 66 / 25%);
+    cursor: pointer;
+    display: block;
+    margin-bottom: 8px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+        border: 1px solid whitesmoke;
+        padding: 11px;
 }
