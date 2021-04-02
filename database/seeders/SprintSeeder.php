@@ -9,31 +9,26 @@ use App\Models\Dailystand_item;
 use App\Models\Retrospective_item;
 use App\Models\User;
 use App\Models\Backlog_item;
+use Carbon\Carbon;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class DatabaseSeeder extends Seeder
+class SprintSeeder extends Seeder
 {
     /**
-     * Run the database seeders.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-        UserSeeder::class,
-        SprintSeeder::class,
-        ,
-        ]);
-
-        
-
-   //      // Sprint::factory()->count(10)->create();
-   //      Backlog_item::factory()->count(10)->create();
+        Sprint::factory()
+            ->count(50)
+            ->hasPosts(1)
+            ->create();
 
 
     }

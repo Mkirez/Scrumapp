@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\Sprint;
 use App\Models\Project;
 use App\Models\Dailystand;
@@ -15,26 +16,22 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class DatabaseSeeder extends Seeder
+class ProjectSeeder extends Seeder
 {
     /**
-     * Run the database seeders.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-        UserSeeder::class,
-        SprintSeeder::class,
-        ,
+        DB::table('projects')->insert([
+            'name' => 'project 1',
+            'start_date' => NOW(),
+            'end_date' => NOW(),
+
+            
+                   
         ]);
-
-        
-
-   //      // Sprint::factory()->count(10)->create();
-   //      Backlog_item::factory()->count(10)->create();
-
-
     }
 }
