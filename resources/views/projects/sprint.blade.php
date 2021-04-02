@@ -34,11 +34,7 @@
             <a id='box' href="" data-target="#modal_update_sprint-{{$sprint->id}}" type="button" class="btn btn-primary btn-sm" data-toggle="modal">Edit</a>
           </td>
           <td>
-          @if(! $sprint->retrospective)
-            <a href="{{route('create_retrospective',[$project->id, $sprint->id] )}}" type="button" class="btn btn-primary btn-sm">Create</a>
-          @else 
-            <a href="" type="button" class="btn btn-primary btn-sm">Go</a>
-          @endif  
+            <a href="{{route('index_retrospective',[$project, $sprint])}}" type="button" class="btn btn-primary btn-sm">Go</a>
           </td>
         </tr>
       </tbody>

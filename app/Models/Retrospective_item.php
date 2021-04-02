@@ -13,8 +13,8 @@ class Retrospective_item extends Model
     public $timestamps = false;
     
 
-    public function retrospective()
+    public function sprint()
     {
-        return $this->belongsTo(Retrospective::class);
+        return $this->belongsTo(Sprint::class);
     }
 }

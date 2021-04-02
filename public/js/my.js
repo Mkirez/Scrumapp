@@ -17,3 +17,8 @@ function add_teamMember(){
 function add_backlogItem(){
 	alert("you have added a add_backlogItem");
 }
+
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}

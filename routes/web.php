@@ -14,7 +14,6 @@ use App\Http\Controllers\Backlog_itemController;
 use App\Http\Controllers\ProjectInfoController;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\teamUserController;
-use App\Http\Controllers\RetrospectiveController;
 use App\Http\Controllers\RetrospectiveItemController;
 
 
@@ -77,18 +76,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/remove', [App\Http\Controllers\SprintBacklogController::class, 'destroy'])->name('remove_backlog');
     Route::get('/projects/{project}/sprints/{sprint}/backlog/{backlog_item}/update', [App\Http\Controllers\SprintBacklogController::class, 'update']);
 
-    // Sprint Retro
-    Route::get('/projects/{project}/sprints/{sprint}/retrospective/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospective');
-    // Sprint Retro Items
-    Route::get('/projects/{project}/sprints/{sprint}/retrospective', [App\Http\Controllers\RetrospectiveItemController::class, 'index'])->name('index_retrospectiveitems');
+    // Sprint Retrosctive
+    Route::get('/projects/{project}/sprints/{sprint}/retrospective/create', [App\Http\Controllers\RetrospectiveItemController::class, 'create'])->name('create_retrospective_items');
 
+        Route::get('/projects/{project}/sprints/{sprint}/retrospective', [App\Http\Controllers\RetrospectiveItemController::class, 'index'])->name('index_retrospective');
 
-    //retrospective
-    Route::get('/projects/{project}/retrospectives', [App\Http\Controllers\RetrospectiveController::class, 'index'])->name('retrospectives');
-    Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveController::class, 'edit']);
-    Route::get('/projects/{project}/retrospectives/{retrospective}/delete', [App\Http\Controllers\RetrospectiveController::class, 'delete']);
-    Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveController::class, 'update'])->name('update_retrospectives');
-    // Route::get('/projects/{project}/retrospectives/create', [App\Http\Controllers\RetrospectiveController::class, 'create'])->name('create_retrospectives');
+    Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveItemController::class, 'edit']);
+    Route::get('/projects/{project}/sprints/{sprint}/retrospectives/{retrospective_item}/delete', [App\Http\Controllers\RetrospectiveItemController::class, 'delete'])->name('delete_retrospective_items');
+    Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveItemController::class, 'update'])->name('update_retrospectives');
 
     //Dailystand
     Route::get('/projects/{project}/dailystands', [App\Http\Controllers\DailystandController::class, 'index'])->name('dailystands');
@@ -97,20 +92,21 @@ Route::middleware('auth')->group(function () {
     Route::put('/projects/{project}/dailystands/{dailystand}', [App\Http\Controllers\DailystandController::class, 'update'])->name('update_dailystands');
     Route::get('/projects/{project}/dailystands/create', [App\Http\Controllers\DailystandController::class, 'create'])->name('create_dailystands');
 
-    //DailystandItems
 
+
+    //DailystandItems
     Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items', [App\Http\Controllers\DailystandItemController::class, 'index']);
     Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/{dailystand_item}/update', [App\Http\Controllers\DailystandItemController::class, 'update'])->name('update_dailystanditems');
+
     Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/{dailystand_item}/delete', [App\Http\Controllers\DailystandItemController::class, 'delete'])->name('delete_dailystanditems');
+
     Route::get('/projects/{project}/dailystands/{dailystand}/dailystand_items/create', [App\Http\Controllers\DailystandItemController::class, 'create']);
 
     // Route::resource('backlog', Backlog_itemController::class);
 
     // Route::resource('Sprintguest', SprintguestController::class);
 
-    Route::post('/taskInsertUser', [App\Http\Controllers\taskController::class, 'insertUser'])->name('taskInsertUser');
-
-    Route::post('/insertTaskToSprint', [App\Http\Controllers\taskController::class, 'insertTaskToSprint'])->name('insertTaskToSprint');
+   
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

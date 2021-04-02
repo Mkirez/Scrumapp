@@ -29,11 +29,21 @@
                                                 <p>{{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</p>
                                                 @if($in_sprint_backlog_item->user_id)
                                                 <p>{{ App\Models\User::find($in_sprint_backlog_item->user_id)->name }}</p>
+
+
+                                                <div class="popup" onclick="myFunction()">Click me to toggle the popup!
+                                                  <span class="popuptext" id="myPopup">A Simple Popup!</span>
+                                                </div>
                                                 @endif
                                             </div>
-                                            <a href="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id . '/backlog/' . $in_sprint_backlog_item->id . '/remove')}}" type="button" class="btn btn-danger btn-sm">Delete</a>
-                                            <a type="button" data-toggle="modal" data-target="#edit-{{ $in_sprint_backlog_item->id }}" class="btn btn-primary btn-sm">Edit</a>
+                                            <div class="col-md-6">
+                                                <a href="{{ url('/projects/'. $project->id . '/sprints/' . $sprint->id . '/backlog/' . $in_sprint_backlog_item->id . '/remove')}}" type="button" class="btn btn-danger btn-sm">Delete</a>
+
+                                                <a type="button" data-toggle="modal" data-target="#edit-{{ $in_sprint_backlog_item->id }}" class="btn btn-primary btn-sm">Edit</a>
+                                            </div>
                                             @endforeach
+
+
                                         </div>
                                     </div>
 
@@ -54,7 +64,7 @@
                                     <div class="container">
                                         <div class="row">
                                             @foreach($in_sprint_backlog_items->where('status','busy') as $in_sprint_backlog_item)
-                                            <div class="col-md-6 text-left">
+                                            <div class="col-md-6">
                                                 <p>
                                                     {{$in_sprint_backlog_item->name}} bv: {{$in_sprint_backlog_item->bv}}</p>
                                                 @if($in_sprint_backlog_item->user_id)

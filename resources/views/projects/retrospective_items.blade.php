@@ -6,22 +6,23 @@
 <div class="container">
   <div class="row">
 
+    
     <!-- keep doing you boo -->
     <div class="col-md-4 col-xs-12 col-sm-12">
-      <form method="POST" action="{{route('create_retrospectives', $project->id)}}">
+      <form method="POST" action="{{route('create_retrospective_items', [$project->id, $sprint->id])}}">
         @csrf
         @method('GET')
-        <input type="hidden" name="project_id" value="{{$project->id}}">
+        <input type="hidden" name="sprint_id" value="{{$sprint->id}}">
         <input type="hidden" name="status" value="keepDoing">
         <div class="card" style="width: 100%;">
           <div class="card-body">
             <h3 class="card-title">Keep Doing </h3>
             <div class="container">
               <div class="row">
-                @foreach($retrospectives->where('status','keepDoing') as $retrospective)
+                @foreach($retrospective_items->where('status','keepDoing') as $retrospective_item)
                 <div class="col-md-12">
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                 </div>
                 @endforeach
               </div>
@@ -36,11 +37,11 @@
 
     <!-- more of -->
     <div class="col-md-4 col-xs-12 col-sm-12">
-      <form method="POST" action="{{route('create_retrospectives', $project->id)}}">
+      <form method="POST" action="{{route('create_retrospective_items', [$project->id, $sprint->id])}}">
         @csrf
         @method('GET')
 
-        <input type="hidden" name="project_id" value="{{$project->id}}">
+        <input type="hidden" name="sprint_id" value="{{$sprint->id}}">
         <input type="hidden" name="status" value="moreOff">
         <div class="card" style="width: 100%;">
           <div class="card-body">
@@ -48,11 +49,11 @@
 
             <div class="container">
               <div class="row">
-                @foreach($retrospectives->where('status','moreOff') as $retrospective)
+                @foreach($retrospective_items->where('status','moreOff') as $retrospective_item)
                 <div class="col-md-12">
 
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                 </div>
                 @endforeach
 
@@ -68,11 +69,11 @@
 
 
     <div class="col-md-4 col-xs-12 col-sm-12">
-      <form method="POST" action="{{route('create_retrospectives', $project->id)}}">
+      <form method="POST" action="{{route('create_retrospective_items', [$project->id, $sprint->id])}}">
         @csrf
         @method('GET')
 
-        <input type="hidden" name="project_id" value="{{$project->id}}">
+        <input type="hidden" name="sprint_id" value="{{$sprint->id}}">
         <input type="hidden" name="status" value="lessOff">
         <div class="card" style="width: 100%;">
           <div class="card-body">
@@ -81,11 +82,11 @@
 
             <div class="container">
               <div class="row">
-                @foreach($retrospectives->where('status','lessOff') as $retrospective)
+                @foreach($retrospective_items->where('status','lessOff') as $retrospective_item)
                 <div class="col-md-12">
 
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                 </div>
                 @endforeach
 
@@ -102,10 +103,10 @@
 
 
     <div class="col-md-4 col-xs-12 col-sm-12">
-      <form method="POST" action="{{route('create_retrospectives', $project->id)}}">
+      <form method="POST" action="{{route('create_retrospective_items', [$project->id, $sprint->id])}}">
         @csrf
         @method('GET')
-        <input type="hidden" name="project_id" value="{{$project->id}}">
+        <input type="hidden" name="sprint_id" value="{{$sprint->id}}">
         <input type="hidden" name="status" value="stopDoing">
         <div class="card" style="width: 100%;">
           <div class="card-body">
@@ -113,10 +114,10 @@
 
             <div class="container">
               <div class="row">
-                @foreach($retrospectives->where('status','stopDoing') as $retrospective)
+                @foreach($retrospective_items->where('status','stopDoing') as $retrospective_item)
                 <div class="col-md-12">
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/edit'  ) }}"> {{$retrospective->description}}</a>
-                  <a href="{{ url('projects/'.$project->id. '/retrospectives/' .$retrospective->id. '/delete'  ) }}" class="btn btn-danger" value="">Delete</a>
+                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
 
                 </div>
                 @endforeach

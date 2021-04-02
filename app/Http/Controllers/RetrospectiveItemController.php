@@ -2,84 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Retrospective_item;
 use Illuminate\Http\Request;
+use App\Models\retrospective_item;
+use App\Models\Project;
+use App\Models\Sprint;
 
 class RetrospectiveItemController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+    public function index(Project $project, Sprint $sprint)
     {
-        //
+
+        $retrospective_items = $sprint->retrospective_items;
+        return view('projects.retrospective_items',compact('retrospective_items','project','sprint'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+ public function create(Project $project, Sprint $sprint)
+    {   
+
+        
+        retrospective_item::create($this->validateRetro());
+
+   
+    
+
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+  
+
     public function store(Request $request)
     {
-        //
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Retrospective_item  $retrospective_item
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Retrospective_item $retrospective_item)
+    public function show(Project $project, Sprint $sprint)
     {
-        //
+        $retrospective = $sprint->retrospective;
+
+        return view('projects.retrospective', compact('project', 'retrospective'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Retrospective_item  $retrospective_item
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Retrospective_item $retrospective_item)
+    public function edit(Project $project, Retrospective $retrospective)
     {
-        //
+
+        return view('projects.retro.edit', compact('project', 'retrospective'));
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Retrospective_item  $retrospective_item
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Retrospective_item $retrospective_item)
+    public function update(Project $project, Retrospective $retrospective)
     {
-        //
+        
+        $retrospective->update($this->validateRetro());
+
+        return back();
+    }
+    
+    public function delete(Project $project,Sprint $sprint,Retrospective_item $retrospective_item)
+    {
+        $retrospective_item->delete();
+
+        return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Retrospective_item  $retrospective_item
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Retrospective_item $retrospective_item)
+    protected function validateRetro()
     {
-        //
+        return request()->validate([
+            'sprint_id' => 'required',
+            'status' => 'required',
+            'description' => 'required',
+        ]);
     }
 }
