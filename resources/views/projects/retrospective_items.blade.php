@@ -24,7 +24,6 @@
                   <div class="row">
                     <div class="col-md-6">
                      <p>{{$retrospective_item->description}}</p>
-                      <a id='box' data-target="#modal_update_retrospective-{{$retrospective_item->id}}" type="button" class="btn btn-primary btn-sm" data-toggle="modal">update</a>
                       <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                     </div>
                   </div>
@@ -100,7 +99,7 @@
                 @foreach($retrospective_items->where('status','moreOff') as $retrospective_item)
                 <div class="col-md-12">
 
-                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <p> {{$retrospective_item->description}}</p>
                   <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                 </div>
                 @endforeach
@@ -133,7 +132,7 @@
                 @foreach($retrospective_items->where('status','lessOff') as $retrospective_item)
                 <div class="col-md-12">
 
-                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <p> {{$retrospective_item->description}}</p>
                   <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
                 </div>
                 @endforeach
@@ -164,7 +163,7 @@
               <div class="row">
                 @foreach($retrospective_items->where('status','stopDoing') as $retrospective_item)
                 <div class="col-md-12">
-                  <a href="{{ url('projects/'.$project->id. '/retrospective_items/' .$retrospective_item->id. '/edit'  ) }}"> {{$retrospective_item->description}}</a>
+                  <p> {{$retrospective_item->description}}</p>
                   <a href="{{route('delete_retrospective_items', [$project->id, $sprint->id,$retrospective_item->id])}}" class="btn btn-danger" value="">Delete</a>
 
                 </div>
