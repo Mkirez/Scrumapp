@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Backlog_item;
 use App\Models\Project;
+use App\Models\Sprint;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class Backlog_itemFactory extends Factory
@@ -30,7 +31,7 @@ class Backlog_itemFactory extends Factory
 
             // columns needed for sprints
             'added_to_sprint' => 0,
-            'sprint_id' => null,
+            'sprint_id' => Sprint::factory(),
             'user_id' => null,
             'bv' => null,
         ];
