@@ -14,8 +14,6 @@ class BacklogItems extends Migration
 
             $table->string('name');
             $table->text('description');
-            // $table->string('moscow', 45);
-            // $table->date('deadline');
             $table->string('status')->default('todo');
 
 

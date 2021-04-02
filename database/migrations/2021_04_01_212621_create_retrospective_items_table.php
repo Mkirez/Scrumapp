@@ -15,7 +15,7 @@ class CreateRetrospectiveItemsTable extends Migration
     {
         Schema::create('retrospective_items', function (Blueprint $table) {
             $table->id();
-           $table->foreignId('sprint_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sprint_id')->constrained()->onDelete('cascade');
             $table->string('status');
             $table->text('description');
             $table->timestamps();

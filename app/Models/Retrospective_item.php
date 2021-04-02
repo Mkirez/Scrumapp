@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Retrospective_item extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $guarded = [];
     public $timestamps = false;
