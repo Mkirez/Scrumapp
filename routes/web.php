@@ -81,7 +81,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/projects/{project}/sprints/{sprint}/retrospective', [App\Http\Controllers\RetrospectiveItemController::class, 'index'])->name('index_retrospective');
 
-    Route::get('/projects/{project}/retrospectives/{retrospective}/edit', [App\Http\Controllers\RetrospectiveItemController::class, 'edit']);
+
+    Route::get('/projects/{project}/sprints/{sprint}/retrospectives/{retrospective_item}/update', [App\Http\Controllers\RetrospectiveItemController::class, 'update'])->name('update_retrospective_item');
+
+
     Route::get('/projects/{project}/sprints/{sprint}/retrospectives/{retrospective_item}/delete', [App\Http\Controllers\RetrospectiveItemController::class, 'delete'])->name('delete_retrospective_items');
     Route::put('/projects/{project}/retrospectives/{retrospective}', [App\Http\Controllers\RetrospectiveItemController::class, 'update'])->name('update_retrospectives');
 

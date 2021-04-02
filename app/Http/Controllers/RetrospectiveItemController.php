@@ -21,13 +21,15 @@ class RetrospectiveItemController extends Controller
     {
 
         $retrospective_items = $sprint->retrospective_items;
+
+
         return view('projects.retrospective_items',compact('retrospective_items','project','sprint'));
     }
 
  public function create(Project $project, Sprint $sprint)
     {   
 
-        
+
         retrospective_item::create($this->validateRetro());
 
    
@@ -52,23 +54,22 @@ class RetrospectiveItemController extends Controller
         return view('projects.retrospective', compact('project', 'retrospective'));
     }
 
-    public function edit(Project $project, Retrospective $retrospective)
-    {
+ 
 
-        return view('projects.retro.edit', compact('project', 'retrospective'));
-        
-    }
-
-    public function update(Project $project, Retrospective $retrospective)
+    public function update(Project $project,Sprint $sprint, Retrospective_item $retrospective_item)
     {
         
-        $retrospective->update($this->validateRetro());
+        $retrospective_item->update($this->validateRetro());
+
+   
 
         return back();
     }
     
     public function delete(Project $project,Sprint $sprint,Retrospective_item $retrospective_item)
     {
+
+
         $retrospective_item->delete();
 
         return back();
