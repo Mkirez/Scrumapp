@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dailystand extends Model
 {
-    //use HasFactory;
+    use HasFactory;
     protected $table = 'dailystands';
 
     protected $guarded = [];
