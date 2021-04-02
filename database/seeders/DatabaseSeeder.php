@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         $this->call([
         UserSeeder::class,
         SprintSeeder::class,
@@ -34,6 +35,18 @@ class DatabaseSeeder extends Seeder
 
    //      // Sprint::factory()->count(10)->create();
    //      Backlog_item::factory()->count(10)->create();
+=======
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' =>  'admin@live.nl',
+			'password' => Hash::make('admin'),
+			'is_admin' => 1,
+            
+        ]);
+
+        Sprint::factory()->count(10)->create();
+        Backlog_item::factory()->count(30)->create();
+>>>>>>> b5e6e42b68a170f978bc26fd49c230040fef90da
 
 
     }
