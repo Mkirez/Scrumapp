@@ -35,7 +35,7 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col">edit/delete</th>
+      <th scope="col">Edit/Delete</th>
     </tr>
   </thead>
   <tbody>

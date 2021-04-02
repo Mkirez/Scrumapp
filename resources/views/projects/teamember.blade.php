@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="heading has-text-weight-bold is-size-4 date-title">teamembers</h1>
+			<h1 class="heading has-text-weight-bold is-size-4 date-title">Teammembers</h1>
 		</div>
 	</div>
 </div>
@@ -14,8 +14,8 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">name</th>
-							<th scope="col">remove user</th>
+							<th scope="col">Name</th>
+							<th scope="col">Remove user</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,7 +41,6 @@
 					<!-- Modal content-->
 					<!-- // dit is de team users form  -->
 					<div class="modal-content">
-						teamember_create
 						<form class="myForm" action="{{route('teamember_create', $project->id)}}" method="POST">
 							@csrf
 							@method('GET')
