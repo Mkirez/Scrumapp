@@ -10,7 +10,11 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Auth::User()->projects;
+        if(Auth::User()->is_admin == 1){
+            $projects = Project::all();
+        } else {
+            $projects = Auth::User()->projects;
+        }
 
         return view('projects', compact('projects'));
     }

@@ -28,11 +28,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' =>  'admin@live.nl',
 			'password' => Hash::make('admin'),
+			'is_admin' => 1,
             
         ]);
 
-        // Sprint::factory()->count(10)->create();
-        Backlog_item::factory()->count(10)->create();
+        Sprint::factory()->count(10)->create();
+        Backlog_item::factory()->count(30)->create();
 
 
     }
