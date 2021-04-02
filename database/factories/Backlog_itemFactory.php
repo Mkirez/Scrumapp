@@ -31,7 +31,7 @@ class Backlog_itemFactory extends Factory
 
             // columns needed for sprints
             'added_to_sprint' => 0,
-            'sprint_id' => Sprint::factory(),
+            'sprint_id' => rand(1, 10),
             'user_id' => null,
             'bv' => null,
         ];
