@@ -96,10 +96,10 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-2">
-                                        @if(!$user->product_owner())
+                                        @if(!$user->admin())
                                             <select name="rights" class="custom-select" id="inputGroupSelect01" type="hidden">
-                                                <option value="1" {{ ($user->rights == 1) ? 'selected' : '' }}>team member</option>
-                                                <option value="0" {{ ($user->rights == 0) ? 'selected' : '' }}>stakeholder</option>
+                                                <option value="1" {{ ($user->is_admin == '0') ? 'selected' : '' }}>User</option>
+                                               
                                             </select>
                                     
                                         @else
