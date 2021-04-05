@@ -47,7 +47,7 @@ class DailystandController extends Controller
 
     public function update(Project $project, Dailystand $dailystand)
     {
-
+        // dd(Request());
         $dailystand->update($this->validateDaily());
 
         return back();

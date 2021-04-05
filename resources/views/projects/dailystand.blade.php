@@ -60,11 +60,12 @@
           @method('GET')
           <div class="inner-form">
             <div class="col-xs-12 col-sm-12 col-md-12 col-l-12 col-xl-12 inner-text">
-              <h1>Add Dailystand</h1>
+              <h1>Update Dailystand</h1>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
               <input type="text" name="name" value="{{$dailystand->name}}" class="form-control" required>
+              <input type="text" name="created_date" value="{{$dailystand->created_date}}" class="form-control" hidden>
               <input type="integer" name="project_id" value="{{$project->id}}" class="form-control" hidden>
             </div>
 
