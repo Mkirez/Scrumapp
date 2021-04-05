@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\retrospective_item;
+use App\Models\Retrospective_item;
 use App\Models\Project;
 use App\Models\Sprint;
 
