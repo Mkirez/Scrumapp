@@ -20,6 +20,6 @@ class Sprint extends Model
     
     public function retrospective_items()
         {
-            return $this->hasMany(retrospective_item::class);
+            return $this->hasMany(Retrospective_item::class);
         }
 }
